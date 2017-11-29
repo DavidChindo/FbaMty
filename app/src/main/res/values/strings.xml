@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">FbMty</string>
+
+    <!-- Generic Text-->
+    <string name="accept">Aceptar</string>
+    <string name="reject">Rechazar</string>
+    <string name="sent">Enviar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="reason">Comentarios</string>
+    <string name="dialog_error_memory_low">La aplicación se está quedando sin memoria, por favor cierra las demás aplicaciones para un correcto funcionamiento</string>
+    <string name="network_error">No hay conexión a internet</string>
+    <string name="not_results">Sin resultados</string>
+    <string name="empty_list">No hay requisiciones</string>
+    <string name="form_pick_files">Selecciona el archivo</string>
+    <string name="total_budges">$ %s MXN</string>
+    <string name="validate_field">%s es requerido</string>
+    <string name="involved_name"
+        formatted="false">\u2022 %s</string>
+    <string name="close_sesion">Cerrar Sesión</string>
+    <string name="text_version_complete">Version:  %s</string>
+
+    <!-- Login Acitivity -->
+    <string name="act_login_edt_user">Usuario</string>
+    <string name="act_login_edt_password">Contraseña</string>
+    <string name="act_login_btn_login">Ingresar</string>
+    <string name="act_login_btn_recovery_pwd">Recuperar su contraseña</string>
+
+    <!-- Recovery Password Activity-->
+    <string name="act_recovery_title">Recuperar Contraseña</string>
+    <string name="act_recovery_email">Correo Electrónico</string>
+
+</resources>
