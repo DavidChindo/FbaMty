@@ -1,102 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
-    <com.lespinside.simplepanorama.view.SphericalView
-        android:id="@+id/spherical_view"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        app:enableZoom="false"/>
-
-    <LinearLayout
-        android:id="@+id/main_Login_linear"
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="32dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="320dp"
-            android:layout_height="220dp"
-            android:padding="48dp"
-            android:src="@drawable/logo"
-            android:id="@+id/act_login_img_logo"/>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/TextLabel">
-
-            <EditText
-                android:id="@+id/act_login_username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_sixteen"
-                android:layout_marginRight="@dimen/margin_sixteen"
-                android:drawableLeft="@drawable/ic_login_usr"
-                android:drawableStart="@drawable/ic_login_usr"
-                android:drawableTint="@color/colorPrimaryDark"
-                android:drawablePadding="8dp"
-                android:hint="@string/act_login_edt_user"
-                android:inputType="text"
-                android:maxLength="100"
-                android:textColor="@color/colorWhite"
-                />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/TextLabel">
-
-            <EditText
-                android:id="@+id/act_login_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_sixteen"
-                android:layout_marginRight="@dimen/margin_sixteen"
-                android:drawablePadding="@dimen/margin_eigth"
-                android:drawableLeft="@drawable/ic_login_pass"
-                android:drawableStart="@drawable/ic_login_pass"
-                android:drawableTint="@color/colorPrimaryDark"
-                android:hint="@string/act_login_edt_password"
-                android:inputType="textPassword"
-                android:maxLength="100"
-                android:textColor="@color/colorWhite"
-                />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <Button
-            android:id="@+id/act_login_enter"
-            style="@style/BlueButton"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginLeft="@dimen/margin_sixteen"
-            android:layout_marginRight="@dimen/margin_sixteen"
-            android:layout_marginTop="@dimen/margin_sixty"
-            android:elevation="@dimen/raised_button"
-            android:text="@string/act_login_btn_login"
-            android:textAllCaps="false" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/act_login_recovery"
-        android:text="@string/act_login_btn_recovery_pwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:textColor="@color/colorWhite"
-        android:layout_gravity="center|bottom"
-        android:textAllCaps="false"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/content_description"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/img_splash"
         />
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_gravity="bottom|center_horizontal">
+
+        <TextView
+            android:id="@+id/act_splash_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="8dp"
+            android:text="@string/text_version"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
 
 </FrameLayout>

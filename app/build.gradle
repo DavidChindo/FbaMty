@@ -36,8 +36,8 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.airbnb.android:lottie:2.2.0'
     compile 'org.aviran.cookiebar2:cookiebar2:1.0.5'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

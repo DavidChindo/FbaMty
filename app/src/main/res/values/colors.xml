@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#2a2a27</color>
-    <color name="colorPrimaryDark">#2aadd3</color>
+    <color name="colorPrimaryDark">#446772</color>
     <color name="colorAccent">#FFF</color>
 
     <color name="blue_light">#5bacba</color>
@@ -29,4 +29,5 @@
     <color name="gray_tab">#F7F7F7</color>
     <color name="orange">#FFA500</color>
     <color name="gray_font_form">#6d6e71</color>
+    <color name="btn_fill">#10283a</color>
 </resources>

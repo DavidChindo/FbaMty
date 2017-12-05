@@ -14,11 +14,11 @@
     <string name="form_pick_files">Selecciona el archivo</string>
     <string name="total_budges">$ %s MXN</string>
     <string name="validate_field">%s es requerido</string>
-    <string name="involved_name"
-        formatted="false">\u2022 %s</string>
+    <string name="involved_name" formatted="false">\u2022 %s</string>
     <string name="close_sesion">Cerrar Sesión</string>
     <string name="text_version_complete">Version:  %s</string>
-
+    <string name="text_version">V %s</string>
+    <string name="content_description">Fibra Monterrey</string>
     <!-- Login Acitivity -->
     <string name="act_login_edt_user">Usuario</string>
     <string name="act_login_edt_password">Contraseña</string>
@@ -28,5 +28,8 @@
     <!-- Recovery Password Activity-->
     <string name="act_recovery_title">Recuperar Contraseña</string>
     <string name="act_recovery_email">Correo Electrónico</string>
+    <string name="consulta_de_pagos">Consulta de pagos</string>
+    <string name="ticket">Ticket</string>
+    <string name="mantenimiento">Mantenimiento</string>
 
 </resources>

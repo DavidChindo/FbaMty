@@ -1,59 +1,53 @@
 package com.fibramty.fbmty.View.Activity;
 
-import android.animation.Animator;
+import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.ViewAnimationUtils;
-import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.fibramty.fbmty.BuildConfig;
+import com.fibramty.fbmty.Library.Prefs;
+import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.R;
-import com.lespinside.simplepanorama.view.SphericalView;
-import com.panoramagl.utils.PLUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-import static android.view.View.VISIBLE;
 
 public class SplashActivity extends AppCompatActivity {
 
-    @BindView(R.id.spherical_view)SphericalView sphericalView;
+    @BindView(R.id.act_splash_version)
+    TextView txtVersion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
+        setVerion();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Prefs prefs = Prefs.with(SplashActivity.this);
+                if (prefs.getBoolean(Statics.LOGIN_PREFS)) {
+                    start(MainActivity.class);
+                } else {
+                    //start(LoginActivity.class);
+                    start(MainActivity.class);
 
-        sphericalView.setPanorama(PLUtils.getBitmap(this, R.drawable.img1), false);
-        sphericalView.setAccelerometerEnabled(true);
-        sphericalView.setInertiaEnabled(true);
-        sphericalView.setDefaultRotationSensibility(100);
-        /*WebView view = new WebView(this);
-        view.getSettings().setJavaScriptEnabled(true);
-        view.loadUrl("file:///android_asset/index.htm");
-        setContentView(view);*/
+                }
+            }
+        }, 2000);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        sphericalView.onResume();
+    private void setVerion() {
+        txtVersion.setText(getString(R.string.text_version, BuildConfig.VERSION_NAME));
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        sphericalView.onPause();
+    private void start(Class<?> aClass) {
+        Intent intent = new Intent(this, aClass);
+        startActivity(intent);
+        finish();
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        sphericalView.onDestroy();
-    }
-
 }
