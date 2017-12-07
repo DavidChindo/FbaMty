@@ -21,6 +21,15 @@ public class Maintenance {
     @SerializedName("cost")
     private String cost;
 
+    public Maintenance(String title, String description, String schedule, String frequency, Provider provider, String cost) {
+        this.title = title;
+        this.description = description;
+        this.schedule = schedule;
+        this.frequency = frequency;
+        this.provider = provider;
+        this.cost = cost;
+    }
+
     public String getTitle() {
         return title;
     }

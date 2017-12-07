@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 
+import com.fibramty.fbmty.Library.Connection;
 import com.fibramty.fbmty.Library.DesignUtils;
 import com.fibramty.fbmty.Network.Request.LoginRequest;
 import com.fibramty.fbmty.Network.Response.LoginResponse;
@@ -25,7 +26,6 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback{
     @BindView(R.id.act_login_password)EditText passwordEdt;
     LoginPresenter loginPresenter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +44,18 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback{
 
     @OnClick(R.id.act_login_enter)
     void onLoginClick(){
-        String message = DesignUtils.validateCredentials(this,usernameEdt.getText().toString(),passwordEdt.getText().toString());
+        startActivity(new Intent(this,MainActivity.class));
+        /*String message = DesignUtils.validateCredentials(this,usernameEdt.getText().toString(),passwordEdt.getText().toString());
         if (message.isEmpty()){
-            LoginRequest loginRequest = new LoginRequest(usernameEdt.getText().toString().trim(),passwordEdt.getText().toString().trim(),"");
-            loginPresenter.login(loginRequest);
+            if (Connection.isConnected(this)) {
+                LoginRequest loginRequest = new LoginRequest(usernameEdt.getText().toString().trim(), passwordEdt.getText().toString().trim(), "");
+                loginPresenter.login(loginRequest);
+            }else{
+                DesignUtils.errorMessage(this,"",R.string.network_error);
+            }
         }else{
             DesignUtils.errorMessage(this,"",message);
-        }
+        }*/
     }
 
     @Override

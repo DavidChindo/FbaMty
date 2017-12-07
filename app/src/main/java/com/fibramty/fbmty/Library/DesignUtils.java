@@ -2,6 +2,8 @@ package com.fibramty.fbmty.Library;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -55,6 +57,11 @@ public class DesignUtils {
                 .show();
     }
 
+    public static void snackMessage(Activity activity, String message){
+        snack(activity.findViewById(android.R.id.content), message, null, null);
+
+    }
+
     public static void setListViewHeightBasedOnChildrenAdapter(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) {
@@ -104,6 +111,17 @@ public class DesignUtils {
             }
         }else{
             return "No hay conexión a internet";
+        }
+    }
+
+    public static void snack(View view, String message, Integer actionMessage, View.OnClickListener action) {
+        if (view.getResources() != null) {
+            Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG);
+            if (actionMessage != null) {
+                snackbar.setAction(actionMessage, action);
+            }
+            snackbar.getView().setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.colorPrimaryDark));
+            snackbar.show();
         }
     }
 }

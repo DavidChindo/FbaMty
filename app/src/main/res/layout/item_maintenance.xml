@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ln"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="@dimen/margin_four">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="@color/colorPrimaryDark">
+                <TextView
+                    android:id="@+id/item_maintenance_txt_title"
+                    style="@style/font_title_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_four"
+                    android:layout_marginStart="@dimen/margin_four"
+                    android:layout_marginTop="@dimen/margin_eigth"
+                    android:drawablePadding="@dimen/margin_four"
+                    android:drawableTint="@color/gray_icon"
+                    android:gravity="center|start"
+                    android:maxLines="2"
+                    android:text="Manejadoras(UMA)" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/item_maintenance_txt_description"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="4"
+                android:text=" La rebelión va acompañada de la idea de tener uno mismo, de alguna manera y en alguna parte, razón.\n Aprendió la libertad de la miseria. Todos eran pobres en aquella arena deslumbrada de Argel" />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

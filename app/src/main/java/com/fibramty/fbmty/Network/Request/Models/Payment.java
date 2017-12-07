@@ -20,14 +20,17 @@ public class Payment {
     private String dateAccounting;
     @SerializedName("status")
     private String status;
+    @SerializedName("name")
+    private String name;
 
-    public Payment(String documentNumber, String description, String amount, String dateValidity, String dateAccounting, String status) {
+    public Payment(String documentNumber, String description, String amount, String dateValidity, String dateAccounting, String status,String name) {
         this.documentNumber = documentNumber;
         this.description = description;
         this.amount = amount;
         this.dateValidity = dateValidity;
         this.dateAccounting = dateAccounting;
         this.status = status;
+        this.name = name;
     }
 
     public String getDocumentNumber() {
@@ -76,5 +79,13 @@ public class Payment {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

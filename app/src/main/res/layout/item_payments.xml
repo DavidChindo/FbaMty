@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ln"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="@dimen/margin_four">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/item_requisition_urgent"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:src="@drawable/img_menu_back"
+                android:scaleType="centerCrop"
+                />
+            <View
+                android:id="@+id/divider_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="@dimen/margin_eigth"
+                android:layout_marginEnd="@dimen/margin_six"
+                android:layout_marginStart="@dimen/margin_six"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:background="@color/silver"></View>
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="@string/numero_de_documento" />
+
+            <TextView
+                android:id="@+id/item_payments_number"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="220224" />
+
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="@string/fecha_de_contabilizaci_n" />
+
+            <TextView
+                android:id="@+id/item_payments_date"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="02-Febrero-2018" />
+
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="@string/importe_en_moneda_de_documento" />
+
+            <TextView
+                android:id="@+id/item_payments_amount_text"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="Dos millones de pesos" />
+
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="Fecha de vencimiento" />
+
+            <TextView
+                android:id="@+id/item_payments_out_date"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="22-Febrero-2018" />
+
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="@string/descripci_n" />
+
+            <TextView
+                android:id="@+id/item_payments_description"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:text=" La rebelión va acompañada de la idea de tener uno mismo, de alguna manera y en alguna parte, razón" />
+
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="@string/edificio" />
+
+            <TextView
+                android:id="@+id/item_payments_building"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:text="ReedWood" />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
