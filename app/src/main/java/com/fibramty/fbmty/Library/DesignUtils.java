@@ -86,4 +86,24 @@ public class DesignUtils {
             inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
+
+    public static String validateCredentials(Context contex,String username,String password){
+        if (Connection.isConnected(contex)) {
+            if (username.isEmpty() && password.isEmpty()) {
+                return "Favor de ingresar usuario y contraseña";
+            } else {
+                if (!username.isEmpty()) {
+                    if (!password.isEmpty()) {
+                        return "";
+                    } else {
+                        return "La contraseña es requerida";
+                    }
+                } else {
+                    return "El usuario es requerido";
+                }
+            }
+        }else{
+            return "No hay conexión a internet";
+        }
+    }
 }
