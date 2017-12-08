@@ -1,5 +1,6 @@
 package com.fibramty.fbmty.View.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,21 +14,27 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.fibramty.fbmty.Library.DesignUtils;
+import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.Network.Request.Models.Payment;
 import com.fibramty.fbmty.R;
 import com.fibramty.fbmty.View.Adapter.PaymentsAdapter;
+import com.fibramty.fbmty.View.Dialogs.ChatDialog;
 
 import java.util.ArrayList;
 
+import butterknife.BindDimen;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import fr.ganfra.materialspinner.MaterialSpinner;
 import retrofit2.http.PATCH;
 
 public class PaymentsActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)Toolbar toolbar;
     @BindView(R.id.act_payments_lv_payments)ListView paymentslv;
+    @BindView(R.id.act_payments_sp_month)MaterialSpinner spMonth;
+    @BindView(R.id.act_payments_sp_year)MaterialSpinner spYear;
     private ArrayList<Payment> payments;
 
     @Override
@@ -51,12 +58,15 @@ public class PaymentsActivity extends AppCompatActivity {
             payments.add(payment);
         }
         paymentslv.setAdapter(new PaymentsAdapter(this,R.layout.item_payments,payments));
+        spMonth.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, Statics.Months));
+        spYear.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, Statics.Years));
     }
 
     //startRegionClick
     @OnClick(R.id.act_payment_fb_chat)
     void onOpenChat(){
-        DesignUtils.snackMessage(this,"Abrir modal enviar mensaje");
+        //DesignUtils.snackMessage(this,"Abrir modal enviar mensaje");
+        startActivity(new Intent(this,ChatDialog.class));
     }
     //Endregion
 

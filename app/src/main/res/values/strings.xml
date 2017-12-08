@@ -36,5 +36,12 @@
     <string name="importe_en_moneda_de_documento">Importe en moneda de documento</string>
     <string name="descripci_n">Descripción</string>
     <string name="edificio">Edificio</string>
+    <string name="proveedor">Proveedor</string>
+    <string name="name">Nombre</string>
+    <string name="phone">Teléfono</string>
+    <string name="mobile">Celular</string>
+    <string name="email">Correo electrónico</string>
+    <string name="description">Descripción</string>
+    <string name="search_file">Examinar</string>
 
 </resources>

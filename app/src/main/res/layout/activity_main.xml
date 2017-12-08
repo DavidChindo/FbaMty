@@ -75,7 +75,7 @@
             android:layout_height="48dp"
             android:background="@drawable/ic_maintenance"
             android:layout_gravity="center_horizontal"
-            />
+            android:clickable="false"/>
         <TextView
             android:id="@+id/act_menu_txt_maintenance"
             android:layout_width="wrap_content"
@@ -102,6 +102,7 @@
             android:layout_height="48dp"
             android:background="@drawable/ic_ticket"
             android:layout_marginBottom="@dimen/margin_eigth"
+            android:clickable="false"
             android:layout_gravity="center_horizontal"
             />
             <TextView

@@ -20,7 +20,15 @@
         <activity android:name=".View.Activity.MainActivity" />
         <activity android:name=".View.Activity.PaymentsActivity" />
         <activity android:name=".View.Activity.MaintenanceActivity" />
-        <activity android:name=".View.Activity.TicketActivity"></activity>
+        <activity android:name=".View.Activity.TicketActivity" />
+        <activity
+            android:name=".View.Dialogs.MaintenanceDialog"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
+        <activity
+            android:name=".View.Dialogs.TicketDialog"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
+        <activity android:name=".View.Dialogs.ChatDialog"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"></activity>
     </application>
 
 </manifest>

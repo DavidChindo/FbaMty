@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="tickets_images">
+        <item>@drawable/ico_gas</item>
+        <item>@drawable/ico_water</item>
+        <item>@drawable/ico_weather</item>
+        <item>@drawable/ico_elevator</item>
+        <item>@drawable/ico_parking</item>
+        <item>@drawable/ico_cctv</item>
+        <item>@drawable/ico_gas</item>
+        <item>@drawable/ico_water</item>
+        <item>@drawable/ico_weather</item>
+        <item>@drawable/ico_elevator</item>
+        <item>@drawable/ico_parking</item>
+        <item>@drawable/ico_cctv</item>
+    </integer-array>
+
+    <string-array name="tickets_titles">
+        <item>Fugas de Gas</item>
+        <item>Fugas de Agua</item>
+        <item>Clima</item>
+        <item>Elevadores</item>
+        <item>Estacionamiento</item>
+        <item>Seguridad</item>
+        <item>Fumigaciones</item>
+        <item>Filtraciones</item>
+        <item>Presión agua potable</item>
+        <item>Olores</item>
+        <item>Tarjetas de Estacionamiento</item>
+        <item>Vigilancia</item>
+    </string-array>
+
+</resources>

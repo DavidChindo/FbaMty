@@ -33,8 +33,8 @@ public class SplashActivity extends AppCompatActivity {
                 if (prefs.getBoolean(Statics.LOGIN_PREFS)) {
                     start(MainActivity.class);
                 } else {
-                    //start(LoginActivity.class);
-                    start(MainActivity.class);
+                    start(LoginActivity.class);
+                    //start(MainActivity.class);
 
                 }
             }

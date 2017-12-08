@@ -19,50 +19,68 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <ImageView
-                android:id="@+id/item_requisition_urgent"
+            android:orientation="vertical">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:src="@drawable/img_menu_back"
-                android:scaleType="centerCrop"
-                />
+                android:layout_height="40dp"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dialog_maintenance_txt_title"
+                    style="@style/font_title_white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_four"
+                    android:layout_marginStart="@dimen/margin_four"
+                    android:layout_marginTop="@dimen/margin_eigth"
+                    android:layout_weight=".7"
+                    android:drawablePadding="@dimen/margin_four"
+                    android:drawableTint="@color/gray_icon"
+                    android:gravity="center|start"
+                    android:maxLines="2"
+                    android:text="Manejadoras(UMA)" />
+
+                <TextView
+                    android:id="@+id/dialog_maintenance_txt_frequency"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_four"
+                    android:layout_marginTop="@dimen/margin_six"
+                    android:layout_weight=".3"
+                    android:background="@drawable/shape_status_not_sent"
+                    android:padding="@dimen/margin_six"
+                    android:text="Mensual"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/font_dialog_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="@string/proveedor" />
+
             <View
                 android:id="@+id/divider_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginBottom="@dimen/margin_eigth"
+                android:layout_marginBottom="@dimen/margin_six"
                 android:layout_marginEnd="@dimen/margin_six"
                 android:layout_marginStart="@dimen/margin_six"
-                android:layout_marginTop="@dimen/margin_eigth"
-                android:background="@color/silver"
-                ></View>
-            <TextView
-                style="@style/font_body_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_four"
-                android:layout_marginStart="@dimen/margin_four"
                 android:layout_marginTop="@dimen/margin_four"
-                android:drawablePadding="@dimen/margin_four"
-                android:drawableTint="@color/gray_icon"
-                android:gravity="center|start"
-                android:maxLines="2"
-                android:text="@string/numero_de_documento" />
-
-            <TextView
-                android:id="@+id/item_payments_number"
-                style="@style/font_body_desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_four"
-                android:layout_marginStart="@dimen/margin_four"
-                android:drawablePadding="@dimen/margin_four"
-                android:drawableTint="@color/gray_icon"
-                android:gravity="center|start"
-                android:maxLines="2"
-                android:text="220224" />
+                android:background="@color/silver"></View>
 
             <TextView
                 style="@style/font_body_title"
@@ -74,11 +92,10 @@
                 android:drawablePadding="@dimen/margin_four"
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
-                android:maxLines="2"
-                android:text="@string/fecha_de_contabilizaci_n" />
+                android:text="@string/name" />
 
             <TextView
-                android:id="@+id/item_payments_date"
+                android:id="@+id/dialog_maintenance_txt_name"
                 style="@style/font_body_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,8 +104,8 @@
                 android:drawablePadding="@dimen/margin_four"
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
-                android:maxLines="2"
-                android:text="02-Febrero-2018" />
+                android:maxLines="4"
+                android:text="UMA Solutions S.A de C.V." />
 
             <TextView
                 style="@style/font_body_title"
@@ -100,11 +117,10 @@
                 android:drawablePadding="@dimen/margin_four"
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
-                android:maxLines="2"
-                android:text="@string/importe_en_moneda_de_documento" />
+                android:text="@string/phone" />
 
             <TextView
-                android:id="@+id/item_payments_amount_text"
+                android:id="@+id/dialog_maintenance_txt_phone"
                 style="@style/font_body_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,8 +129,8 @@
                 android:drawablePadding="@dimen/margin_four"
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
-                android:maxLines="2"
-                android:text="Dos millones de pesos" />
+                android:maxLines="4"
+                android:text="(88) 22-02-24-20" />
 
             <TextView
                 style="@style/font_body_title"
@@ -126,11 +142,10 @@
                 android:drawablePadding="@dimen/margin_four"
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
-                android:maxLines="2"
-                android:text="Fecha de vencimiento" />
+                android:text="@string/mobile" />
 
             <TextView
-                android:id="@+id/item_payments_out_date"
+                android:id="@+id/dialog_maintenance_txt_mobile"
                 style="@style/font_body_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -139,8 +154,8 @@
                 android:drawablePadding="@dimen/margin_four"
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
-                android:maxLines="2"
-                android:text="22-Febrero-2018" />
+                android:maxLines="4"
+                android:text="(88) 22-02-24-20" />
 
             <TextView
                 style="@style/font_body_title"
@@ -152,11 +167,10 @@
                 android:drawablePadding="@dimen/margin_four"
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
-                android:maxLines="2"
-                android:text="@string/descripci_n" />
+                android:text="@string/email" />
 
             <TextView
-                android:id="@+id/item_payments_description"
+                android:id="@+id/dialog_maintenance_txt_email"
                 style="@style/font_body_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -165,33 +179,46 @@
                 android:drawablePadding="@dimen/margin_four"
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
-                android:text=" La rebelión va acompañada de la idea de tener uno mismo, de alguna manera y en alguna parte, razón" />
+                android:maxLines="4"
+                android:text="contacto@umasolutions.com.mx" />
 
-            <TextView
-                style="@style/font_body_title"
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_four"
-                android:layout_marginStart="@dimen/margin_four"
+                android:layout_height="1dp"
+                android:layout_marginBottom="@dimen/margin_four"
+                android:layout_marginEnd="@dimen/margin_six"
+                android:layout_marginStart="@dimen/margin_six"
                 android:layout_marginTop="@dimen/margin_four"
+                android:background="@color/silver"></View>
+
+            <TextView
+                style="@style/font_dialog_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_six"
                 android:drawablePadding="@dimen/margin_four"
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
                 android:maxLines="2"
-                android:text="@string/edificio" />
+                android:text="@string/description" />
 
             <TextView
-                android:id="@+id/item_payments_building"
+                android:id="@+id/dialog_maintenance_description"
                 style="@style/font_body_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_four"
                 android:layout_marginStart="@dimen/margin_four"
-                android:layout_marginBottom="@dimen/margin_six"
+                android:layout_marginBottom="@dimen/margin_four"
                 android:drawablePadding="@dimen/margin_four"
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
-                android:text="ReedWood" />
+                android:maxLines="4"
+                android:text="El mantenimiento de estos equipos, se debe realizar de manera mensual, sin excepción. Esto debido a que su tiempo de operación son de alrededor de 11 hrs diarias.
+Se recomienda tener el cuarto de máquinas despejado de todo aquello que no tenga con el equipo (archiveros, cajas, basura, etc).
+Se debe de detallar el mantenimiento que se le realiza al equipo, incluyendo lecturas y temperaturas." />
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

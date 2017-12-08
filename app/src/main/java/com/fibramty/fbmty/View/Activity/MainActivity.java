@@ -35,6 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.ln_cont_ticket)
     void onOpenTicket(){
-
+        startActivity(new Intent(this,TicketActivity.class));
     }
 }

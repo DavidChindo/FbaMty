@@ -30,7 +30,7 @@
             android:id="@+id/act_payments_sp_month"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight=".3"
+            android:layout_weight=".4"
             android:layout_marginEnd="@dimen/margin_twelve"
             android:layout_marginStart="@dimen/margin_twelve"
             app:ms_arrowColor="@color/silver"
@@ -66,9 +66,9 @@
             android:text="Buscar"
             android:textColor="@color/colorWhite"
             android:layout_marginTop="@dimen/margin_eigth"
-            android:layout_marginLeft="@dimen/margin_four"
-            android:layout_marginRight="@dimen/margin_four"
-            android:background="@color/btn_fill"
+            android:layout_marginEnd="@dimen/margin_six"
+            android:layout_marginStart="@dimen/margin_four"
+            style="@style/BlueButton"
             android:textAllCaps="false"/>
 
     </LinearLayout>

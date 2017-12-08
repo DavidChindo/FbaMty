@@ -1,15 +1,18 @@
 package com.fibramty.fbmty.View.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 
 import com.fibramty.fbmty.Library.DesignUtils;
+import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.Network.Request.Models.Maintenance;
 import com.fibramty.fbmty.Network.Request.Models.Provider;
 import com.fibramty.fbmty.R;
 import com.fibramty.fbmty.View.Adapter.MaintenanceAdapter;
+import com.fibramty.fbmty.View.Dialogs.MaintenanceDialog;
 
 import java.util.ArrayList;
 
@@ -48,6 +51,8 @@ public class MaintenanceActivity extends AppCompatActivity {
 
     @OnItemClick(R.id.act_maintenance_lv_services)
     void onMaintenanceSelected(int position){
-        DesignUtils.snackMessage(this,"open service "+position +" title "+maintenances.get(position).getTitle());
+        Statics.maintenance = maintenances.get(position);
+        startActivity(new Intent(this, MaintenanceDialog.class));
+        //DesignUtils.snackMessage(this,"open service "+position +" title "+maintenances.get(position).getTitle());
     }
 }
