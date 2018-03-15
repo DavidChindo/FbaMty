@@ -8,17 +8,20 @@ import com.google.gson.annotations.SerializedName;
 
 public class LoginRequest {
 
-    @SerializedName("usuario")
+    @SerializedName("username")
     private String username;
-    @SerializedName("contrasena")
+    @SerializedName("password")
     private String password;
     @SerializedName("pushId")
     private String pushId;
+    @SerializedName("grant_type")
+    private String grantType;
 
-    public LoginRequest(String username, String password, String pushId) {
+    public LoginRequest(String username, String password, String pushId, String grantType) {
         this.username = username;
         this.password = password;
         this.pushId = pushId;
+        this.grantType = grantType;
     }
 
     public String getUsername() {
@@ -43,5 +46,13 @@ public class LoginRequest {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+
+    public String getGrantType() {
+        return grantType;
+    }
+
+    public void setGrantType(String grantType) {
+        this.grantType = grantType;
     }
 }

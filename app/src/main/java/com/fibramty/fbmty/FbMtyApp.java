@@ -5,6 +5,7 @@ import android.net.wifi.aware.PublishConfig;
 import android.os.Environment;
 
 import com.fibramty.fbmty.Library.Statics;
+import com.fibramty.fbmty.Library.Urls;
 import com.fibramty.fbmty.Network.FbMtyWebService;
 import com.fibramty.fbmty.Network.RetrofitEnvioroment;
 
@@ -24,7 +25,7 @@ public class FbMtyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        fbMtyWebService = RetrofitEnvioroment.createEnvironment("");
+        fbMtyWebService = RetrofitEnvioroment.createEnvironment(Urls.initStatics(this, Urls.STAGE_QA));
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder().name("fbmty.realm").build();
         Realm.setDefaultConfiguration(config);

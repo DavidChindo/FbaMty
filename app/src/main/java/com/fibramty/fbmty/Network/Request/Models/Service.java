@@ -10,13 +10,13 @@ public class Service {
 
     @SerializedName("Id")
     private long id;
-    @SerializedName("title")
+    @SerializedName("Title")
     private String title;
-    @SerializedName("description")
+    @SerializedName("Description")
     private String description;
-    @SerializedName("icon")
+    @SerializedName("Icon")
     private String icon;
-    @SerializedName("order")
+    @SerializedName("Order")
     private String order;
     @SerializedName("type")
     private String type;

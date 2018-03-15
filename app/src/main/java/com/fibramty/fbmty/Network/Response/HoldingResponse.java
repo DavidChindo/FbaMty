@@ -18,50 +18,58 @@ import java.util.ArrayList;
 
 public class HoldingResponse {
 
+    @SerializedName("Administrador")
+    private String administrator;
     @SerializedName("Id")
     private long id;
-    @SerializedName("Name")
+    @SerializedName("IdParentHolding")
+    private long idParentHolding;
+    @SerializedName("IdSAP")
+    private String idSAP;
+    @SerializedName("NombreEdificio")
     private String name;
     @SerializedName("Cooridinates")
     private Coordinate coordinates;
-    @SerializedName("AddressObj")
+    @SerializedName("Address")
     private Address address;
-    @SerializedName("yearConstruction")
+    @SerializedName("AniosContruccion")
     private String yearConstruction;
     @SerializedName("areaTotal")
     private String areaTotal;
     @SerializedName("OfficesQty")
     private int officeQty;
-    @SerializedName("Architect")
+    @SerializedName("Arquitecto")
     private String architect;
-    @SerializedName("Description")
+    @SerializedName("Descripcion")
     private String description;
-    @SerializedName("holdingType")
+    @SerializedName("TipoPropiedad")
     private String holdingType;
-    @SerializedName("totalPrice")
+    @SerializedName("PrecioTotal")
     private String totalPrice;
     @SerializedName("officeObj")
     private Office office;
-    @SerializedName("pictures")
-    private ArrayList<Picture> pictures;
-    @SerializedName("services")
+    @SerializedName("Picture")
+    private PicturesResponse pictures;
+    @SerializedName("ServiceTickets")
     private ArrayList<Service> services;
-    @SerializedName("activities")
+    @SerializedName("ActivityHolding")
     private ArrayList<ActivityHolding> activities;
     @SerializedName("avaiableOffices")
     private int availableOffice;
     @SerializedName("plans")
     private ArrayList<Plan> plans;
-    @SerializedName("parkingBoxes")
+    @SerializedName("Estacionamientos")
     private int parkingBoxes;
     @SerializedName("Contact")
     private Contact contact;
+    @SerializedName("HoldingExtraProperties")
+    private String extrasProperties;
 
-    public HoldingResponse(long id, String name, Coordinate coordinates, Address address, String yearConstruction,
-                           String areaTotal, int officeQty, String architect, String description, String holdingType,
-                           String totalPrice, Office office, ArrayList<Picture> pictures, ArrayList<Service> services,
-                           ArrayList<ActivityHolding> activities, int availableOffice, ArrayList<Plan> plans, int parkingBoxes, Contact contact) {
+    public HoldingResponse(String administrator, long id, long idParentHolding, String idSAP, String name, Coordinate coordinates, Address address, String yearConstruction, String areaTotal, int officeQty, String architect, String description, String holdingType, String totalPrice, Office office, PicturesResponse pictures, ArrayList<Service> services, ArrayList<ActivityHolding> activities, int availableOffice, ArrayList<Plan> plans, int parkingBoxes, Contact contact, String extrasProperties) {
+        this.administrator = administrator;
         this.id = id;
+        this.idParentHolding = idParentHolding;
+        this.idSAP = idSAP;
         this.name = name;
         this.coordinates = coordinates;
         this.address = address;
@@ -80,6 +88,15 @@ public class HoldingResponse {
         this.plans = plans;
         this.parkingBoxes = parkingBoxes;
         this.contact = contact;
+        this.extrasProperties = extrasProperties;
+    }
+
+    public String getAdministrator() {
+        return administrator;
+    }
+
+    public void setAdministrator(String administrator) {
+        this.administrator = administrator;
     }
 
     public long getId() {
@@ -88,6 +105,22 @@ public class HoldingResponse {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getIdParentHolding() {
+        return idParentHolding;
+    }
+
+    public void setIdParentHolding(long idParentHolding) {
+        this.idParentHolding = idParentHolding;
+    }
+
+    public String getIdSAP() {
+        return idSAP;
+    }
+
+    public void setIdSAP(String idSAP) {
+        this.idSAP = idSAP;
     }
 
     public String getName() {
@@ -178,11 +211,11 @@ public class HoldingResponse {
         this.office = office;
     }
 
-    public ArrayList<Picture> getPictures() {
+    public PicturesResponse getPictures() {
         return pictures;
     }
 
-    public void setPictures(ArrayList<Picture> pictures) {
+    public void setPictures(PicturesResponse pictures) {
         this.pictures = pictures;
     }
 
@@ -232,5 +265,13 @@ public class HoldingResponse {
 
     public void setContact(Contact contact) {
         this.contact = contact;
+    }
+
+    public String getExtrasProperties() {
+        return extrasProperties;
+    }
+
+    public void setExtrasProperties(String extrasProperties) {
+        this.extrasProperties = extrasProperties;
     }
 }

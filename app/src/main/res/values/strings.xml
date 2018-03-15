@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">FbMty</string>
 
+    <!-- URLS -->
+    <string name="url_qa">http://fibramty.hics.mx/</string>
+    <string name="url_prod">http://fibramty.hics.mx/</string>
+
+
     <!-- Generic Text-->
     <string name="accept">Aceptar</string>
     <string name="reject">Rechazar</string>
@@ -24,6 +29,7 @@
     <string name="act_login_edt_password">Contraseña</string>
     <string name="act_login_btn_login">Ingresar</string>
     <string name="act_login_btn_recovery_pwd">Recuperar su contraseña</string>
+    <string name="act_login_btn_register">¿No tiene cuenta? Registrese aquí</string>
 
     <!-- Recovery Password Activity-->
     <string name="act_recovery_title">Recuperar Contraseña</string>
@@ -43,5 +49,26 @@
     <string name="email">Correo electrónico</string>
     <string name="description">Descripción</string>
     <string name="search_file">Examinar</string>
+
+
+    <!--Titles bottom nav item -->
+    <string name="item_1">Servicios</string>
+    <string name="item_2">Mi Espacio</string>
+    <string name="item_3">Mi Perfil</string>
+    <string name="item_4">Salir</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    
+    <!--Characteristics Fragment -->
+    <string name="date_built">Fecha de Construcción</string>
+    <string name="architect">Arquitecto</string>
+    <string name="floor_builts">Pisos Construidos</string>
+    <string name="parkings">Cajones de Estacionamiento</string>
+    <string name="activities_building">Actividades del Edificio</string>
+    
+    <!--Downloads Fragment -->
+    <string name="architect_plans">Planos Arquitectónicos</string>
+    <string name="contingency_plans">Planes de Contingencia</string>
 
 </resources>

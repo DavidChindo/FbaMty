@@ -18,13 +18,16 @@ public class ActivityHolding {
     private String title;
     @SerializedName("description")
     private String description;
+    @SerializedName("priority")
+    private int priority;
 
-    public ActivityHolding(long id, String dateStart, String dateEnd, String title, String description) {
+    public ActivityHolding(long id, String dateStart, String dateEnd, String title, String description,int priority) {
         this.id = id;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
         this.title = title;
         this.description = description;
+        this.priority = priority;
     }
 
     public long getId() {
@@ -65,5 +68,13 @@ public class ActivityHolding {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 }

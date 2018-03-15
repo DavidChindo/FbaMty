@@ -28,7 +28,7 @@ public class LoginPresenter {
 
     public void login(LoginRequest loginRequest){
         try {
-            Call<LoginResponse> call = FbMtyApp.fbMtyWebService.login(loginRequest);
+            Call<LoginResponse> call = FbMtyApp.getFbMtyWebService().login(loginRequest.getGrantType(),loginRequest.getUsername(),loginRequest.getPassword(),loginRequest.getPushId());
             call.enqueue(new Callback<LoginResponse>() {
                 @Override
                 public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {

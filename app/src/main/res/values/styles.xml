@@ -30,7 +30,7 @@
     </style>
 
     <style name="BlueButton" >
-        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -51,7 +51,6 @@
 
     <style name="font_title">
         <item name="android:textSize">@dimen/font_size_14</item>
-        <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/font_title_gray</item>
         <item name="android:padding">@dimen/margin_four</item>
     </style>

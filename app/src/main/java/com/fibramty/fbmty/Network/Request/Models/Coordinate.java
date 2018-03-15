@@ -8,14 +8,29 @@ import com.google.gson.annotations.SerializedName;
 
 public class Coordinate {
 
+    @SerializedName("IdHolding")
+    private long idHolding;
+    @SerializedName("Holding")
+    private Object holding;
     @SerializedName("latitude")
     private double latitude;
     @SerializedName("longitude")
     private double longitude;
 
-    public Coordinate(double latitude, double longitude) {
-        this.latitude = latitude;
-        this.longitude = longitude;
+    public long getIdHolding() {
+        return idHolding;
+    }
+
+    public void setIdHolding(long idHolding) {
+        this.idHolding = idHolding;
+    }
+
+    public Object getHolding() {
+        return holding;
+    }
+
+    public void setHolding(Object holding) {
+        this.holding = holding;
     }
 
     public double getLatitude() {

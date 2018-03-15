@@ -6,11 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center">
 
-    <com.lespinside.simplepanorama.view.SphericalView
-        android:id="@+id/spherical_view"
+    <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        app:enableZoom="false"/>
+        android:scaleType="fitXY"
+        android:src="@drawable/background" />
 
     <Button
         android:id="@+id/act_login_recovery"
@@ -33,9 +33,10 @@
 
         <ImageView
             android:id="@+id/act_login_img_logo"
-            android:layout_width="320dp"
-            android:layout_height="220dp"
-            android:padding="48dp"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:padding="36dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/logo" />
 
         <android.support.design.widget.TextInputLayout
@@ -49,10 +50,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_sixteen"
                 android:layout_marginRight="@dimen/margin_sixteen"
-                android:drawableLeft="@drawable/ic_login_usr"
+                android:drawableRight="@drawable/ic_login_usr"
                 android:drawablePadding="8dp"
-                android:drawableStart="@drawable/ic_login_usr"
-                android:drawableTint="@color/colorPrimaryDark"
+                android:drawableEnd="@drawable/ic_login_usr"
+                android:drawableTint="@color/colorWhite"
                 android:hint="@string/act_login_edt_user"
                 android:inputType="text"
                 android:maxLength="100"
@@ -71,10 +72,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_sixteen"
                 android:layout_marginRight="@dimen/margin_sixteen"
-                android:drawableLeft="@drawable/ic_login_pass"
+                android:drawableRight="@drawable/ic_login_pass"
                 android:drawablePadding="@dimen/margin_eigth"
-                android:drawableStart="@drawable/ic_login_pass"
-                android:drawableTint="@color/colorPrimaryDark"
+                android:drawableEnd="@drawable/ic_login_pass"
+                android:drawableTint="@color/colorWhite"
                 android:hint="@string/act_login_edt_password"
                 android:inputType="textPassword"
                 android:maxLength="100"
@@ -85,14 +86,25 @@
         <Button
             android:id="@+id/act_login_enter"
             style="@style/BlueButton"
+            android:background="@color/colorPrimaryDark"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginLeft="@dimen/margin_sixteen"
             android:layout_marginRight="@dimen/margin_sixteen"
-            android:layout_marginTop="@dimen/margin_sixty"
+            android:layout_marginTop="@dimen/margin_thirtytwo"
             android:elevation="@dimen/raised_button"
             android:text="@string/act_login_btn_login"
-            android:textAllCaps="false" />
+             />
+
+        <Button
+            android:id="@+id/act_login_register"
+            android:text="@string/act_login_btn_register"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_thirtytwo"
+            android:background="@android:color/transparent"
+            android:textColor="@color/colorWhite"
+            android:textAllCaps="false"
+            />
 
     </LinearLayout>
 

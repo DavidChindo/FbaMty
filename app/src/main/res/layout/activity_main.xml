@@ -14,25 +14,9 @@
         app:srcCompat="@drawable/img_menu_back"
         />
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/blue_light"
-        android:elevation="@dimen/margin_four"
-        android:alpha="0.9"
-        app:subtitleTextAppearance="@style/ToolbarAppearanceSubtitle"
-        app:titleTextAppearance="@style/ToolbarAppearanceTitle"
-        android:gravity="end"
-        android:foregroundTint="@color/colorWhite"
-        android:titleTextColor="@color/colorWhite"
-        app:titleTextColor="@color/colorWhite"
-        >
-    </android.support.v7.widget.Toolbar>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
         android:background="@color/black"
         android:alpha="0.5">
         <LinearLayout

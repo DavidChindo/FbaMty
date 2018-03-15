@@ -8,63 +8,97 @@ import com.google.gson.annotations.SerializedName;
 
 public class Picture {
 
-    @SerializedName("Id")
-    private long id;
-    @SerializedName("size")
-    private int size;
-    @SerializedName("url")
-    private String url;
-    @SerializedName("order")
-    private int order;
-    @SerializedName("description")
-    private String description;
 
-    public Picture(long id, int size, String url, int order, String description) {
-        this.id = id;
-        this.size = size;
-        this.url = url;
-        this.order = order;
-        this.description = description;
+    @SerializedName("MediaId")
+    private long mediaId;
+    @SerializedName("HoldingId")
+    private long holdingId;
+    @SerializedName("Nombre")
+    private String name;
+    @SerializedName("Extension")
+    private String extension;
+    @SerializedName("TipoMedio")
+    private String tipoMedio;
+    @SerializedName("Holding")
+    private Object holding;
+    @SerializedName("Path")
+    private String path;
+    @SerializedName("MediaAparicion")
+    private int medioAparicion;
+
+    public Picture(long mediaId, long holdingId, String name, String extension, String tipoMedio, Object holding, String path, int medioAparicion) {
+        this.mediaId = mediaId;
+        this.holdingId = holdingId;
+        this.name = name;
+        this.extension = extension;
+        this.tipoMedio = tipoMedio;
+        this.holding = holding;
+        this.path = path;
+        this.medioAparicion = medioAparicion;
     }
 
-    public long getId() {
-        return id;
+    public long getMediaId() {
+        return mediaId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setMediaId(long mediaId) {
+        this.mediaId = mediaId;
     }
 
-    public int getSize() {
-        return size;
+    public long getHoldingId() {
+        return holdingId;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setHoldingId(long holdingId) {
+        this.holdingId = holdingId;
     }
 
-    public String getUrl() {
-        return url;
+    public String getName() {
+        return name;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getOrder() {
-        return order;
+    public String getExtension() {
+        return extension;
     }
 
-    public void setOrder(int order) {
-        this.order = order;
+    public void setExtension(String extension) {
+        this.extension = extension;
     }
 
-    public String getDescription() {
-        return description;
+    public String getTipoMedio() {
+        return tipoMedio;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTipoMedio(String tipoMedio) {
+        this.tipoMedio = tipoMedio;
+    }
+
+    public Object getHolding() {
+        return holding;
+    }
+
+    public void setHolding(Object holding) {
+        this.holding = holding;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public int getMedioAparicion() {
+        return medioAparicion;
+    }
+
+    public void setMedioAparicion(int medioAparicion) {
+        this.medioAparicion = medioAparicion;
     }
 }
 

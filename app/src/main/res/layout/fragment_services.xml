@@ -1,0 +1,16 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.fibramty.fbmty.View.Fragment.menuTab.ServicesFragment"
+    android:background="@color/gray_background">
+
+    <ListView
+        android:id="@+id/fr_services_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_eigth"
+        android:dividerHeight="@dimen/margin_twentyfour"
+        android:divider="@color/gray_background"></ListView>
+
+</FrameLayout>

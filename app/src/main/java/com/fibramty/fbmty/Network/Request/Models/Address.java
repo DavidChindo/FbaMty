@@ -8,7 +8,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class Address {
 
-    @SerializedName("street")
+    @SerializedName("IdHolding")
+    private long idHolding;
+    @SerializedName("Street")
     private String street;
     @SerializedName("NumberInt")
     private String numberInt;
@@ -16,14 +18,20 @@ public class Address {
     private String numberExt;
     @SerializedName("Suburb")
     private String suburb;
-    @SerializedName("town")
+    @SerializedName("Town")
     private String town;
-    @SerializedName("state")
+    @SerializedName("State")
     private String state;
-    @SerializedName("zip")
+    @SerializedName("ZIP")
     private String zip;
+    @SerializedName("IdState")
+    private long idState;
+    @SerializedName("Holding")
+    private Object holding;
 
-    public Address(String street, String numberInt, String numberExt, String suburb, String town, String state, String zip) {
+
+    public Address(long idHolding, String street, String numberInt, String numberExt, String suburb, String town, String state, String zip, long idState, Object holding) {
+        this.idHolding = idHolding;
         this.street = street;
         this.numberInt = numberInt;
         this.numberExt = numberExt;
@@ -31,6 +39,16 @@ public class Address {
         this.town = town;
         this.state = state;
         this.zip = zip;
+        this.idState = idState;
+        this.holding = holding;
+    }
+
+    public long getIdHolding() {
+        return idHolding;
+    }
+
+    public void setIdHolding(long idHolding) {
+        this.idHolding = idHolding;
     }
 
     public String getStreet() {
@@ -87,5 +105,21 @@ public class Address {
 
     public void setZip(String zip) {
         this.zip = zip;
+    }
+
+    public long getIdState() {
+        return idState;
+    }
+
+    public void setIdState(long idState) {
+        this.idState = idState;
+    }
+
+    public Object getHolding() {
+        return holding;
+    }
+
+    public void setHolding(Object holding) {
+        this.holding = holding;
     }
 }

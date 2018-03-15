@@ -30,6 +30,7 @@
     <dimen name="margin_fortyeight">48dp</dimen>
     <dimen name="margin_fiftytwo">52dp</dimen>
     <dimen name="margin_fiftyfour">56dp</dimen>
+    <dimen name="margin_fiftyeight">58dp</dimen>
     <dimen name="margin_sixty">60dp</dimen>
     <dimen name="margin_sixtyfour">604dp</dimen>
 
