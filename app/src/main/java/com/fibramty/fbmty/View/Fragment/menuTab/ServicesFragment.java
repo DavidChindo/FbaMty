@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.RealmList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,8 +48,8 @@ public class ServicesFragment extends Fragment {
         return view;
     }
 
-    private ArrayList<Service> getServicesDummy(){
-            ArrayList<Service> services = new ArrayList<Service>();
+    private RealmList<Service> getServicesDummy(){
+            RealmList<Service> services = new RealmList<Service>();
             services.add(new Service(1, "Registro de visitas", "Varios", "", "0", ""));
             services.add(new Service(2, "Cajones de estacionamiento", "Varios", "", "0", ""));
             services.add(new Service(3, "Tags de estacionamiento", "Varios", "", "0", ""));

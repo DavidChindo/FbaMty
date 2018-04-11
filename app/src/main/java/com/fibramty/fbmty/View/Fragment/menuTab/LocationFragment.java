@@ -45,14 +45,14 @@ public class LocationFragment extends Fragment implements GoogleMap.OnMarkerClic
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (MainActivity.holdingResponse != null){
-            titleTxt.setText(Validators.validateString(MainActivity.holdingResponse.get(0).getName()));
-            if (MainActivity.holdingResponse.get(0).getAddress() != null) {
-                addressTxt.setText(Validators.validateString(MainActivity.holdingResponse.get(0).getAddress().getStreet())
-                +" "+Validators.validateString(MainActivity.holdingResponse.get(0).getAddress().getNumberExt())
-                +" "+Validators.validateString(MainActivity.holdingResponse.get(0).getAddress().getSuburb())
-                +" "+Validators.validateString(MainActivity.holdingResponse.get(0).getAddress().getTown())
-                +" "+Validators.validateString(MainActivity.holdingResponse.get(0).getAddress().getZip())
-                +" "+Validators.validateString(MainActivity.holdingResponse.get(0).getAddress().getState()));
+            titleTxt.setText(Validators.validateString(MainActivity.holdingResponse.getName()));
+            if (MainActivity.holdingResponse.getAddress() != null) {
+                addressTxt.setText(Validators.validateString(MainActivity.holdingResponse.getAddress().getStreet())
+                +" "+Validators.validateString(MainActivity.holdingResponse.getAddress().getNumberExt())
+                +" "+Validators.validateString(MainActivity.holdingResponse.getAddress().getSuburb())
+                +" "+Validators.validateString(MainActivity.holdingResponse.getAddress().getTown())
+                +" "+Validators.validateString(MainActivity.holdingResponse.getAddress().getZip())
+                +" "+Validators.validateString(MainActivity.holdingResponse.getAddress().getState()));
             }
         }
     }
@@ -82,11 +82,10 @@ public class LocationFragment extends Fragment implements GoogleMap.OnMarkerClic
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        if (MainActivity.holdingResponse != null && MainActivity.holdingResponse.get(0) != null
-                && MainActivity.holdingResponse.get(0).getCoordinates() != null &&
-                (MainActivity.holdingResponse.get(0).getCoordinates().getLatitude() != 0 && MainActivity.holdingResponse.get(0).getCoordinates().getLongitude() != 0)){
-                //String[] latLngString = new String[]{String.valueOf(MainActivity.holdingResponse.get(0).getCoordinates().getLatitude()),String.valueOf(MainActivity.holdingResponse.get(0).getCoordinates().getLongitude())};
-                String[] latLngString = new String[]{"19.3783642","-99.1732938"};
+        if (MainActivity.holdingResponse != null && MainActivity.holdingResponse != null
+                && MainActivity.holdingResponse.getCoordinates() != null &&
+                (MainActivity.holdingResponse.getCoordinates().getLatitude() != 0 && MainActivity.holdingResponse.getCoordinates().getLongitude() != 0)){
+                String[] latLngString = new String[]{String.valueOf(MainActivity.holdingResponse.getCoordinates().getLatitude()),String.valueOf(MainActivity.holdingResponse.getCoordinates().getLongitude())};
                 LatLng latLng = new LatLng(new Double(latLngString[0]),new Double(latLngString[1]));
             mMap.animateCamera(CameraUpdateFactory
                     .newCameraPosition(CameraPosition
@@ -97,7 +96,7 @@ public class LocationFragment extends Fragment implements GoogleMap.OnMarkerClic
             mMap.addMarker(new MarkerOptions()
                         .position(latLng)
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.ico_map_pin))
-                        .title((MainActivity.holdingResponse.get(0).getName())));
+                        .title((MainActivity.holdingResponse.getName())));
 
         }
 
@@ -108,7 +107,6 @@ public class LocationFragment extends Fragment implements GoogleMap.OnMarkerClic
     /** Called when the user clicks a marker. */
     @Override
     public boolean onMarkerClick(final Marker marker) {
-
 
         // Return false to indicate that we have not consumed the event and that we wish
         // for the default behavior to occur (which is for the camera to move such that the

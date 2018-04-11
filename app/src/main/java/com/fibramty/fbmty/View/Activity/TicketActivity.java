@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnItemClick;
+import io.realm.RealmList;
 
 public class TicketActivity extends AppCompatActivity {
 
@@ -38,9 +39,9 @@ public class TicketActivity extends AppCompatActivity {
         ticketslv.setAdapter(new ServicesAdapter(this,R.layout.item_activity,getServicesDummy()));
     }
 
-    private ArrayList<Service> getServicesDummy(){
-            return MainActivity.holdingResponse.get(0) != null && (MainActivity.holdingResponse.get(0).getServices() != null && MainActivity.holdingResponse.get(0).getServices().size() > 0)
-                    ?  MainActivity.holdingResponse.get(0).getServices() : null;
+    private RealmList<Service> getServicesDummy(){
+            return MainActivity.holdingResponse != null && (MainActivity.holdingResponse.getServices() != null && MainActivity.holdingResponse.getServices().size() > 0)
+                    ?  MainActivity.holdingResponse.getServices() : null;
     }
 
     @OnItemClick(R.id.fr_tickets_listview)

@@ -20,6 +20,7 @@ public class Statics {
     public static final String WM_PREFS = "prefsFbMty";
     public static final String LOGIN_PREFS = "prefsLogin";
     public static final String IS_FbMty_PREFS = "prefsFbMty";
+    public static final String SELECTED_POSITION = "prefsPositionSelected";
 
     public static String PASS = "";
 

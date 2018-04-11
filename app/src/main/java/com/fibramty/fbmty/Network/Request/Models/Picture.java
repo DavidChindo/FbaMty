@@ -2,11 +2,13 @@ package com.fibramty.fbmty.Network.Request.Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Created by david.barrera on 11/28/17.
  */
 
-public class Picture {
+public class Picture extends RealmObject{
 
 
     @SerializedName("MediaId")
@@ -19,12 +21,14 @@ public class Picture {
     private String extension;
     @SerializedName("TipoMedio")
     private String tipoMedio;
-    @SerializedName("Holding")
-    private Object holding;
+    /*@SerializedName("Holding")
+    private Object holding;*/
     @SerializedName("Path")
     private String path;
     @SerializedName("MediaAparicion")
     private int medioAparicion;
+
+    public Picture(){}
 
     public Picture(long mediaId, long holdingId, String name, String extension, String tipoMedio, Object holding, String path, int medioAparicion) {
         this.mediaId = mediaId;
@@ -32,7 +36,7 @@ public class Picture {
         this.name = name;
         this.extension = extension;
         this.tipoMedio = tipoMedio;
-        this.holding = holding;
+        //this.holding = holding;
         this.path = path;
         this.medioAparicion = medioAparicion;
     }
@@ -77,13 +81,13 @@ public class Picture {
         this.tipoMedio = tipoMedio;
     }
 
-    public Object getHolding() {
+    /*public Object getHolding() {
         return holding;
     }
 
     public void setHolding(Object holding) {
         this.holding = holding;
-    }
+    }*/
 
     public String getPath() {
         return path;

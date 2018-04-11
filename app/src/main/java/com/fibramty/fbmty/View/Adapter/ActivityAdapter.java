@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.RealmList;
 
 /**
  * Created by david.barrera on 1/25/18.
@@ -23,9 +24,9 @@ import butterknife.ButterKnife;
 public class ActivityAdapter extends ArrayAdapter<ActivityHolding> {
 
     private Context mContext;
-    private ArrayList<ActivityHolding> mActivities;
+    private RealmList<ActivityHolding> mActivities;
 
-    public ActivityAdapter(Context context, int resource, ArrayList<ActivityHolding> activities) {
+    public ActivityAdapter(Context context, int resource, RealmList<ActivityHolding> activities) {
         super(context, resource, activities);
         this.mContext = context;
         this.mActivities = activities;

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.RealmList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,13 +55,13 @@ public class CharacteristicsFragment extends Fragment {
         return view;
     }
 
-    private ArrayList<ActivityHolding> getActivities(){
+    private RealmList<ActivityHolding> getActivities(){
 
-        if (MainActivity.holdingResponse != null && (MainActivity.holdingResponse.get(0).getActivities() != null &&
-                MainActivity.holdingResponse.get(0).getActivities().size() > 0)){
-            return MainActivity.holdingResponse.get(0).getActivities();
+        if (MainActivity.holdingResponse != null && (MainActivity.holdingResponse.getActivities() != null &&
+                MainActivity.holdingResponse.getActivities().size() > 0)){
+            return MainActivity.holdingResponse.getActivities();
         }else {
-            ArrayList<ActivityHolding> activityHoldings = new ArrayList<ActivityHolding>();
+            RealmList<ActivityHolding> activityHoldings = new RealmList<ActivityHolding>();
             activityHoldings.add(new ActivityHolding(1, "02 Dic. 2018", "10 Dic. 2018", "", "Ampliación de jardines del ala oeste y" +
                     "remodelación de terraza, con cubierta deck", 1));
             activityHoldings.add(new ActivityHolding(2, "12 Dic. 2018", "20 Dic. 2018", "", "Remodelación del primer piso ", 1));
@@ -71,13 +72,13 @@ public class CharacteristicsFragment extends Fragment {
 
     private void setFields(){
         if (MainActivity.holdingResponse != null){
-            dateTxt.setText(Validators.validateString(MainActivity.holdingResponse.get(0).getYearConstruction()));
-            architectTxt.setText(Validators.validateString(MainActivity.holdingResponse.get(0).getArchitect()));
-            floorTxt.setText(Validators.validateString(String.valueOf(MainActivity.holdingResponse.get(0).getOfficeQty())));
-            parkingBoxTxt.setText(Validators.validateString(String.valueOf(MainActivity.holdingResponse.get(0).getParkingBoxes())));
-            nameAdmonTxt.setText(Validators.validateString(MainActivity.holdingResponse.get(0).getAdministrator()));
-            emailAdmonTxt.setText(Validators.validateString(MainActivity.holdingResponse.get(0).getAdmonEmail()));
-            phoneAdmonTxt.setText(Validators.validateString(MainActivity.holdingResponse.get(0).getAdmonPhoneNumber()));
+            dateTxt.setText(Validators.validateString(MainActivity.holdingResponse.getYearConstruction()));
+            architectTxt.setText(Validators.validateString(MainActivity.holdingResponse.getArchitect()));
+            floorTxt.setText(Validators.validateString(String.valueOf(MainActivity.holdingResponse.getOfficeQty())));
+            parkingBoxTxt.setText(Validators.validateString(String.valueOf(MainActivity.holdingResponse.getParkingBoxes())));
+            nameAdmonTxt.setText(Validators.validateString(MainActivity.holdingResponse.getAdministrator()));
+            emailAdmonTxt.setText(Validators.validateString(MainActivity.holdingResponse.getAdmonEmail()));
+            phoneAdmonTxt.setText(Validators.validateString(MainActivity.holdingResponse.getAdmonPhoneNumber()));
         }
     }
 }

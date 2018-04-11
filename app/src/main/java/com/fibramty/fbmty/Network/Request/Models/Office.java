@@ -2,11 +2,13 @@ package com.fibramty.fbmty.Network.Request.Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Created by david.barrera on 11/28/17.
  */
 
-public class Office {
+public class Office extends RealmObject {
 
     @SerializedName("Id")
     private long id;
@@ -19,6 +21,7 @@ public class Office {
     @SerializedName("type")
     private String type;
 
+    public Office(){}
 
     public Office(long id, String totalArea, String priceSquareMeter, String priceOffice, String type) {
         this.id = id;

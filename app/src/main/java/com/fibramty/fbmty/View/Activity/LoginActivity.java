@@ -32,7 +32,6 @@ import io.realm.Realm;
 
 public class LoginActivity extends AppCompatActivity implements LoginCallback,HoldingCallback{
 
-
     @BindView(R.id.act_login_username)EditText usernameEdt;
     @BindView(R.id.act_login_password)EditText passwordEdt;
     LoginPresenter loginPresenter;
@@ -52,9 +51,9 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback,Ho
         holdingPresenter = new HoldingPresenter(this,this);
     }
 
-    private void initViews(){
-        usernameEdt.setText("shiniwes@hotmail.com");
-        passwordEdt.setText("F1br4Mty$");
+    private void initViews(){// JUST FOR TESTING
+        usernameEdt.setText("admin@hics.mx");
+        passwordEdt.setText("Hics.mx1");
     }
 
     @OnClick(R.id.act_login_enter)
@@ -113,10 +112,17 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback,Ho
 
     @Override
     public void onDownloadHolding(List<HoldingResponse> holdingResponses) {
+        mProgressDialog.dismiss();
         if (holdingResponses != null && holdingResponses.size() > 0){
             prefs.putBoolean(Statics.LOGIN_PREFS,true);
-            MainActivity.holdingResponse = holdingResponses;
+            prefs.putInt(Statics.SELECTED_POSITION,0);
+            Realm realm = Realm.getDefaultInstance();
+            RealmManager.insert(realm,holdingResponses);
+            realm.close();
+            MainActivity.holdingResponses = holdingResponses;
             startActivity(new Intent(this,MenuActivity.class));
+        }else{
+            DesignUtils.infoMessage(this,"Ingreso","No tiene ningún edificio contratado");
         }
     }
 

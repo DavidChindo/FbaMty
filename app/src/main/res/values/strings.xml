@@ -42,7 +42,7 @@
     <string name="act_regiter_num_client">Número de Cliente</string>
     <string name="act_register_btn">Registrar</string>
     <string name="act_register_not_pass_equals">No coinciden las contraseñas</string>
-    
+
     <!-- Recovery Password Activity-->
     <string name="act_recovery_title">Recuperar Contraseña</string>
     <string name="act_recovery_email">Correo Electrónico</string>
@@ -87,5 +87,10 @@
     <string name="architect_plans">Planos Arquitectónicos</string>
     <string name="contingency_plans">Planes de Contingencia</string>
     <string name="title_activity_location_fragment">Ubicación</string>
+
+    <!--Profile Account -->
+    <string name="account">Cuenta</string>
+    <string name="buildings">Edificios</string>
+    <string name="select_holding">Seleccionar edificio</string>
 
 </resources>

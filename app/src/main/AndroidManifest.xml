@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.Activity.SplashActivity"
+        <activity
+            android:name=".View.Activity.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,28 +30,33 @@
         <activity
             android:name=".View.Activity.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".View.Activity.MainActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".View.Activity.PaymentsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".View.Activity.MaintenanceActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".View.Activity.TicketActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".View.Activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View.Activity.PaymentsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View.Activity.MaintenanceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View.Activity.TicketActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".View.Dialogs.MaintenanceDialog"
-            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
         <activity
             android:name=".View.Dialogs.TicketDialog"
-            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
         <activity
             android:name=".View.Dialogs.ChatDialog"
-            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".View.Activity.MenuActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
+        <activity
+            android:name=".View.Activity.MenuActivity"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -63,8 +69,11 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".View.Activity.RegisterActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".View.Activity.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.Activity.ParkingsActivity"
+            android:screenOrientation="portrait" ></activity>
     </application>
 
 </manifest>

@@ -19,6 +19,8 @@ public class Ticket {
     @SerializedName("cveTicket")
     private String ticketKey;
 
+    public Ticket(){}
+
     public Ticket(long id, String title, String description, String order, String ticketKey) {
         this.id = id;
         this.title = title;

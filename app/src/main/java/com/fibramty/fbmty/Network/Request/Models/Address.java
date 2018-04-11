@@ -2,11 +2,13 @@ package com.fibramty.fbmty.Network.Request.Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Created by david.barrera on 11/28/17.
  */
 
-public class Address {
+public class Address extends RealmObject{
 
     @SerializedName("IdHolding")
     private long idHolding;
@@ -26,22 +28,10 @@ public class Address {
     private String zip;
     @SerializedName("IdState")
     private long idState;
-    @SerializedName("Holding")
-    private Object holding;
+    /*@SerializedName("Holding")
+    private Object holding;*/
 
-
-    public Address(long idHolding, String street, String numberInt, String numberExt, String suburb, String town, String state, String zip, long idState, Object holding) {
-        this.idHolding = idHolding;
-        this.street = street;
-        this.numberInt = numberInt;
-        this.numberExt = numberExt;
-        this.suburb = suburb;
-        this.town = town;
-        this.state = state;
-        this.zip = zip;
-        this.idState = idState;
-        this.holding = holding;
-    }
+    public Address(){}
 
     public long getIdHolding() {
         return idHolding;
@@ -115,11 +105,11 @@ public class Address {
         this.idState = idState;
     }
 
-    public Object getHolding() {
+    /*public Object getHolding() {
         return holding;
     }
 
     public void setHolding(Object holding) {
         this.holding = holding;
-    }
+    }*/
 }

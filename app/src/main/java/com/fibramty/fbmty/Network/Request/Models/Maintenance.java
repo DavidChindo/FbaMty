@@ -21,6 +21,8 @@ public class Maintenance {
     @SerializedName("cost")
     private String cost;
 
+    public Maintenance(){}
+
     public Maintenance(String title, String description, String schedule, String frequency, Provider provider, String cost) {
         this.title = title;
         this.description = description;

@@ -5,86 +5,89 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+import io.realm.RealmList;
+import io.realm.RealmObject;
+
 /**
  * Created by david.barrera on 3/11/18.
  */
 
-public class PicturesResponse {
+public class PicturesResponse extends RealmObject {
 
     @SerializedName("baseMediaPath")
-    private List<Picture> baseMediaPath;
+    private RealmList<Picture> baseMediaPath;
 
     @SerializedName("busquedaImages")
-    private List<Picture> busquedaImages;
+    private RealmList<Picture> busquedaImages;
 
     @SerializedName("comercialImages")
-    private List<Picture> comercialImages;
+    private RealmList<Picture> comercialImages;
 
     @SerializedName("detalleImages")
-    private List<Picture> detalleImages;
+    private RealmList<Picture> detalleImages;
 
     @SerializedName("footerImages")
-    private List<Picture> footerImages;
+    private RealmList<Picture> footerImages;
 
     @SerializedName("videoImages")
-    private List<Picture> videoImages;
+    private RealmList<Picture> videoImages;
 
     @SerializedName("planosImages")
-    private List<Picture> planosImages;
+    private RealmList<Picture> planosImages;
 
-    public List<Picture> getBaseMediaPath() {
+    public RealmList<Picture> getBaseMediaPath() {
         return baseMediaPath;
     }
 
-    public void setBaseMediaPath(List<Picture> baseMediaPath) {
+    public void setBaseMediaPath(RealmList<Picture> baseMediaPath) {
         this.baseMediaPath = baseMediaPath;
     }
 
-    public List<Picture> getBusquedaImages() {
+    public RealmList<Picture> getBusquedaImages() {
         return busquedaImages;
     }
 
-    public void setBusquedaImages(List<Picture> busquedaImages) {
+    public void setBusquedaImages(RealmList<Picture> busquedaImages) {
         this.busquedaImages = busquedaImages;
     }
 
-    public List<Picture> getComercialImages() {
+    public RealmList<Picture> getComercialImages() {
         return comercialImages;
     }
 
-    public void setComercialImages(List<Picture> comercialImages) {
+    public void setComercialImages(RealmList<Picture> comercialImages) {
         this.comercialImages = comercialImages;
     }
 
-    public List<Picture> getDetalleImages() {
+    public RealmList<Picture> getDetalleImages() {
         return detalleImages;
     }
 
-    public void setDetalleImages(List<Picture> detalleImages) {
+    public void setDetalleImages(RealmList<Picture> detalleImages) {
         this.detalleImages = detalleImages;
     }
 
-    public List<Picture> getFooterImages() {
+    public RealmList<Picture> getFooterImages() {
         return footerImages;
     }
 
-    public void setFooterImages(List<Picture> footerImages) {
+    public void setFooterImages(RealmList<Picture> footerImages) {
         this.footerImages = footerImages;
     }
 
-    public List<Picture> getVideoImages() {
+    public RealmList<Picture> getVideoImages() {
         return videoImages;
     }
 
-    public void setVideoImages(List<Picture> videoImages) {
+    public void setVideoImages(RealmList<Picture> videoImages) {
         this.videoImages = videoImages;
     }
 
-    public List<Picture> getPlanosImages() {
+    public RealmList<Picture> getPlanosImages() {
         return planosImages;
     }
 
-    public void setPlanosImages(List<Picture> planosImages) {
+    public void setPlanosImages(RealmList<Picture> planosImages) {
         this.planosImages = planosImages;
     }
 }

@@ -17,6 +17,8 @@ public class Provider {
     @SerializedName("email")
     private String email;
 
+    public Provider(){}
+
     public Provider(String name, String phone, String mobile, String email) {
         this.name = name;
         this.phone = phone;

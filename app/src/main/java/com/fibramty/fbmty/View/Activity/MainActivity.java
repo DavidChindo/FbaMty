@@ -17,7 +17,8 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)Toolbar toolbar;
-    public static List<HoldingResponse> holdingResponse;
+    public static HoldingResponse holdingResponse;
+    public static List<HoldingResponse> holdingResponses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

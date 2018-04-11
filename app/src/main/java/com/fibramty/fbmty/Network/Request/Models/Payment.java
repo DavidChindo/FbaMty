@@ -23,6 +23,8 @@ public class Payment {
     @SerializedName("name")
     private String name;
 
+    public Payment(){}
+
     public Payment(String documentNumber, String description, String amount, String dateValidity, String dateAccounting, String status,String name) {
         this.documentNumber = documentNumber;
         this.description = description;

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.RealmList;
 
 /**
  * Created by david.barrera on 1/25/18.
@@ -28,9 +29,9 @@ import butterknife.ButterKnife;
 public class ServicesAdapter extends ArrayAdapter<Service> {
 
     private Activity mActivity;
-    private ArrayList<Service> mServices;
+    private RealmList<Service> mServices;
 
-    public ServicesAdapter(Activity context, int resource, ArrayList<Service> services) {
+    public ServicesAdapter(Activity context, int resource, RealmList<Service> services) {
         super(context, resource, services);
         this.mActivity = context;
         this.mServices = services;

@@ -2,11 +2,13 @@ package com.fibramty.fbmty.Network.Request.Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Created by david.barrera on 11/28/17.
  */
 
-public class ActivityHolding {
+public class ActivityHolding extends RealmObject{
 
     @SerializedName("Id")
     private long id;
@@ -20,6 +22,8 @@ public class ActivityHolding {
     private String description;
     @SerializedName("priority")
     private int priority;
+
+    public ActivityHolding(){}
 
     public ActivityHolding(long id, String dateStart, String dateEnd, String title, String description,int priority) {
         this.id = id;

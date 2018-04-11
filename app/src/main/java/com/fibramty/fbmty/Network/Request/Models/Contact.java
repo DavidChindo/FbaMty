@@ -4,20 +4,25 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
+import io.realm.RealmList;
+import io.realm.RealmObject;
+
 /**
  * Created by david.barrera on 11/28/17.
  */
 
-public class Contact {
+public class Contact extends RealmObject {
 
     @SerializedName("Name")
     private String name;
     @SerializedName("phone")
-    private ArrayList<Phone> phones;
+    private RealmList<Phone> phones;
     @SerializedName("email")
     private String email;
 
-    public Contact(String name, ArrayList<Phone> phones, String email) {
+    public Contact(){}
+
+    public Contact(String name, RealmList<Phone> phones, String email) {
         this.name = name;
         this.phones = phones;
         this.email = email;
@@ -31,11 +36,11 @@ public class Contact {
         this.name = name;
     }
 
-    public ArrayList<Phone> getPhones() {
+    public RealmList<Phone> getPhones() {
         return phones;
     }
 
-    public void setPhones(ArrayList<Phone> phones) {
+    public void setPhones(RealmList<Phone> phones) {
         this.phones = phones;
     }
 

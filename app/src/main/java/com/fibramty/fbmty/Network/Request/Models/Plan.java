@@ -2,11 +2,13 @@ package com.fibramty.fbmty.Network.Request.Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Created by david.barrera on 11/28/17.
  */
 
-public class Plan {
+public class Plan extends RealmObject {
 
     @SerializedName("Id")
     private long id;
@@ -14,6 +16,8 @@ public class Plan {
     private String url;
     @SerializedName("type")
     private String type;
+
+    public Plan(){}
 
     public Plan(long id, String url, String type) {
         this.id = id;

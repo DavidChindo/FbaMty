@@ -5,6 +5,7 @@ import android.util.Log;
 import com.fibramty.fbmty.Network.Response.LoginResponse;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.realm.Case;
 import io.realm.Realm;
@@ -76,6 +77,15 @@ public class RealmManager {
     }
 
     public static <T extends RealmObject> void insert(Realm realm, final ArrayList<T> items) {
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                realm.copyToRealmOrUpdate(items);
+            }
+        });
+    }
+
+    public static <T extends RealmObject> void insert(Realm realm, final List<T> items) {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {

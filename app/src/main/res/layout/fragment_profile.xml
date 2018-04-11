@@ -2,13 +2,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fibramty.fbmty.View.Fragment.ProfileFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.fibramty.fbmty.View.Fragment.ProfileFragment"
+    android:background="@color/gray_background">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="My Profile"
-        android:gravity="center"/>
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin_eigth">
+
+        <TextView
+            style="@style/font_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/account" />
+
+        <TextView
+            android:id="@+id/fr_profile_account"
+            style="@style/font_title_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/appbar_scrolling_view_behavior"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/margin_four"
+            android:layout_marginBottom="@dimen/margin_four"
+            android:background="@color/silver"/>
+
+        <TextView
+            style="@style/font_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/buildings"
+            android:layout_marginBottom="@dimen/margin_four"/>
+
+        <com.asksira.dropdownview.DropDownView
+            android:id="@+id/dropdownview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:placeholder_text="@string/select_holding"
+            app:filter_bar_background_color="@color/silver"
+            app:filter_text_color="@android:color/black"
+            app:arrow_width="0dp"
+            app:filter_text_arrow_padding = "0dp"
+            app:dropDownItem_text_color_selected="@color/colorPrimaryDark"
+            app:divider_color="@color/gray_background"
+            app:dropDownItem_text_size_selected="@dimen/font_size_14" />
+
+    </LinearLayout>
+
 
 </FrameLayout>

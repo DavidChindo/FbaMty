@@ -45,7 +45,7 @@
                     android:layout_marginEnd="@dimen/margin_twelve"
                     android:layout_marginStart="@dimen/margin_twelve"
                     android:hint="Nombre"
-                    android:maxLength="300"/>
+                    android:maxLength="100"/>
 
                 <EditText
                     android:id="@+id/dialog_chat_edt_title"
@@ -55,7 +55,7 @@
                     android:layout_marginEnd="@dimen/margin_twelve"
                     android:layout_marginStart="@dimen/margin_twelve"
                     android:hint="Titulo"
-                    android:maxLength="300"/>
+                    android:maxLength="100"/>
 
                 <EditText
                     android:id="@+id/dialog_chat_edt_comments"
@@ -65,6 +65,7 @@
                     android:layout_marginEnd="@dimen/margin_twelve"
                     android:layout_marginStart="@dimen/margin_twelve"
                     android:hint="Mensaje"
+                    android:maxLength="500"
                     android:lines="3"/>
 
             <View
@@ -87,14 +88,14 @@
                 android:orientation="vertical">
 
                 <RadioButton
-                    android:id="@+id/act_form_billed_yes"
+                    android:id="@+id/dialog_chat_yes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Problemas de pago"
                     android:textColor="@color/font_title_gray"/>
 
                 <RadioButton
-                    android:id="@+id/act_form_billed_not"
+                    android:id="@+id/dialog_chat_not"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/font_title_gray"
@@ -102,13 +103,13 @@
             </RadioGroup>
 
             <Button
-                android:id="@+id/dialog_ticket_add"
+                android:id="@+id/dialog_chat_add"
                 style="@style/BlueButton"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_marginTop="@dimen/margin_eigth"
                 android:elevation="@dimen/raised_button"
-                android:text="@string/search_file"
+                android:text="@string/sent"
                 android:textAllCaps="false" />
 
         </LinearLayout>

@@ -33,6 +33,15 @@ public class DesignUtils {
                 .show();
     }
 
+    public static void infoMessage(Activity activity, String title, String message){
+        CookieBar.Build(activity)
+                .setTitle(title)
+                .setMessage(message)
+                .setBackgroundColor(R.color.colorPrimaryDark)
+                .setTitleColor(R.color.colorWhite)
+                .show();
+    }
+
     public static void errorMessage(Activity activity, String title, String message){
         CookieBar.Build(activity)
                 .setTitle(title)

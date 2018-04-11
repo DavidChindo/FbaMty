@@ -8,15 +8,20 @@ import com.fibramty.fbmty.Network.Request.Models.Office;
 import com.fibramty.fbmty.Network.Request.Models.Picture;
 import com.fibramty.fbmty.Network.Request.Models.Plan;
 import com.fibramty.fbmty.Network.Request.Models.Service;
+import com.fibramty.fbmty.View.Activity.MainActivity;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import io.realm.RealmList;
+import io.realm.RealmObject;
 
 /**
  * Created by david.barrera on 11/28/17.
  */
 
-public class HoldingResponse {
+public class HoldingResponse extends RealmObject {
 
     @SerializedName("Administrador")
     private String administrator;
@@ -55,13 +60,13 @@ public class HoldingResponse {
     @SerializedName("Picture")
     private PicturesResponse pictures;
     @SerializedName("ServiceTickets")
-    private ArrayList<Service> services;
+    private RealmList<Service> services;
     @SerializedName("ActivityHolding")
-    private ArrayList<ActivityHolding> activities;
+    private RealmList<ActivityHolding> activities;
     @SerializedName("avaiableOffices")
     private int availableOffice;
     @SerializedName("plans")
-    private ArrayList<Plan> plans;
+    private RealmList<Plan> plans;
     @SerializedName("Estacionamientos")
     private int parkingBoxes;
     @SerializedName("Contact")
@@ -69,7 +74,9 @@ public class HoldingResponse {
     @SerializedName("HoldingExtraProperties")
     private String extrasProperties;
 
-    public HoldingResponse(String administrator, long id, long idParentHolding, String idSAP, String name, Coordinate coordinates, Address address, String yearConstruction, String areaTotal, int officeQty, String architect, String description, String holdingType, String totalPrice, Office office, PicturesResponse pictures, ArrayList<Service> services, ArrayList<ActivityHolding> activities, int availableOffice, ArrayList<Plan> plans, int parkingBoxes, Contact contact, String extrasProperties) {
+    public HoldingResponse(){}
+
+    public HoldingResponse(String administrator, long id, long idParentHolding, String idSAP, String name, Coordinate coordinates, Address address, String yearConstruction, String areaTotal, int officeQty, String architect, String description, String holdingType, String totalPrice, Office office, PicturesResponse pictures, RealmList<Service> services, RealmList<ActivityHolding> activities, int availableOffice, RealmList<Plan> plans, int parkingBoxes, Contact contact, String extrasProperties) {
         this.administrator = administrator;
         this.id = id;
         this.idParentHolding = idParentHolding;
@@ -223,19 +230,19 @@ public class HoldingResponse {
         this.pictures = pictures;
     }
 
-    public ArrayList<Service> getServices() {
+    public RealmList<Service> getServices() {
         return services;
     }
 
-    public void setServices(ArrayList<Service> services) {
+    public void setServices(RealmList<Service> services) {
         this.services = services;
     }
 
-    public ArrayList<ActivityHolding> getActivities() {
+    public RealmList<ActivityHolding> getActivities() {
         return activities;
     }
 
-    public void setActivities(ArrayList<ActivityHolding> activities) {
+    public void setActivities(RealmList<ActivityHolding> activities) {
         this.activities = activities;
     }
 
@@ -247,11 +254,11 @@ public class HoldingResponse {
         this.availableOffice = availableOffice;
     }
 
-    public ArrayList<Plan> getPlans() {
+    public RealmList<Plan> getPlans() {
         return plans;
     }
 
-    public void setPlans(ArrayList<Plan> plans) {
+    public void setPlans(RealmList<Plan> plans) {
         this.plans = plans;
     }
 
@@ -294,4 +301,15 @@ public class HoldingResponse {
     public void setAdmonPhoneNumber(String admonPhoneNumber) {
         this.admonPhoneNumber = admonPhoneNumber;
     }
+
+    public List<String> getHoldingsName(){
+        List<String> names = new ArrayList<String>();
+        if (MainActivity.holdingResponses != null && MainActivity.holdingResponses.size() > 0){
+            for (HoldingResponse holding : MainActivity.holdingResponses) {
+                names.add(holding.getName());
+            }
+        }
+        return names;
+    }
+
 }
