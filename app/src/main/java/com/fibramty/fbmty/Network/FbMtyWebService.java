@@ -1,11 +1,13 @@
 package com.fibramty.fbmty.Network;
 
 import com.fibramty.fbmty.Network.Request.LoginRequest;
+import com.fibramty.fbmty.Network.Request.RegisterRequest;
 import com.fibramty.fbmty.Network.Response.HoldingResponse;
 import com.fibramty.fbmty.Network.Response.LoginResponse;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -28,4 +30,7 @@ public interface FbMtyWebService {
 
     @POST("api/MySpace/holdingsByUser")
     Call<List<HoldingResponse>> holdingByUser(@Header("Authorization") String authorization);
+
+    @POST("api/Account/Register")
+    Call<ResponseBody> register(@Body RegisterRequest registerRequest);
 }

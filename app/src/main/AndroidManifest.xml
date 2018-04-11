@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.Activity.SplashActivity">
+        <activity android:name=".View.Activity.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,22 +29,42 @@
         <activity
             android:name=".View.Activity.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".View.Activity.MainActivity" />
-        <activity android:name=".View.Activity.PaymentsActivity" />
-        <activity android:name=".View.Activity.MaintenanceActivity" />
-        <activity android:name=".View.Activity.TicketActivity" />
+        <activity android:name=".View.Activity.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.Activity.PaymentsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.Activity.MaintenanceActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.Activity.TicketActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".View.Dialogs.MaintenanceDialog"
-            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".View.Dialogs.TicketDialog"
-            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".View.Dialogs.ChatDialog"
-            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
-        <activity android:name=".View.Activity.MenuActivity">
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.Activity.MenuActivity"
+            android:screenOrientation="portrait"/>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
-        </activity>
+        <activity android:name=".View.Activity.RegisterActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

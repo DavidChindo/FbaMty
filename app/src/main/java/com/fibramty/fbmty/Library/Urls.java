@@ -1,5 +1,6 @@
 package com.fibramty.fbmty.Library;
 
+import android.app.admin.ConnectEvent;
 import android.content.Context;
 
 import com.fibramty.fbmty.R;
@@ -23,4 +24,7 @@ public class Urls {
         }
     }
 
+    public static String endPoint(Context context){
+         return context.getResources().getString(R.string.url_qa);
+    }
 }

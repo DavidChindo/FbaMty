@@ -4,82 +4,138 @@
     android:layout_height="match_parent"
     tools:context="com.fibramty.fbmty.View.Fragment.menuTab.CharacteristicsFragment"
     android:background="@color/gray_background">
-<android.support.v4.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
 
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginStart="@dimen/margin_eigth">
-        <TextView
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/font_title"
-            android:text="@string/date_built"/>
-        <TextView
-            android:id="@+id/fr_characteristics_date"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_eigth"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/font_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/date_built" />
+
+            <TextView
+                android:id="@+id/fr_characteristics_date"
+                style="@style/font_title_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                style="@style/font_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/architect" />
+
+            <TextView
+                android:id="@+id/fr_characteristics_architect"
+                style="@style/font_title_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                style="@style/font_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/floor_builts" />
+
+            <TextView
+                android:id="@+id/fr_characteristics_floor"
+                style="@style/font_title_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 />
+
+            <TextView
+                style="@style/font_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/parkings" />
+
+            <TextView
+                android:id="@+id/fr_characteristics_parking_box"
+                style="@style/font_title_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                style="@style/font_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:text="@string/administrador_data"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                style="@style/font_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/name_administrator" />
+
+            <TextView
+                android:id="@+id/fr_characteristics_name_admon"
+                style="@style/font_title_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                style="@style/font_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/email_administrator" />
+
+            <TextView
+                android:id="@+id/fr_characteristics_email_admon"
+                style="@style/font_title_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                style="@style/font_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_administrator" />
+
+            <TextView
+                android:id="@+id/fr_characteristics_phone_admon"
+                style="@style/font_title_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:background="@color/divider"></View>
+
+            <TextView
+                style="@style/font_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:text="@string/activities_building"
+                android:textColor="@color/colorAccent" />
+
+            <ListView
+                android:id="@+id/fr_characteristics_activities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_eigth"></ListView>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+    <!--    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/font_title_detail"
-            android:text="2011"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/font_title"
-            android:text="@string/architect"/>
-        <TextView
-            android:id="@+id/fr_characteristics_architect"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/font_title_detail"
-            android:text="Ing. Luis Alberto Sanchez Romero"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/font_title"
-            android:text="@string/floor_builts"/>
-        <TextView
-            android:id="@+id/fr_characteristics_floor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/font_title_detail"
-            android:text="16"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/font_title"
-            android:text="@string/parkings"/>
-        <TextView
-            android:id="@+id/fr_characteristics_parking_box"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/font_title_detail"
-            android:text="10"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="@dimen/margin_eigth"
-            android:background="@color/divider"></View>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/font_title"
-            android:layout_marginTop="@dimen/margin_eigth"
-            android:textColor="@color/colorAccent"
-            android:text="@string/activities_building"/>
-        <ListView
-            android:id="@+id/fr_characteristics_activities"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_eigth"></ListView>
-    </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
-<!--    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/gray_background">
-    </ScrollView>-->
+            android:layout_height="match_parent"
+            android:background="@color/gray_background">
+        </ScrollView>-->
 </FrameLayout>

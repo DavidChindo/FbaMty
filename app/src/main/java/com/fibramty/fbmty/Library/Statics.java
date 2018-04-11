@@ -12,9 +12,10 @@ import java.util.List;
 
 public class Statics {
 
-    public static int code_OK = 200;
-    public static int code_UNAUTHORIZED = 401;
-    public static int code_BAD_REQUEST = 400;
+    public static int OK = 200;
+    public static int UNAUTHORIZED = 401;
+    public static int BAD_REQUEST = 400;
+    public static int INTERNAL_SERVER = 500;
 
     public static final String WM_PREFS = "prefsFbMty";
     public static final String LOGIN_PREFS = "prefsLogin";

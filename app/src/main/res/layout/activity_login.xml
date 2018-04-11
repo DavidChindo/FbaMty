@@ -55,7 +55,7 @@
                 android:drawableEnd="@drawable/ic_login_usr"
                 android:drawableTint="@color/colorWhite"
                 android:hint="@string/act_login_edt_user"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:maxLength="100"
                 android:textColor="@color/colorWhite" />
 

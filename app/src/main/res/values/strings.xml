@@ -24,6 +24,8 @@
     <string name="text_version_complete">Version:  %s</string>
     <string name="text_version">V %s</string>
     <string name="content_description">Fibra Monterrey</string>
+    <string name="msg_success">%s exitoso</string>
+
     <!-- Login Acitivity -->
     <string name="act_login_edt_user">Usuario</string>
     <string name="act_login_edt_password">Contraseña</string>
@@ -31,6 +33,16 @@
     <string name="act_login_btn_recovery_pwd">Recuperar su contraseña</string>
     <string name="act_login_btn_register">¿No tiene cuenta? Registrese aquí</string>
 
+
+    <!-- Register Activity -->
+    <string name="act_register_email">Correo Electrónico</string>
+    <string name="act_register_pass">Contraseña</string>
+    <string name="act_register_confirm_pass">Confirmar Contraseña</string>
+    <string name="act_register_rfc">RFC</string>
+    <string name="act_regiter_num_client">Número de Cliente</string>
+    <string name="act_register_btn">Registrar</string>
+    <string name="act_register_not_pass_equals">No coinciden las contraseñas</string>
+    
     <!-- Recovery Password Activity-->
     <string name="act_recovery_title">Recuperar Contraseña</string>
     <string name="act_recovery_email">Correo Electrónico</string>
@@ -59,16 +71,21 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    
+
     <!--Characteristics Fragment -->
     <string name="date_built">Fecha de Construcción</string>
     <string name="architect">Arquitecto</string>
     <string name="floor_builts">Pisos Construidos</string>
     <string name="parkings">Cajones de Estacionamiento</string>
     <string name="activities_building">Actividades del Edificio</string>
-    
+    <string name="administrador_data">Datos del Administrador</string>
+    <string name="name_administrator">Nombre</string>
+    <string name="email_administrator">Correo electrónico</string>
+    <string name="phone_administrator">Número telefónico</string>
+
     <!--Downloads Fragment -->
     <string name="architect_plans">Planos Arquitectónicos</string>
     <string name="contingency_plans">Planes de Contingencia</string>
+    <string name="title_activity_location_fragment">Ubicación</string>
 
 </resources>

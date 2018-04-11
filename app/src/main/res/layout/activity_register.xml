@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context="com.fibramty.fbmty.View.Activity.RegisterActivity"
+android:gravity="center">
+
+<ImageView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scaleType="fitXY"
+    android:src="@drawable/background" />
+
+<LinearLayout
+    android:id="@+id/main_Login_linear"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="32dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        android:id="@+id/act_register_email">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_sixteen"
+            android:layout_marginRight="@dimen/margin_sixteen"
+            android:hint="@string/act_register_email"
+            android:inputType="textEmailAddress"
+            android:maxLength="100"
+            android:textColor="@color/colorWhite" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        android:id="@+id/act_register_pass">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_sixteen"
+            android:layout_marginRight="@dimen/margin_sixteen"
+            android:hint="@string/act_register_pass"
+            android:inputType="textPassword"
+            android:maxLength="100"
+            android:textColor="@color/colorWhite" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        android:id="@+id/act_register_confirm">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_sixteen"
+            android:layout_marginRight="@dimen/margin_sixteen"
+            android:hint="@string/act_register_confirm_pass"
+            android:inputType="textPassword"
+            android:maxLength="100"
+            android:textColor="@color/colorWhite" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        android:id="@+id/act_register_rfc">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_sixteen"
+            android:layout_marginRight="@dimen/margin_sixteen"
+            android:hint="@string/act_register_rfc"
+            android:inputType="text"
+            android:maxLength="100"
+            android:textColor="@color/colorWhite" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        android:id="@+id/act_register_numclient">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_sixteen"
+            android:layout_marginRight="@dimen/margin_sixteen"
+            android:hint="@string/act_regiter_num_client"
+            android:inputType="text"
+            android:maxLength="100"
+            android:textColor="@color/colorWhite" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/act_register_registrar"
+        style="@style/BlueButton"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="@dimen/margin_sixteen"
+        android:layout_marginRight="@dimen/margin_sixteen"
+        android:layout_marginTop="@dimen/margin_thirtytwo"
+        android:elevation="@dimen/raised_button"
+        android:text="@string/act_register_btn" />
+
+</LinearLayout>
+
+
+</FrameLayout>

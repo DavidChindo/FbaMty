@@ -12,6 +12,7 @@ import android.widget.ListView;
 import com.fibramty.fbmty.Network.Request.Models.ActivityHolding;
 import com.fibramty.fbmty.Network.Request.Models.Service;
 import com.fibramty.fbmty.R;
+import com.fibramty.fbmty.View.Activity.MainActivity;
 import com.fibramty.fbmty.View.Adapter.ActivityAdapter;
 import com.fibramty.fbmty.View.Adapter.ServicesAdapter;
 
@@ -47,11 +48,11 @@ public class ServicesFragment extends Fragment {
     }
 
     private ArrayList<Service> getServicesDummy(){
-        ArrayList<Service> services = new ArrayList<Service>();
-        services.add(new Service(1,"Registro de visitas","Varios","","0",""));
-        services.add(new Service(2,"Cajones de estacionamiento","Varios","","0",""));
-        services.add(new Service(3,"Tags de estacionamiento","Varios","","0",""));
-        services.add(new Service(4,"Check-In automatico","Varios","","0",""));
-        return services;
+            ArrayList<Service> services = new ArrayList<Service>();
+            services.add(new Service(1, "Registro de visitas", "Varios", "", "0", ""));
+            services.add(new Service(2, "Cajones de estacionamiento", "Varios", "", "0", ""));
+            services.add(new Service(3, "Tags de estacionamiento", "Varios", "", "0", ""));
+            services.add(new Service(4, "Check-In automatico", "Varios", "", "0", ""));
+            return services;
     }
 }

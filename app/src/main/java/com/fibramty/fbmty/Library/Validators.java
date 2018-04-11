@@ -50,4 +50,12 @@ public class Validators {
             return "";
         }
     }
+
+    public static boolean validateEdt(String word){
+        if (word != null && !word.isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

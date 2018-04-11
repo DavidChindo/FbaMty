@@ -31,11 +31,10 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 Prefs prefs = Prefs.with(SplashActivity.this);
                 if (prefs.getBoolean(Statics.LOGIN_PREFS)) {
-                    start(MainActivity.class);
+                    //start(MainActivity.class);
+                    start(LoginActivity.class);
                 } else {
                     start(LoginActivity.class);
-                    //start(MainActivity.class);
-
                 }
             }
         }, 2000);

@@ -32,7 +32,7 @@ public class LoginPresenter {
             call.enqueue(new Callback<LoginResponse>() {
                 @Override
                 public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                    if (response.code() == Statics.code_OK){
+                    if (response.code() == Statics.OK){
                         mLoginCallback.onLoginSuccess(response.body());
                     }else{
                         mLoginCallback.onLoginError(response.message());

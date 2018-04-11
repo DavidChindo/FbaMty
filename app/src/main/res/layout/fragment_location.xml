@@ -1,22 +1,95 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fibramty.fbmty.View.Fragment.menuTab.LocationFragment"
-    android:background="@color/gray_background">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-    <ImageView
-        android:id="@+id/fr_space_img_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/img_location"
-        android:scaleType="centerInside"
-        android:gravity="top"
-        android:layout_alignParentTop="true"
-        />
-</RelativeLayout>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</FrameLayout>
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/margin_sixteen"
+    app:cardElevation="@dimen/spinner_size"
+    android:layout_marginStart="@dimen/margin_twenty"
+    android:layout_marginEnd="@dimen/margin_twenty"
+    android:layout_marginTop="@dimen/margin_twelve">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_eigth"
+            android:layout_marginBottom="@dimen/margin_eigth">
+            <ImageView
+                android:id="@+id/fr_location_arrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_right_arrow"
+                android:tint="@color/colorAccent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="12dp" />
+            <TextView
+                android:id="@+id/fr_location_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="12dp"
+                android:paddingLeft="8dp"
+                android:textColor="@color/black"
+                android:text="Redwood Tower"
+                android:textSize="@dimen/font_size_14"
+                android:maxLines="4"
+                android:layout_toLeftOf="@id/fr_location_arrow"
+                android:layout_alignParentStart="true"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/silver"
+            android:layout_marginStart="@dimen/margin_eigth"
+            android:layout_marginEnd="@dimen/margin_eigth"
+            android:layout_marginBottom="@dimen/margin_four" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_four"
+            android:layout_marginBottom="@dimen/margin_twelve">
+            <TextView
+                android:id="@+id/fr_location_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Emilio Carranza 265, Fracc. Mirador Campestre SPGG 66266, Nuevo León"
+                android:textSize="@dimen/font_size_12"
+                android:maxLines="4"
+                android:textColor="@color/gray_font"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/margin_eigth"
+                android:layout_toEndOf="@+id/fr_location_pin_address"
+                android:layout_marginStart="@dimen/margin_eigth"
+                />
+            <ImageView
+                android:id="@+id/fr_location_pin_address"
+                android:layout_width="@dimen/margin_sixteen"
+                android:layout_height="@dimen/margin_sixteen"
+                android:src="@drawable/ic_map_adress"
+                android:tint="@color/colorAccent"
+                android:scaleType="fitCenter"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/margin_twelve"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+
+</RelativeLayout>

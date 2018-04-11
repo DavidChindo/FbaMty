@@ -12,9 +12,9 @@ public class Coordinate {
     private long idHolding;
     @SerializedName("Holding")
     private Object holding;
-    @SerializedName("latitude")
+    @SerializedName("Latitude")
     private double latitude;
-    @SerializedName("longitude")
+    @SerializedName("Longitude")
     private double longitude;
 
     public long getIdHolding() {

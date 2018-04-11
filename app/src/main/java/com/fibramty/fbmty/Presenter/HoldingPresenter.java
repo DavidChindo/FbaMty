@@ -37,7 +37,7 @@ public class HoldingPresenter {
                 call.enqueue(new Callback<List<HoldingResponse>>() {
                     @Override
                     public void onResponse(Call<List<HoldingResponse>> call, Response<List<HoldingResponse>> response) {
-                        if (response.code() == Statics.code_OK){
+                        if (response.code() == Statics.OK){
                             mHoldingCallback.onDownloadHolding(response.body());
                         }else{
                             try {

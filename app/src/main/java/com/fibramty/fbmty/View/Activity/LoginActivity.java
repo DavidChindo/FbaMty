@@ -9,7 +9,10 @@ import android.widget.EditText;
 import com.fibramty.fbmty.Dal.RealmManager;
 import com.fibramty.fbmty.Library.Connection;
 import com.fibramty.fbmty.Library.DesignUtils;
+import com.fibramty.fbmty.Library.Prefs;
+import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.Network.Request.LoginRequest;
+import com.fibramty.fbmty.Network.Request.RegisterRequest;
 import com.fibramty.fbmty.Network.Response.HoldingResponse;
 import com.fibramty.fbmty.Network.Response.LoginResponse;
 import com.fibramty.fbmty.Presenter.Callbacks.HoldingCallback;
@@ -36,7 +39,7 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback,Ho
     HoldingPresenter holdingPresenter;
     ProgressDialog mProgressDialog;
     private static String TAG = LoginActivity.class.getSimpleName();
-
+    Prefs prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +47,14 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback,Ho
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         initViews();
+        prefs = Prefs.with(LoginActivity.this);
         loginPresenter = new LoginPresenter(this,this);
         holdingPresenter = new HoldingPresenter(this,this);
     }
 
     private void initViews(){
+        usernameEdt.setText("shiniwes@hotmail.com");
+        passwordEdt.setText("F1br4Mty$");
     }
 
     @OnClick(R.id.act_login_enter)
@@ -66,6 +72,11 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback,Ho
         }else{
             DesignUtils.errorMessage(this,"",message);
         }
+    }
+
+    @OnClick(R.id.act_login_register)
+    void onRegisterClick(){
+        startActivity(new Intent(this, RegisterActivity.class));
     }
 
     @Override
@@ -103,6 +114,7 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback,Ho
     @Override
     public void onDownloadHolding(List<HoldingResponse> holdingResponses) {
         if (holdingResponses != null && holdingResponses.size() > 0){
+            prefs.putBoolean(Statics.LOGIN_PREFS,true);
             MainActivity.holdingResponse = holdingResponses;
             startActivity(new Intent(this,MenuActivity.class));
         }

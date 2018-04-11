@@ -2,14 +2,17 @@ package com.fibramty.fbmty.Library;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.fibramty.fbmty.R;
 
@@ -62,6 +65,10 @@ public class DesignUtils {
 
     }
 
+    public static void showToast(Context context,String message){
+        Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
+    }
+
     public static void setListViewHeightBasedOnChildrenAdapter(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) {
@@ -94,6 +101,14 @@ public class DesignUtils {
         }
     }
 
+    public static int getToolbarHeight(Context context) {
+        return (int) context.getResources().getDimension(R.dimen.abc_action_bar_default_height_material);
+    }
+
+    public static int getStatusBarHeight(Context context) {
+        return (int) context.getResources().getDimension(R.dimen.status_bar_size);
+    }
+
     public static String validateCredentials(Context contex,String username,String password){
         if (Connection.isConnected(contex)) {
             if (username.isEmpty() && password.isEmpty()) {
@@ -123,5 +138,34 @@ public class DesignUtils {
             snackbar.getView().setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.colorPrimaryDark));
             snackbar.show();
         }
+    }
+
+    public static  void showDialog(String title, String msg, final Context context){
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(context);
+        builder.setCancelable(false);
+        builder.setTitle(title)
+                .setMessage(msg)
+                .setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
+    }
+
+    public static  void showDialogWithFinish(String title, String msg, final Activity activity){
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(activity);
+        builder.setCancelable(false);
+        builder.setTitle(title)
+                .setMessage(msg)
+                .setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        activity.finish();
+                    }
+                })
+                .show();
     }
 }

@@ -3,19 +3,19 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/gray_background">
 
     <include
         layout="@layout/toolbar"></include>
 
 
-    <GridView
-        android:id="@+id/act_ticket_grid"
+    <ListView
+        android:id="@+id/fr_tickets_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_eigth"
-        android:numColumns="3"
-        android:stretchMode="columnWidth"></GridView>
-
+        android:dividerHeight="@dimen/margin_twentyfour"
+        android:divider="@color/gray_background"></ListView>
 
 </LinearLayout>

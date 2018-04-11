@@ -20,6 +20,10 @@ public class HoldingResponse {
 
     @SerializedName("Administrador")
     private String administrator;
+    @SerializedName("AdministradorMail")
+    private String admonEmail;
+    @SerializedName("AdministradorNumero")
+    private String admonPhoneNumber;
     @SerializedName("Id")
     private long id;
     @SerializedName("IdParentHolding")
@@ -28,7 +32,7 @@ public class HoldingResponse {
     private String idSAP;
     @SerializedName("NombreEdificio")
     private String name;
-    @SerializedName("Cooridinates")
+    @SerializedName("Coordinates")
     private Coordinate coordinates;
     @SerializedName("Address")
     private Address address;
@@ -273,5 +277,21 @@ public class HoldingResponse {
 
     public void setExtrasProperties(String extrasProperties) {
         this.extrasProperties = extrasProperties;
+    }
+
+    public String getAdmonEmail() {
+        return admonEmail;
+    }
+
+    public void setAdmonEmail(String admonEmail) {
+        this.admonEmail = admonEmail;
+    }
+
+    public String getAdmonPhoneNumber() {
+        return admonPhoneNumber;
+    }
+
+    public void setAdmonPhoneNumber(String admonPhoneNumber) {
+        this.admonPhoneNumber = admonPhoneNumber;
     }
 }

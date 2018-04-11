@@ -5,9 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.GridView;
+import android.widget.ListView;
 
 import com.fibramty.fbmty.Library.DesignUtils;
+import com.fibramty.fbmty.Network.Request.Models.Service;
 import com.fibramty.fbmty.R;
+import com.fibramty.fbmty.View.Adapter.ServicesAdapter;
 import com.fibramty.fbmty.View.Adapter.TicketAdapter;
 import com.fibramty.fbmty.View.Dialogs.TicketDialog;
 
@@ -20,8 +23,7 @@ import butterknife.OnItemClick;
 public class TicketActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)Toolbar toolbar;
-    @BindView(R.id.act_ticket_grid)GridView gridView;
-    private String[] mTitles;
+    @BindView(R.id.fr_tickets_listview)ListView ticketslv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +32,21 @@ public class TicketActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         toolbar.setTitle("Ticket");
         initViews();
-
     }
 
-    private  void initViews(){
-        mTitles = getResources().getStringArray(R.array.tickets_titles);
-        gridView.setAdapter(new TicketAdapter(this,R.layout.item_ticket,getResources().obtainTypedArray(R.array.tickets_images),
-                mTitles));
+    private void initViews(){
+        ticketslv.setAdapter(new ServicesAdapter(this,R.layout.item_activity,getServicesDummy()));
     }
 
-    @OnItemClick(R.id.act_ticket_grid)
+    private ArrayList<Service> getServicesDummy(){
+            return MainActivity.holdingResponse.get(0) != null && (MainActivity.holdingResponse.get(0).getServices() != null && MainActivity.holdingResponse.get(0).getServices().size() > 0)
+                    ?  MainActivity.holdingResponse.get(0).getServices() : null;
+    }
+
+    @OnItemClick(R.id.fr_tickets_listview)
     void onTicketSelected(int position){
         Intent intent = new Intent(this, TicketDialog.class);
-        intent.putExtra("ticket",mTitles[position]);
+        intent.putExtra("ticket",((Service)ticketslv.getItemAtPosition(position)).getTitle());
         startActivity(intent);
         //DesignUtils.snackMessage(this,"Ticket seleccionado " + mTitles[position]);
 
