@@ -127,10 +127,10 @@
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
                 android:maxLines="2"
-                android:text="Fecha de vencimiento" />
+                android:text="Moneda" />
 
             <TextView
-                android:id="@+id/item_payments_out_date"
+                android:id="@+id/item_payments_currency"
                 style="@style/font_body_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -165,6 +165,7 @@
                 android:drawablePadding="@dimen/margin_four"
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
+                android:maxLines="4"
                 android:text=" La rebelión va acompañada de la idea de tener uno mismo, de alguna manera y en alguna parte, razón" />
 
             <TextView
@@ -178,10 +179,36 @@
                 android:drawableTint="@color/gray_icon"
                 android:gravity="center|start"
                 android:maxLines="2"
-                android:text="@string/edificio" />
+                android:text="@string/type_docto" />
 
             <TextView
-                android:id="@+id/item_payments_building"
+                android:id="@+id/item_payments_type_docto"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginBottom="@dimen/margin_six"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:text="ReedWood" />
+
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="@string/status" />
+
+            <TextView
+                android:id="@+id/item_payments_status"
                 style="@style/font_body_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

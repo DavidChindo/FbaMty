@@ -39,7 +39,7 @@ public class Prefs {
      * @return
      */
     public int getInt(String key) {
-        return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).getInt(key, -1);
+        return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).getInt(key, 0);
     }
 
     public int getInt(String key, int defaultValue) {

@@ -8,29 +8,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class Payment {
 
-    @SerializedName("documentNumber")
+    @SerializedName("DOC_NO")
     private String documentNumber;
-    @SerializedName("description")
+    @SerializedName("ITEM_TEXT")
     private String description;
-    @SerializedName("amount")
+    @SerializedName("AMT_DOCCUR")
     private String amount;
-    @SerializedName("dateValidity")
+    @SerializedName("CURRENCY")
+    private String currency;
+    @SerializedName("POSTING_DATE")
     private String dateValidity;
-    @SerializedName("dateAccounting")
-    private String dateAccounting;
-    @SerializedName("status")
+    @SerializedName("CLR_DOC_NO")
     private String status;
-    @SerializedName("name")
+    @SerializedName("DOC_TYPE")
     private String name;
 
     public Payment(){}
 
-    public Payment(String documentNumber, String description, String amount, String dateValidity, String dateAccounting, String status,String name) {
+    public Payment(String documentNumber, String description, String amount, String dateValidity, String status,String name) {
         this.documentNumber = documentNumber;
         this.description = description;
         this.amount = amount;
         this.dateValidity = dateValidity;
-        this.dateAccounting = dateAccounting;
         this.status = status;
         this.name = name;
     }
@@ -67,14 +66,6 @@ public class Payment {
         this.dateValidity = dateValidity;
     }
 
-    public String getDateAccounting() {
-        return dateAccounting;
-    }
-
-    public void setDateAccounting(String dateAccounting) {
-        this.dateAccounting = dateAccounting;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -89,5 +80,13 @@ public class Payment {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }

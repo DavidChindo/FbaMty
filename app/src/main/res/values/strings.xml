@@ -54,6 +54,8 @@
     <string name="importe_en_moneda_de_documento">Importe en moneda de documento</string>
     <string name="descripci_n">Descripción</string>
     <string name="edificio">Edificio</string>
+    <string name="type_docto">Tipo documento</string>
+    <string name="status">Estatus</string>
     <string name="proveedor">Proveedor</string>
     <string name="name">Nombre</string>
     <string name="phone">Teléfono</string>

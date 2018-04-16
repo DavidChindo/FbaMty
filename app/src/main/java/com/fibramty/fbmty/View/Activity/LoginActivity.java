@@ -52,8 +52,8 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback,Ho
     }
 
     private void initViews(){// JUST FOR TESTING
-        usernameEdt.setText("admin@hics.mx");
-        passwordEdt.setText("Hics.mx1");
+        usernameEdt.setText("shiniwes@hotmail.com");
+        passwordEdt.setText("Fibra123$");
     }
 
     @OnClick(R.id.act_login_enter)
@@ -115,11 +115,11 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback,Ho
         mProgressDialog.dismiss();
         if (holdingResponses != null && holdingResponses.size() > 0){
             prefs.putBoolean(Statics.LOGIN_PREFS,true);
-            prefs.putInt(Statics.SELECTED_POSITION,0);
             Realm realm = Realm.getDefaultInstance();
             RealmManager.insert(realm,holdingResponses);
             realm.close();
             MainActivity.holdingResponses = holdingResponses;
+            MainActivity.holdingResponse = holdingResponses.get(prefs.getInt(Statics.SELECTED_POSITION,0));
             startActivity(new Intent(this,MenuActivity.class));
         }else{
             DesignUtils.infoMessage(this,"Ingreso","No tiene ningún edificio contratado");

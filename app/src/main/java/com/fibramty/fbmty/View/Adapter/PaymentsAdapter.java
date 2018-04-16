@@ -14,6 +14,7 @@ import com.fibramty.fbmty.Network.Request.Models.Payment;
 import com.fibramty.fbmty.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,9 +26,9 @@ import butterknife.ButterKnife;
 public class PaymentsAdapter extends ArrayAdapter<Payment> {
 
     private Context mContext;
-    private ArrayList<Payment> mPayments;
+    private List<Payment> mPayments;
 
-    public PaymentsAdapter(@NonNull Context context, @LayoutRes int resource,ArrayList<Payment> payments) {
+    public PaymentsAdapter(@NonNull Context context, @LayoutRes int resource,List<Payment> payments) {
         super(context, resource);
         this.mContext = context;
         this.mPayments = payments;
@@ -53,11 +54,11 @@ public class PaymentsAdapter extends ArrayAdapter<Payment> {
         final Payment payment = mPayments.get(position);
 
         holder.number.setText(payment.getDocumentNumber());
-        holder.date.setText(payment.getDateAccounting());
         holder.amounText.setText(payment.getAmount());
-        holder.outDate.setText(payment.getDateValidity());
+        holder.currency.setText(payment.getCurrency());
         holder.description.setText(payment.getDescription());
-        holder.building.setText(payment.getName());
+        holder.typeDocto.setText(payment.getName());
+        holder.status.setText(payment.getStatus());
 
         return convertView;
     }
@@ -66,9 +67,10 @@ public class PaymentsAdapter extends ArrayAdapter<Payment> {
         @BindView(R.id.item_payments_number)TextView number;
         @BindView(R.id.item_payments_date)TextView date;
         @BindView(R.id.item_payments_amount_text)TextView amounText;
-        @BindView(R.id.item_payments_out_date)TextView outDate;
+        @BindView(R.id.item_payments_currency)TextView currency;
         @BindView(R.id.item_payments_description)TextView description;
-        @BindView(R.id.item_payments_building)TextView building;
+        @BindView(R.id.item_payments_type_docto)TextView typeDocto;
+        @BindView(R.id.item_payments_status)TextView status;
 
         public ViewHolder(View v){
             ButterKnife.bind(this,v);

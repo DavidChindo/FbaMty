@@ -25,12 +25,14 @@ import butterknife.OnItemSelected;
 /**
  * A simple {@link Fragment} subclass.
  */
+
 public class ProfileFragment extends Fragment {
 
 
-    @BindView(R.id.dropdownview)DropDownView holdings;
+    @BindView(R.id.dropdownview)com.asksira.dropdownview.DropDownView holdings;
     @BindView(R.id.fr_profile_account)TextView accountTxt;
     Prefs prefs;
+
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -52,17 +54,17 @@ public class ProfileFragment extends Fragment {
 
     private void initViews(){
         holdings.setDropDownListItem(MainActivity.holdingResponse.getHoldingsName());
-
         holdings.setSelectingPosition(prefs.getInt(Statics.SELECTED_POSITION));
-    }
-
-    @OnItemSelected(R.id.dropdownview)
-    void onHoldingSelected(int position){
-        if (position >= 0){
-            prefs.putInt(Statics.SELECTED_POSITION,position);
-            MainActivity.holdingResponse = MainActivity.holdingResponses.get(position);
-            DesignUtils.successMessage(getActivity(),"Edificio",MainActivity.holdingResponse.getName());
-        }
+        holdings.setOnSelectionListener(new DropDownView.OnSelectionListener() {
+            @Override
+            public void onItemSelected(DropDownView view, int position) {
+                if (position >= 0){
+                    prefs.putInt(Statics.SELECTED_POSITION,position);
+                    MainActivity.holdingResponse = MainActivity.holdingResponses.get(position);
+                    DesignUtils.successMessage(getActivity(),"Edificio",MainActivity.holdingResponse.getName());
+                }
+            }
+        });
     }
 
 }

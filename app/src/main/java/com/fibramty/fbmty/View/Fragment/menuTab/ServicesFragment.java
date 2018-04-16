@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.fibramty.fbmty.Network.Request.Models.ActivityHolding;
 import com.fibramty.fbmty.Network.Request.Models.Service;
@@ -28,6 +29,7 @@ import io.realm.RealmList;
 public class ServicesFragment extends Fragment {
 
     @BindView(R.id.fr_services_listview)ListView serviceslv;
+    @BindView(R.id.no_services)TextView noData;
 
     public ServicesFragment() {
         // Required empty public constructor
@@ -36,7 +38,14 @@ public class ServicesFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        serviceslv.setAdapter(new ServicesAdapter(getActivity(),R.layout.item_activity,getServicesDummy()));
+        if (getServicesDummy() != null) {
+            serviceslv.setAdapter(new ServicesAdapter(getActivity(), R.layout.item_activity, getServicesDummy()));
+            serviceslv.setVisibility(View.VISIBLE);
+            noData.setVisibility(View.GONE);
+        }else{
+            serviceslv.setVisibility(View.GONE);
+            noData.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -49,11 +58,7 @@ public class ServicesFragment extends Fragment {
     }
 
     private RealmList<Service> getServicesDummy(){
-            RealmList<Service> services = new RealmList<Service>();
-            services.add(new Service(1, "Registro de visitas", "Varios", "", "0", ""));
-            services.add(new Service(2, "Cajones de estacionamiento", "Varios", "", "0", ""));
-            services.add(new Service(3, "Tags de estacionamiento", "Varios", "", "0", ""));
-            services.add(new Service(4, "Check-In automatico", "Varios", "", "0", ""));
-            return services;
+    return MainActivity.holdingResponse.getServicesAdmin() != null && MainActivity.holdingResponse.getServicesAdmin().size() > 0
+        ? MainActivity.holdingResponse.getServicesAdmin() : null;
     }
 }

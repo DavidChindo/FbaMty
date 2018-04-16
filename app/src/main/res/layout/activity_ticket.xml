@@ -16,6 +16,18 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_eigth"
         android:dividerHeight="@dimen/margin_twentyfour"
-        android:divider="@color/gray_background"></ListView>
+        android:divider="@color/gray_background"
+        ></ListView>
+
+    <TextView
+        android:id="@+id/no_tickets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="No hay tickets"
+        android:textColor="@color/gray"
+        android:textSize="17dp" />
 
 </LinearLayout>

@@ -1,9 +1,11 @@
 package com.fibramty.fbmty.Network;
 
 import com.fibramty.fbmty.Network.Request.LoginRequest;
+import com.fibramty.fbmty.Network.Request.Models.Payment;
 import com.fibramty.fbmty.Network.Request.RegisterRequest;
 import com.fibramty.fbmty.Network.Response.HoldingResponse;
 import com.fibramty.fbmty.Network.Response.LoginResponse;
+import com.fibramty.fbmty.Network.Response.PaymentResponse;
 
 import java.util.List;
 
@@ -12,6 +14,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 
@@ -33,4 +36,7 @@ public interface FbMtyWebService {
 
     @POST("api/Account/Register")
     Call<ResponseBody> register(@Body RegisterRequest registerRequest);
+
+    @GET("api/MySpace/paymentsByHolding/0")
+    Call<List<Payment>> payments(@Header("Authorization") String authorization);
 }

@@ -1,5 +1,6 @@
 package com.fibramty.fbmty.View.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,15 +13,21 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.fibramty.fbmty.Library.DesignUtils;
 import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.Network.Request.Models.Payment;
+import com.fibramty.fbmty.Presenter.Callbacks.PaymentsCallback;
+import com.fibramty.fbmty.Presenter.PaymentsPresenter;
 import com.fibramty.fbmty.R;
 import com.fibramty.fbmty.View.Adapter.PaymentsAdapter;
 import com.fibramty.fbmty.View.Dialogs.ChatDialog;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.crypto.spec.DESedeKeySpec;
 
 import butterknife.BindDimen;
 import butterknife.BindView;
@@ -29,13 +36,17 @@ import butterknife.OnClick;
 import fr.ganfra.materialspinner.MaterialSpinner;
 import retrofit2.http.PATCH;
 
-public class PaymentsActivity extends AppCompatActivity {
+public class PaymentsActivity extends AppCompatActivity implements PaymentsCallback {
 
     @BindView(R.id.toolbar)Toolbar toolbar;
     @BindView(R.id.act_payments_lv_payments)ListView paymentslv;
     @BindView(R.id.act_payments_sp_month)MaterialSpinner spMonth;
     @BindView(R.id.act_payments_sp_year)MaterialSpinner spYear;
+    @BindView(R.id.no_payments)TextView noPayments;
     private ArrayList<Payment> payments;
+    private PaymentsPresenter paymentsPresenter;
+    ProgressDialog mProgressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,15 +62,12 @@ public class PaymentsActivity extends AppCompatActivity {
 
     private void initViews(){
         payments = new ArrayList<Payment>();
-        for (int i = 0; i < 4; i++){
-            Payment payment = new Payment("2202","la rebelión no nace sólo, y forzosamente, " +
-                    "en el oprimido, sino que puede nacer también ante el espectáculo de la opresión de " +
-                    "que otro es víctima","Dos billones de euros","02-Febrero-2017","22-Febrero-2017","Pendiente","ReedWood");
-            payments.add(payment);
-        }
-        paymentslv.setAdapter(new PaymentsAdapter(this,R.layout.item_payments,payments));
+        paymentsPresenter = new PaymentsPresenter(this,this);
         spMonth.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, Statics.Months));
         spYear.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, Statics.Years));
+        mProgressDialog = ProgressDialog.show(this, null, "Descargando...");
+        mProgressDialog.setCancelable(false);
+        paymentsPresenter.payments();
     }
 
     //startRegionClick
@@ -89,4 +97,24 @@ public class PaymentsActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onPaymentsSuccess(List<Payment> payments) {
+        if (payments != null && payments.size() > 0){
+            paymentslv.setAdapter(new PaymentsAdapter(PaymentsActivity.this,R.layout.item_payments,payments));
+            noPayments.setVisibility(View.GONE);
+            paymentslv.setVisibility(View.VISIBLE);
+        }else{
+            noPayments.setVisibility(View.GONE);
+            paymentslv.setVisibility(View.VISIBLE);
+        }
+        mProgressDialog.cancel();
+    }
+
+    @Override
+    public void onPaymentsError(String msg) {
+        DesignUtils.errorMessage(this,"Pagos",msg);
+        noPayments.setVisibility(View.VISIBLE);
+        paymentslv.setVisibility(View.GONE);
+        mProgressDialog.cancel();
+    }
 }

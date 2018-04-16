@@ -35,6 +35,9 @@ public class PicturesResponse extends RealmObject {
     @SerializedName("planosImages")
     private RealmList<Picture> planosImages;
 
+    @SerializedName("zipOtros")
+    private RealmList<Picture> zipOtros;
+
     public RealmList<Picture> getBaseMediaPath() {
         return baseMediaPath;
     }
@@ -89,5 +92,13 @@ public class PicturesResponse extends RealmObject {
 
     public void setPlanosImages(RealmList<Picture> planosImages) {
         this.planosImages = planosImages;
+    }
+
+    public RealmList<Picture> getZipOtros() {
+        return zipOtros;
+    }
+
+    public void setZipOtros(RealmList<Picture> zipOtros) {
+        this.zipOtros = zipOtros;
     }
 }

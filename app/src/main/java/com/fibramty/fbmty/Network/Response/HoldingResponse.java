@@ -73,10 +73,20 @@ public class HoldingResponse extends RealmObject {
     private Contact contact;
     @SerializedName("HoldingExtraProperties")
     private String extrasProperties;
+    @SerializedName("architecturalPreview")
+    private String architecturalPreview;
+    @SerializedName("ServicesAdmin")
+    private RealmList<Service> servicesAdmin;
+
 
     public HoldingResponse(){}
 
-    public HoldingResponse(String administrator, long id, long idParentHolding, String idSAP, String name, Coordinate coordinates, Address address, String yearConstruction, String areaTotal, int officeQty, String architect, String description, String holdingType, String totalPrice, Office office, PicturesResponse pictures, RealmList<Service> services, RealmList<ActivityHolding> activities, int availableOffice, RealmList<Plan> plans, int parkingBoxes, Contact contact, String extrasProperties) {
+    public HoldingResponse(String administrator, long id, long idParentHolding, String idSAP, String name,
+                           Coordinate coordinates, Address address, String yearConstruction, String areaTotal,
+                           int officeQty, String architect, String description, String holdingType, String totalPrice,
+                           Office office, PicturesResponse pictures, RealmList<Service> services, RealmList<ActivityHolding> activities,
+                           int availableOffice, RealmList<Plan> plans, int parkingBoxes, Contact contact, String extrasProperties,String architecturalPreview,
+                            RealmList<Service> servicesAdmin) {
         this.administrator = administrator;
         this.id = id;
         this.idParentHolding = idParentHolding;
@@ -100,6 +110,8 @@ public class HoldingResponse extends RealmObject {
         this.parkingBoxes = parkingBoxes;
         this.contact = contact;
         this.extrasProperties = extrasProperties;
+        this.architecturalPreview = architecturalPreview;
+        this.servicesAdmin = servicesAdmin;
     }
 
     public String getAdministrator() {
@@ -300,6 +312,22 @@ public class HoldingResponse extends RealmObject {
 
     public void setAdmonPhoneNumber(String admonPhoneNumber) {
         this.admonPhoneNumber = admonPhoneNumber;
+    }
+
+    public String getArchitecturalPreview() {
+        return architecturalPreview;
+    }
+
+    public void setArchitecturalPreview(String architecturalPreview) {
+        this.architecturalPreview = architecturalPreview;
+    }
+
+    public RealmList<Service> getServicesAdmin() {
+        return servicesAdmin;
+    }
+
+    public void setServicesAdmin(RealmList<Service> servicesAdmin) {
+        this.servicesAdmin = servicesAdmin;
     }
 
     public List<String> getHoldingsName(){
