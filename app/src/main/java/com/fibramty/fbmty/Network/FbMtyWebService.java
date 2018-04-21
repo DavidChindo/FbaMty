@@ -17,6 +17,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 /**
  * Created by david.barrera on 12/7/17.
@@ -39,4 +40,10 @@ public interface FbMtyWebService {
 
     @GET("api/MySpace/paymentsByHolding/0")
     Call<List<Payment>> payments(@Header("Authorization") String authorization);
+
+    @GET("api/MySpace/getHoldingUserParkingLotsTickets/{idEdificio}")
+    Call<ResponseBody> searchPayments(@Header("Authorization") String authorization,@Path("idEdificio") long idEdificio);
+
+    @GET("api/MySpace/cajonesEstByUserAndHolding/{idEdificio}")
+    Call<ResponseBody> parkingBoxesByHolding(@Header("Authorization") String authorization,@Path("idEdificio") long idEdificio);
 }

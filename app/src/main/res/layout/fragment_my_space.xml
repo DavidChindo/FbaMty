@@ -15,9 +15,20 @@ tools:context="com.fibramty.fbmty.View.Fragment.MySpaceFragment"
         <ImageView
             android:id="@+id/fr_space_img_header"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="240dp"
             android:src="@drawable/img_header"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:visibility="gone"/>
+
+        <ir.apend.slider.ui.Slider
+            android:id="@+id/slider"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            app:animateIndicators="true"
+            app:defaultIndicators="circle"
+            app:indicatorSize="8dp"
+            app:intervalSecond="5"
+            app:loopSlides="true" />
 
         <in.galaxyofandroid.awesometablayout.AwesomeTabBar
             android:id="@+id/tabBar"
@@ -31,7 +42,7 @@ tools:context="com.fibramty.fbmty.View.Fragment.MySpaceFragment"
             android:overScrollMode="always"
             tools:layout_editor_absoluteY="0dp"
             tools:layout_editor_absoluteX="8dp"
-            android:layout_below="@id/fr_space_img_header">
+            android:layout_below="@id/slider">
         </in.galaxyofandroid.awesometablayout.AwesomeTabBar>
 
         <android.support.v4.view.ViewPager

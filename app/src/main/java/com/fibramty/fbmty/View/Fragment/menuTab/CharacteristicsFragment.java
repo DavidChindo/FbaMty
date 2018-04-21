@@ -27,7 +27,6 @@ import io.realm.RealmList;
  */
 public class CharacteristicsFragment extends Fragment {
 
-    @BindView(R.id.fr_characteristics_activities)ListView activitiesLv;
     @BindView(R.id.fr_characteristics_date)TextView dateTxt;
     @BindView(R.id.fr_characteristics_architect)TextView architectTxt;
     @BindView(R.id.fr_characteristics_floor)TextView floorTxt;
@@ -44,7 +43,6 @@ public class CharacteristicsFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setFields();
-        activitiesLv.setAdapter(new ActivityAdapter(getActivity(),R.layout.item_activity,getActivities()));
     }
 
     @Override
@@ -53,21 +51,6 @@ public class CharacteristicsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_characteristics, container, false);
         ButterKnife.bind(this,view);
         return view;
-    }
-
-    private RealmList<ActivityHolding> getActivities(){
-
-        if (MainActivity.holdingResponse != null && (MainActivity.holdingResponse.getActivities() != null &&
-                MainActivity.holdingResponse.getActivities().size() > 0)){
-            return MainActivity.holdingResponse.getActivities();
-        }else {
-            RealmList<ActivityHolding> activityHoldings = new RealmList<ActivityHolding>();
-            activityHoldings.add(new ActivityHolding(1, "02 Dic. 2018", "10 Dic. 2018", "", "Ampliación de jardines del ala oeste y" +
-                    "remodelación de terraza, con cubierta deck", 1));
-            activityHoldings.add(new ActivityHolding(2, "12 Dic. 2018", "20 Dic. 2018", "", "Remodelación del primer piso ", 1));
-            activityHoldings.add(new ActivityHolding(3, "22 Dic. 2018", "22 Dic. 2018", "", "Revisión del sistema electrico", 1));
-            return activityHoldings;
-        }
     }
 
     private void setFields(){

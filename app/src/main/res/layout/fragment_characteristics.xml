@@ -116,7 +116,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:layout_marginTop="@dimen/margin_eigth"
-                android:background="@color/divider"></View>
+                android:background="@color/divider"
+                android:visibility="gone"></View>
 
             <TextView
                 style="@style/font_title"
@@ -124,13 +125,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_eigth"
                 android:text="@string/activities_building"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccent"
+                android:visibility="gone"/>
 
             <ListView
                 android:id="@+id/fr_characteristics_activities"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_eigth"></ListView>
+                android:layout_margin="@dimen/margin_eigth"
+                android:visibility="gone"></ListView>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
     <!--    <ScrollView

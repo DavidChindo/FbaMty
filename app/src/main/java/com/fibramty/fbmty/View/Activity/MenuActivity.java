@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.R;
 import com.fibramty.fbmty.View.Fragment.MySpaceFragment;
 import com.fibramty.fbmty.View.Fragment.ProfileFragment;
@@ -30,7 +31,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         ButterKnife.bind(this);
-        toolbar.setTitle("Servicios");
+        setTitle();
         onChangeTabListener();
     }
 
@@ -50,8 +51,6 @@ public class MenuActivity extends AppCompatActivity {
                             case R.id.action_item3:
                                 selectedFragment = new ProfileFragment();
                                 break;
-                            case R.id.action_item4:
-                                selectedFragment = new SettingsFragment();
                         }
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                         transaction.replace(R.id.frame_layout, selectedFragment);
@@ -65,7 +64,11 @@ public class MenuActivity extends AppCompatActivity {
         transaction.replace(R.id.frame_layout, new ServiceFragment());
         transaction.commit();
 
-        //Used to select an item programmatically
-        //bottomNavigationView.getMenu().getItem(2).setChecked(true);
+    }
+
+    private void setTitle(){
+        if (MainActivity.holdingResponse != null){
+            toolbar.setTitle(MainActivity.holdingResponse.getName());
+        }
     }
 }

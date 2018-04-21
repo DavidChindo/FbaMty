@@ -30,4 +30,19 @@
         <item>Vigilancia</item>
     </string-array>
 
+    <integer-array name="menu_img">
+        <item>@drawable/ic_payment</item>
+        <item>@drawable/ic_tourvirtual</item>
+        <item>@drawable/ic_maintenance</item>
+        <item>@drawable/ic_ticket</item>
+    </integer-array>
+
+    <string-array name="menu_titles">
+        <item>@string/consulta_de_pagos</item>
+        <item>@string/view_360</item>
+        <item>@string/mantenimiento</item>
+        <item>@string/ticket</item>
+    </string-array>
+
+
 </resources>

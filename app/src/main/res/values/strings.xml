@@ -46,12 +46,15 @@
     <!-- Recovery Password Activity-->
     <string name="act_recovery_title">Recuperar Contraseña</string>
     <string name="act_recovery_email">Correo Electrónico</string>
+    <!-- Consulta de Pagos -->
     <string name="consulta_de_pagos">Consulta de pagos</string>
+    <string name="view_360">Vista 360</string>
     <string name="ticket">Ticket</string>
     <string name="mantenimiento">Mantenimiento</string>
     <string name="numero_de_documento">Número de documento</string>
     <string name="fecha_de_contabilizaci_n">Fecha de contabilización</string>
     <string name="importe_en_moneda_de_documento">Importe en moneda de documento</string>
+    <string name="amount">Monto</string>
     <string name="descripci_n">Descripción</string>
     <string name="edificio">Edificio</string>
     <string name="type_docto">Tipo documento</string>

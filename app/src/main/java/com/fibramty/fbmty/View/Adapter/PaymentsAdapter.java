@@ -1,6 +1,8 @@
 package com.fibramty.fbmty.View.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -54,27 +56,25 @@ public class PaymentsAdapter extends ArrayAdapter<Payment> {
         final Payment payment = mPayments.get(position);
 
         holder.number.setText(payment.getDocumentNumber());
-        holder.amounText.setText(payment.getAmount());
-        holder.currency.setText(payment.getCurrency());
-        holder.description.setText(payment.getDescription());
-        holder.typeDocto.setText(payment.getName());
         holder.status.setText(payment.getStatus());
-
+        holder.date.setText(payment.getDateValidity());
+        holder.colorStatus.setBackgroundColor(colorStatus(payment.getStatus()));
         return convertView;
     }
 
     class ViewHolder{
         @BindView(R.id.item_payments_number)TextView number;
         @BindView(R.id.item_payments_date)TextView date;
-        @BindView(R.id.item_payments_amount_text)TextView amounText;
-        @BindView(R.id.item_payments_currency)TextView currency;
-        @BindView(R.id.item_payments_description)TextView description;
-        @BindView(R.id.item_payments_type_docto)TextView typeDocto;
         @BindView(R.id.item_payments_status)TextView status;
+        @BindView(R.id.item_payments_color_status)View colorStatus;
 
         public ViewHolder(View v){
             ButterKnife.bind(this,v);
         }
+    }
+
+    private int colorStatus(String status){
+        return status.toLowerCase().equals("pagada") ? mContext.getResources().getColor(R.color.green) : mContext.getResources().getColor(R.color.red);
     }
 
 }

@@ -72,8 +72,11 @@
         <activity
             android:name=".View.Activity.RegisterActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".View.Activity.ParkingsActivity"
-            android:screenOrientation="portrait" ></activity>
+        <activity
+            android:name=".View.Activity.ParkingsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.Dialogs.PaymentDialog"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"></activity>
     </application>
 
 </manifest>

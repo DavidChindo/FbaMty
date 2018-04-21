@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ln"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="@dimen/margin_four">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dialog_payment_docto"
+                    style="@style/font_title_white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_four"
+                    android:layout_marginStart="@dimen/margin_four"
+                    android:layout_marginTop="@dimen/margin_eigth"
+                    android:layout_weight=".7"
+                    android:drawablePadding="@dimen/margin_four"
+                    android:drawableTint="@color/gray_icon"
+                    android:gravity="center|start"
+                    android:maxLines="2"
+                    android:text="22240207" />
+
+                <TextView
+                    android:id="@+id/dialog_payment_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_four"
+                    android:layout_marginTop="@dimen/margin_six"
+                    android:layout_weight=".3"
+                    android:background="@drawable/shape_status_pay"
+                    android:padding="@dimen/margin_six"
+                    android:text="Pagada"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:text="@string/fecha_de_contabilizaci_n" />
+
+            <TextView
+                android:id="@+id/dialog_payment_date"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="4"
+                android:text="2 Febrero 2022" />
+
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:text="@string/amount" />
+
+            <TextView
+                android:id="@+id/dialog_payment_amount"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="4"
+                android:text="22,22222.00" />
+
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:text="@string/importe_en_moneda_de_documento" />
+
+            <TextView
+                android:id="@+id/dialog_payment_currency"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="4"
+                android:text="MXN" />
+
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:text="@string/type_docto" />
+
+            <TextView
+                android:id="@+id/dialog_payment_type_docto"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="4"
+                android:text="Factura" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="@dimen/margin_four"
+                android:layout_marginEnd="@dimen/margin_six"
+                android:layout_marginStart="@dimen/margin_six"
+                android:layout_marginTop="@dimen/margin_four"
+                android:background="@color/silver"></View>
+
+            <TextView
+                style="@style/font_dialog_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_six"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2"
+                android:text="@string/description" />
+
+            <TextView
+                android:id="@+id/dialog_payment_desc"
+                style="@style/font_body_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginBottom="@dimen/margin_four"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="4"
+                android:text="El mantenimiento de estos equipos, se debe realizar de manera mensual, sin excepción. Esto debido a que su tiempo de operación son de alrededor de 11 hrs diarias.
+Se recomienda tener el cuarto de máquinas despejado de todo aquello que no tenga con el equipo (archiveros, cajas, basura, etc).
+Se debe de detallar el mantenimiento que se le realiza al equipo, incluyendo lecturas y temperaturas." />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

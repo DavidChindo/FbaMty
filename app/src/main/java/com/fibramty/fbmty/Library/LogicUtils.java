@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 
+import com.fibramty.fbmty.Network.Response.HoldingResponse;
+import com.fibramty.fbmty.R;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -74,5 +77,15 @@ public class LogicUtils {
                 }
             }
         }
+    }
+
+    public static String getUrlImage(Context context, HoldingResponse holdingResponse){
+        String url = "";
+        if (holdingResponse != null && holdingResponse.getPictures() != null){
+            if (holdingResponse.getPictures().getComercialImages() != null && holdingResponse.getPictures().getComercialImages().size() > 0){
+                url = context.getResources().getString(R.string.url_prod)+holdingResponse.getPictures().getComercialImages().get(0).getPath();
+            }
+        }
+        return url;
     }
 }

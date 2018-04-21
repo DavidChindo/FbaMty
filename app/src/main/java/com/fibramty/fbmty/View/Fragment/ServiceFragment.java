@@ -9,19 +9,36 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+import com.fibramty.fbmty.Library.LogicUtils;
 import com.fibramty.fbmty.R;
+import com.fibramty.fbmty.View.Activity.MainActivity;
 import com.fibramty.fbmty.View.Activity.MaintenanceActivity;
 import com.fibramty.fbmty.View.Activity.PaymentsActivity;
 import com.fibramty.fbmty.View.Activity.TicketActivity;
+import com.fibramty.fbmty.View.Adapter.MenuAdapter;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnItemClick;
 
 
 public class ServiceFragment extends Fragment {
 
     Activity mActivity;
+    @BindView(R.id.act_main_grid_menu)GridView menu;
+    @BindView(R.id.fr_services_back)ImageView background;
+    @BindView(R.id.fr_service_window)RelativeLayout mWindow;
     public ServiceFragment() {
         // Required empty public constructor
     }
@@ -30,6 +47,10 @@ public class ServiceFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mActivity = getActivity();
+        setBackground();
+        menu.setAdapter(new MenuAdapter(mActivity,R.layout.item_grid_menu,getResources().obtainTypedArray(R.array.menu_img),
+                getResources().getStringArray(R.array.menu_titles)));
+
     }
 
     @Override
@@ -37,21 +58,55 @@ public class ServiceFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_service, container, false);
         ButterKnife.bind(this, view);
+
         return view;
     }
 
-    @OnClick(R.id.ln_cont_payments)
-    void onOpenPaymentsClick(){
-        startActivity(new Intent(mActivity,PaymentsActivity.class));
+    @OnItemClick(R.id.act_main_grid_menu)
+    void onOptionClick(int position){
+        switch (position){
+            case 0:
+                startActivity(new Intent(mActivity,PaymentsActivity.class));
+                break;
+            case 1:
+                Toast.makeText(mActivity, "1", Toast.LENGTH_SHORT).show();
+                break;
+            case 2:
+                startActivity(new Intent(mActivity,MaintenanceActivity.class));
+                break;
+            case 3:
+                startActivity(new Intent(mActivity,TicketActivity.class));
+                break;
+        }
     }
 
-    @OnClick(R.id.ln_cont_maintenance)
-    void onOpenMaintenanceClick(){
-        startActivity(new Intent(mActivity,MaintenanceActivity.class));
+    private void setBackground(){
+        if (MainActivity.holdingResponse != null){
+            Glide.with(this).load(LogicUtils.getUrlImage(mActivity,MainActivity.holdingResponse))
+                    .listener(new RequestListener<String, GlideDrawable>() {
+                        @Override
+                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                            mWindow.setVisibility(View.VISIBLE);
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                            mWindow.setVisibility(View.GONE);
+                            return false;
+                        }
+                    })
+                    .error(R.drawable.img_menu_back)
+                    .placeholder(R.drawable.img_menu_back)
+                    .into(background);
+
+
+        }
     }
 
-    @OnClick(R.id.ln_cont_ticket)
-    void onOpenTicket(){
-        startActivity(new Intent(mActivity,TicketActivity.class));
+    @Override
+    public void onResume() {
+        super.onResume();
+        setBackground();
     }
 }
