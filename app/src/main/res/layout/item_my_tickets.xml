@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardCornerRadius="@dimen/margin_four">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/ln_mytickets_header"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin_two"
+                android:layout_marginStart="@dimen/margin_two"
+                android:layout_marginTop="@dimen/margin_two"
+                android:drawablePadding="@dimen/margin_two"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center"
+                android:maxLines="2"
+                android:text="@string/date_request" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginBottom="@dimen/margin_eigth"
+                android:layout_marginTop="@dimen/margin_eigth"/>
+
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin_two"
+                android:layout_marginStart="@dimen/margin_two"
+                android:layout_marginTop="@dimen/margin_two"
+                android:drawablePadding="@dimen/margin_two"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center"
+                android:maxLines="2"
+                android:text="@string/ticket" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginBottom="@dimen/margin_eigth"
+                android:layout_marginTop="@dimen/margin_eigth"/>
+
+            <TextView
+                style="@style/font_body_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_two"
+                android:layout_marginTop="@dimen/margin_two"
+                android:drawablePadding="@dimen/margin_two"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center"
+                android:maxLines="2"
+                android:text="@string/status" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ln_mytickets_body"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_below="@id/ln_payments_header">
+            <TextView
+                android:id="@+id/item_mytickets_date"
+                style="@style/font_body_desc"
+                android:textSize="@dimen/font_size_14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin_two"
+                android:layout_marginStart="@dimen/margin_two"
+                android:layout_marginTop="@dimen/margin_two"
+                android:gravity="center"
+                android:maxLines="2"
+                 />
+
+            <TextView
+                android:id="@+id/item_myticket_ticket"
+                style="@style/font_body_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/font_size_14"
+                android:layout_marginEnd="@dimen/margin_two"
+                android:layout_marginStart="@dimen/margin_two"
+                android:layout_marginTop="@dimen/margin_two"
+                android:drawablePadding="@dimen/margin_two"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center"
+                android:maxLines="2"
+                />
+
+
+
+            <TextView
+                android:id="@+id/item_myticket_status"
+                style="@style/font_body_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/font_size_14"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_two"
+                android:layout_marginTop="@dimen/margin_two"
+                android:drawablePadding="@dimen/margin_two"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center"
+                android:maxLines="2"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view_item"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardCornerRadius="@dimen/margin_four">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dialog_myticket_title"
+                style="@style/font_title_white"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:layout_weight=".7"
+                android:drawablePadding="@dimen/margin_four"
+                android:drawableTint="@color/gray_icon"
+                android:gravity="center|start"
+                android:maxLines="2" />
+
+            <ImageButton
+                android:id="@+id/dialog_myticket_view_file"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:src="@drawable/ic_view_file"
+                android:layout_margin="@dimen/margin_eigth"/>
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/font_body_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_four"
+            android:layout_marginStart="@dimen/margin_four"
+            android:layout_marginTop="@dimen/margin_four"
+            android:drawablePadding="@dimen/margin_four"
+            android:drawableTint="@color/gray_icon"
+            android:gravity="center|start"
+            android:text="@string/no_ticket" />
+
+        <TextView
+            android:id="@+id/dialog_myticket_no_ticket"
+            style="@style/font_body_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_four"
+            android:layout_marginStart="@dimen/margin_four"
+            android:drawablePadding="@dimen/margin_four"
+            android:drawableTint="@color/gray_icon"
+            android:gravity="center|start"
+            android:maxLines="4"
+            />
+
+        <TextView
+            style="@style/font_body_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_four"
+            android:layout_marginStart="@dimen/margin_four"
+            android:layout_marginTop="@dimen/margin_four"
+            android:drawablePadding="@dimen/margin_four"
+            android:drawableTint="@color/gray_icon"
+            android:gravity="center|start"
+            android:text="@string/date_request" />
+
+        <TextView
+            android:id="@+id/dialog_myticket_date"
+            style="@style/font_body_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_four"
+            android:layout_marginStart="@dimen/margin_four"
+            android:drawablePadding="@dimen/margin_four"
+            android:drawableTint="@color/gray_icon"
+            android:gravity="center|start"
+            android:maxLines="4"
+            />
+
+        <TextView
+            style="@style/font_body_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_four"
+            android:layout_marginStart="@dimen/margin_four"
+            android:layout_marginTop="@dimen/margin_four"
+            android:drawablePadding="@dimen/margin_four"
+            android:drawableTint="@color/gray_icon"
+            android:gravity="center|start"
+            android:text="@string/status" />
+
+        <TextView
+            android:id="@+id/dialog_myticket_status"
+            style="@style/font_body_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_four"
+            android:layout_marginStart="@dimen/margin_four"
+            android:drawablePadding="@dimen/margin_four"
+            android:drawableTint="@color/gray_icon"
+            android:gravity="center|start"
+            android:maxLines="4"
+            />
+
+        <TextView
+            style="@style/font_body_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_four"
+            android:layout_marginStart="@dimen/margin_four"
+            android:layout_marginTop="@dimen/margin_four"
+            android:drawablePadding="@dimen/margin_four"
+            android:drawableTint="@color/gray_icon"
+            android:gravity="center|start"
+            android:text="@string/observations_admin" />
+
+        <TextView
+            android:id="@+id/dialog_myticket_observations"
+            style="@style/font_body_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_four"
+            android:layout_marginStart="@dimen/margin_four"
+            android:layout_marginBottom="@dimen/margin_four"
+            android:drawablePadding="@dimen/margin_four"
+            android:drawableTint="@color/gray_icon"
+            android:gravity="center|start"
+            android:maxLines="4"
+            android:text="El mantenimiento de estos equipos, se debe realizar de manera mensual, sin excepción. Esto debido a que su tiempo de operación son de alrededor de 11 hrs diarias.
+Se recomienda tener el cuarto de máquinas despejado de todo aquello que no tenga con el equipo (archiveros, cajas, basura, etc).
+Se debe de detallar el mantenimiento que se le realiza al equipo, incluyendo lecturas y temperaturas." />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:id="@+id/dialog_myticket_ln_btn">
+            <Button
+                android:id="@+id/dialog_myticket_delete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                style="@style/BlueButtonNoMargin"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_four"
+                android:layout_marginBottom="@dimen/margin_eigth"
+                android:text="@string/delete"/>
+
+            <Button
+                android:id="@+id/dialog_myticket_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                style="@style/BlueButtonNoMargin"
+                android:layout_marginStart="@dimen/margin_four"
+                android:layout_marginEnd="@dimen/margin_four"
+                android:layout_marginTop="@dimen/margin_four"
+                android:layout_marginBottom="@dimen/margin_eigth"
+                android:text="@string/cancel"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

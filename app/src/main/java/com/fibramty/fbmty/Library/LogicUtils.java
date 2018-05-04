@@ -1,7 +1,11 @@
 package com.fibramty.fbmty.Library;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.fibramty.fbmty.Network.Response.HoldingResponse;
@@ -41,12 +45,7 @@ public class LogicUtils {
         }catch (Exception e){
             e.printStackTrace();
         }
-        if (nameZip.equals("2222")){
-            File zipTemp = new File(storagePath,nameZip+".zip");
-            if (zipTemp.exists()){
-                Log.d(TAG,"DELETE ZIP "+zipTemp.delete());
-            }
-        }
+
         final File zipFile = new File(storagePath, nameZip+".zip");
 
         Compress compress = new Compress(context, files, zipFile.getPath());
@@ -87,5 +86,22 @@ public class LogicUtils {
             }
         }
         return url;
+    }
+
+    public static String getUrlImageFooter(Context context, HoldingResponse holdingResponse){
+        String url = "";
+        if (holdingResponse != null && holdingResponse.getPictures() != null){
+            if (holdingResponse.getPictures().getFooterImages() != null && holdingResponse.getPictures().getFooterImages().size() > 0){
+                url = context.getResources().getString(R.string.url_prod)+holdingResponse.getPictures().getFooterImages().get(0).getPath();
+            }
+        }
+        return url;
+    }
+
+    public static void requestPermission(Activity activity, String permission) {
+        if (ContextCompat.checkSelfPermission(activity, permission)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, new String[]{permission}, 0);
+        }
     }
 }

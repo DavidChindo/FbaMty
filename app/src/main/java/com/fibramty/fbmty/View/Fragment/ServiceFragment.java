@@ -25,6 +25,7 @@ import com.fibramty.fbmty.View.Activity.MainActivity;
 import com.fibramty.fbmty.View.Activity.MaintenanceActivity;
 import com.fibramty.fbmty.View.Activity.PaymentsActivity;
 import com.fibramty.fbmty.View.Activity.TicketActivity;
+import com.fibramty.fbmty.View.Activity.VideoActivity;
 import com.fibramty.fbmty.View.Adapter.MenuAdapter;
 
 import butterknife.BindView;
@@ -69,7 +70,7 @@ public class ServiceFragment extends Fragment {
                 startActivity(new Intent(mActivity,PaymentsActivity.class));
                 break;
             case 1:
-                Toast.makeText(mActivity, "1", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(mActivity,VideoActivity.class));
                 break;
             case 2:
                 startActivity(new Intent(mActivity,MaintenanceActivity.class));

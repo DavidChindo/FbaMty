@@ -4,6 +4,7 @@ package com.fibramty.fbmty.View.Fragment.menuTab;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,20 +30,19 @@ public class CharacteristicsFragment extends Fragment {
 
     @BindView(R.id.fr_characteristics_date)TextView dateTxt;
     @BindView(R.id.fr_characteristics_architect)TextView architectTxt;
-    @BindView(R.id.fr_characteristics_floor)TextView floorTxt;
+    @BindView(R.id.fr_characteristics_floor)TextView areaTotalTxt;
     @BindView(R.id.fr_characteristics_parking_box)TextView parkingBoxTxt;
     @BindView(R.id.fr_characteristics_name_admon)TextView nameAdmonTxt;
     @BindView(R.id.fr_characteristics_email_admon)TextView emailAdmonTxt;
     @BindView(R.id.fr_characteristics_phone_admon)TextView phoneAdmonTxt;
 
     public CharacteristicsFragment() {
-        // Required empty public constructor
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setFields();
+        Log.d("a","onViee");
     }
 
     @Override
@@ -57,11 +57,24 @@ public class CharacteristicsFragment extends Fragment {
         if (MainActivity.holdingResponse != null){
             dateTxt.setText(Validators.validateString(MainActivity.holdingResponse.getYearConstruction()));
             architectTxt.setText(Validators.validateString(MainActivity.holdingResponse.getArchitect()));
-            floorTxt.setText(Validators.validateString(String.valueOf(MainActivity.holdingResponse.getOfficeQty())));
+            areaTotalTxt.setText(Validators.validateString(String.valueOf(MainActivity.holdingResponse.getAreaTotal())));
             parkingBoxTxt.setText(Validators.validateString(String.valueOf(MainActivity.holdingResponse.getParkingBoxes())));
             nameAdmonTxt.setText(Validators.validateString(MainActivity.holdingResponse.getAdministrator()));
             emailAdmonTxt.setText(Validators.validateString(MainActivity.holdingResponse.getAdmonEmail()));
             phoneAdmonTxt.setText(Validators.validateString(MainActivity.holdingResponse.getAdmonPhoneNumber()));
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setFields();
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setFields();
+    }
+
 }

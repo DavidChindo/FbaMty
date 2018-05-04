@@ -77,6 +77,8 @@ public class HoldingResponse extends RealmObject {
     private String architecturalPreview;
     @SerializedName("ServicesAdmin")
     private RealmList<Service> servicesAdmin;
+    @SerializedName("OtrosList")
+    private RealmList<String> otroList;
 
 
     public HoldingResponse(){}
@@ -328,6 +330,14 @@ public class HoldingResponse extends RealmObject {
 
     public void setServicesAdmin(RealmList<Service> servicesAdmin) {
         this.servicesAdmin = servicesAdmin;
+    }
+
+    public RealmList<String> getOtroList() {
+        return otroList;
+    }
+
+    public void setOtroList(RealmList<String> otroList) {
+        this.otroList = otroList;
     }
 
     public List<String> getHoldingsName(){

@@ -43,11 +43,7 @@ public class MySpaceFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        nestedScrollView.setFillViewport (true);
-        pager.setAdapter(new MySpaceAdapter(getFragmentManager()));
-        tabBar.setupWithViewPager(pager);
-        pager.setCurrentItem(1);
-        pager.setCurrentItem(0);
+
         slides = new ArrayList<>();
         setSlides();
     }
@@ -70,4 +66,13 @@ public class MySpaceFragment extends Fragment {
         slider.addSlides(slides);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        nestedScrollView.setFillViewport (true);
+        pager.setAdapter(new MySpaceAdapter(getFragmentManager()));
+        tabBar.setupWithViewPager(pager);
+        pager.setCurrentItem(1);
+        pager.setCurrentItem(0);
+    }
 }

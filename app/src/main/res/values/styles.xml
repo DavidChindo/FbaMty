@@ -39,6 +39,13 @@
         <item name="android:layout_marginRight">16dp</item>
     </style>
 
+    <style name="BlueButtonNoMargin" >
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="StrokeButton" >
         <item name="android:background">@drawable/shape_stroke_white</item>
         <item name="android:textColor">@color/colorWhite</item>

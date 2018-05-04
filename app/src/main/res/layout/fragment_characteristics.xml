@@ -44,7 +44,7 @@
                 style="@style/font_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/floor_builts" />
+                android:text="@string/total_area" />
 
             <TextView
                 android:id="@+id/fr_characteristics_floor"

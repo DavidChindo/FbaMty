@@ -9,14 +9,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/margin_eigth">
+        android:orientation="vertical">
+        <com.github.florent37.shapeofview.shapes.ArcView
+        android:id="@+id/fr_profile_img"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:elevation="4dp"
+        android:background="@drawable/img_menu_back"
+        app:shape_arc_cropDirection="outside"
+        app:shape_arc_height="20dp"
+        app:shape_arc_position="bottom">
+
+    </com.github.florent37.shapeofview.shapes.ArcView>
 
         <TextView
             style="@style/font_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/account" />
+            android:text="@string/account"
+            android:layout_marginTop="@dimen/margin_eigth"/>
 
         <TextView
             android:id="@+id/fr_profile_account"
@@ -42,7 +53,7 @@
         <com.asksira.dropdownview.DropDownView
             android:id="@+id/dropdownview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="230dp"
             app:placeholder_text="@string/select_holding"
             app:filter_bar_background_color="@color/silver"
             app:filter_text_color="@android:color/black"
@@ -50,8 +61,23 @@
             app:filter_text_arrow_padding = "0dp"
             app:dropDownItem_text_color_selected="@color/colorPrimaryDark"
             app:divider_color="@color/gray_background"
-            app:dropDownItem_text_size_selected="@dimen/font_size_14" />
+            app:dropDownItem_text_size_selected="@dimen/font_size_12" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/margin_four"
+            android:layout_marginBottom="@dimen/margin_four"
+            android:background="@color/silver"/>
+
+        <TextView
+            android:id="@+id/fr_profile_exit"
+            style="@style/font_title"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/item_4"
+            android:layout_marginBottom="@dimen/margin_four"/>
     </LinearLayout>
 
 

@@ -1,7 +1,9 @@
 package com.fibramty.fbmty.View.Activity;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -9,6 +11,7 @@ import android.widget.EditText;
 import com.fibramty.fbmty.Dal.RealmManager;
 import com.fibramty.fbmty.Library.Connection;
 import com.fibramty.fbmty.Library.DesignUtils;
+import com.fibramty.fbmty.Library.LogicUtils;
 import com.fibramty.fbmty.Library.Prefs;
 import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.Network.Request.LoginRequest;
@@ -49,6 +52,11 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback,Ho
         prefs = Prefs.with(LoginActivity.this);
         loginPresenter = new LoginPresenter(this,this);
         holdingPresenter = new HoldingPresenter(this,this);
+
+        if (Build.VERSION.SDK_INT >=23) {
+            LogicUtils.requestPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            LogicUtils.requestPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+        }
     }
 
     private void initViews(){// JUST FOR TESTING

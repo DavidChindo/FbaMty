@@ -4,6 +4,19 @@
     android:layout_height="match_parent"
     tools:context="com.fibramty.fbmty.View.Fragment.menuTab.CharacteristicsFragment"
     android:background="@color/gray_background">
+
+    <TextView
+        android:id="@+id/no_urls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="No hay documentos"
+        android:textColor="@color/gray"
+        android:textSize="17dp"
+        android:visibility="gone"/>
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -12,8 +25,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="@dimen/margin_twelve">
+            android:layout_margin="@dimen/margin_twelve"
+            >
             <TextView
+                android:id="@+id/fr_downloads_plans"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/font_title"
@@ -29,6 +44,13 @@
                 android:scaleType="fitXY"
                 android:layout_marginBottom="@dimen/margin_twelve"/>
 
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/fr_downloads_rv_others"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+            </android.support.v7.widget.RecyclerView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -37,14 +59,16 @@
                 android:layout_marginTop="@dimen/margin_eigth"
                 android:textColor="@color/colorAccent"
                 android:text="@string/contingency_plans"
-                android:layout_marginBottom="@dimen/margin_twelve"/>
+                android:layout_marginBottom="@dimen/margin_twelve"
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/fr_downloads_contingency"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:src="@drawable/img_desc_conting"
-                android:scaleType="fitXY"/>
+                android:scaleType="fitXY"
+                android:visibility="gone"/>
 
 
         </LinearLayout>

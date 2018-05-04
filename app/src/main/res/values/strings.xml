@@ -64,8 +64,13 @@
     <string name="phone">Teléfono</string>
     <string name="mobile">Celular</string>
     <string name="email">Correo electrónico</string>
-    <string name="description">Descripción</string>
+    <string name="description">Explicación</string>
+    <string name="frequency">Frecuencia</string>
     <string name="search_file">Examinar</string>
+    <string name="date_request">Fecha Solicitud</string>
+    <string name="no_ticket">No. Ticket</string>
+    <string name="observations_admin">Observaciones del Administrador</string>
+    <string name="delete">Eliminar</string>
 
 
     <!--Titles bottom nav item -->
@@ -81,6 +86,7 @@
     <string name="date_built">Fecha de Construcción</string>
     <string name="architect">Arquitecto</string>
     <string name="floor_builts">Pisos Construidos</string>
+    <string name="total_area">Área Total</string>
     <string name="parkings">Cajones de Estacionamiento</string>
     <string name="activities_building">Actividades del Edificio</string>
     <string name="administrador_data">Datos del Administrador</string>

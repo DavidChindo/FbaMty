@@ -75,7 +75,14 @@
         <activity
             android:name=".View.Activity.ParkingsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".View.Dialogs.PaymentDialog"
+        <activity
+            android:name=".View.Dialogs.PaymentDialog"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
+        <activity android:name=".View.Activity.MyTicketsActivity" />
+        <activity
+            android:name=".View.Activity.VideoActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".View.Dialogs.MyTicketDialog"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"></activity>
     </application>
 

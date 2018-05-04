@@ -1,6 +1,7 @@
 package com.fibramty.fbmty.View.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,16 +11,25 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.asksira.dropdownview.DropDownView;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+import com.fibramty.fbmty.Dal.RealmManager;
 import com.fibramty.fbmty.Library.DesignUtils;
+import com.fibramty.fbmty.Library.LogicUtils;
 import com.fibramty.fbmty.Library.Prefs;
 import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.R;
+import com.fibramty.fbmty.View.Activity.LoginActivity;
 import com.fibramty.fbmty.View.Activity.MainActivity;
 import com.fibramty.fbmty.View.Activity.SplashActivity;
+import com.github.florent37.shapeofview.shapes.ArcView;
 
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnItemSelected;
 
 /**
@@ -31,6 +41,8 @@ public class ProfileFragment extends Fragment {
 
     @BindView(R.id.dropdownview)com.asksira.dropdownview.DropDownView holdings;
     @BindView(R.id.fr_profile_account)TextView accountTxt;
+    @BindView(R.id.fr_profile_exit)TextView exitTxt;
+    @BindView(R.id.fr_profile_img)ArcView arcView;
     Prefs prefs;
 
     public ProfileFragment() {
@@ -53,6 +65,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private void initViews(){
+        accountTxt.setText(RealmManager.user());
         holdings.setDropDownListItem(MainActivity.holdingResponse.getHoldingsName());
         holdings.setSelectingPosition(prefs.getInt(Statics.SELECTED_POSITION));
         holdings.setOnSelectionListener(new DropDownView.OnSelectionListener() {
@@ -66,5 +79,13 @@ public class ProfileFragment extends Fragment {
             }
         });
     }
+
+    @OnClick(R.id.fr_profile_exit)
+    void onExitClick(){
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
 
 }
