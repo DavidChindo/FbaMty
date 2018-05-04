@@ -1,22 +1,20 @@
 package com.fibramty.fbmty.View.Activity;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.fibramty.fbmty.Dal.RealmManager;
 import com.fibramty.fbmty.Library.DesignUtils;
 import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.Network.Request.Models.Payment;
@@ -31,27 +29,24 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.crypto.spec.DESedeKeySpec;
-
-import butterknife.BindDimen;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
 import fr.ganfra.materialspinner.MaterialSpinner;
-import retrofit2.http.PATCH;
+import io.realm.Realm;
 
 public class PaymentsActivity extends AppCompatActivity implements PaymentsCallback {
 
     @BindView(R.id.toolbar)Toolbar toolbar;
     @BindView(R.id.act_payments_lv_payments)ListView paymentslv;
     @BindView(R.id.act_payments_sp_month)MaterialSpinner spMonth;
-    @BindView(R.id.act_payments_sp_year)MaterialSpinner spYear;
+    @BindView(R.id.act_payments_rgb)RadioGroup rgbPayed;
     @BindView(R.id.no_payments)TextView noPayments;
     private List<Payment> mPayments;
     private PaymentsPresenter paymentsPresenter;
     ProgressDialog mProgressDialog;
-
+    List<String> datesFiltes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +62,8 @@ public class PaymentsActivity extends AppCompatActivity implements PaymentsCallb
 
     private void initViews(){
         mPayments = new ArrayList<Payment>();
+        datesFiltes = new ArrayList<String>();
         paymentsPresenter = new PaymentsPresenter(this,this);
-        spMonth.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, Statics.Months));
-        spYear.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, Statics.Years));
         mProgressDialog = ProgressDialog.show(this, null, "Descargando...");
         mProgressDialog.setCancelable(false);
         paymentsPresenter.payments();
@@ -113,6 +107,11 @@ public class PaymentsActivity extends AppCompatActivity implements PaymentsCallb
     public void onPaymentsSuccess(List<Payment> payments) {
         if (payments != null && payments.size() > 0){
             mPayments = payments;
+            Realm realm = Realm.getDefaultInstance();
+            RealmManager.insert(realm,mPayments);
+            datesFiltes = RealmManager.listUnique(realm);
+            realm.close();
+            spMonth.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, datesFiltes));
             paymentslv.setAdapter(new PaymentsAdapter(PaymentsActivity.this,R.layout.item_payments,payments));
             noPayments.setVisibility(View.GONE);
             paymentslv.setVisibility(View.VISIBLE);

@@ -27,6 +27,7 @@ import butterknife.OnClick;
 /**
  * Created by Chindo
  */
+
 public class DownloadsFragment extends Fragment implements DownloadCallback{
 
     @BindView(R.id.fr_downloads_architect)ImageView imgArchitect;

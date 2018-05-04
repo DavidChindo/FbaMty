@@ -2,13 +2,17 @@ package com.fibramty.fbmty.Network.Request.Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by david.barrera on 11/29/17.
  */
 
-public class Payment {
+public class Payment extends RealmObject{
 
     @SerializedName("DOC_NO")
+    @PrimaryKey
     private String documentNumber;
     @SerializedName("ITEM_TEXT")
     private String description;

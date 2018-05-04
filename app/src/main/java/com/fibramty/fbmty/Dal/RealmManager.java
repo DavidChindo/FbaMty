@@ -2,6 +2,7 @@ package com.fibramty.fbmty.Dal;
 
 import android.util.Log;
 
+import com.fibramty.fbmty.Network.Request.Models.Payment;
 import com.fibramty.fbmty.Network.Response.LoginResponse;
 
 import java.util.ArrayList;
@@ -65,6 +66,15 @@ public class RealmManager {
             realmList.add(result);
         }
         return realmList;
+    }
+
+    public static  List<String> listUnique(Realm realm){
+        RealmResults<Payment> uniques = realm.where(Payment.class).distinct("dateValidity").findAll();
+        List<String> dateFilters = new ArrayList<>();
+        for (Payment dates : uniques){
+            dateFilters.add(dates.getDateValidity());
+        }
+        return dateFilters;
     }
 
     public static <T extends RealmObject> void insert(Realm realm, final RealmList<T> items) {

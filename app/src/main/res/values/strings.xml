@@ -68,9 +68,12 @@
     <string name="frequency">Frecuencia</string>
     <string name="search_file">Examinar</string>
     <string name="date_request">Fecha Solicitud</string>
+    <string name="date">Fecha</string>
     <string name="no_ticket">No. Ticket</string>
     <string name="observations_admin">Observaciones del Administrador</string>
     <string name="delete">Eliminar</string>
+    <string name="payed">Pagada</string>
+    <string name="not_payed">No pagada</string>
 
 
     <!--Titles bottom nav item -->
