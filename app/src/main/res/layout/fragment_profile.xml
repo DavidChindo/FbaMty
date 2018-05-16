@@ -5,28 +5,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.fibramty.fbmty.View.Fragment.ProfileFragment"
     android:background="@color/gray_background">
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
         <com.github.florent37.shapeofview.shapes.ArcView
         android:id="@+id/fr_profile_img"
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:elevation="4dp"
+        android:layout_alignParentTop="true"
         android:background="@drawable/img_menu_back"
         app:shape_arc_cropDirection="outside"
         app:shape_arc_height="20dp"
         app:shape_arc_position="bottom">
-
     </com.github.florent37.shapeofview.shapes.ArcView>
 
+
+
         <TextView
+            android:id="@+id/txt_account_title"
             style="@style/font_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/account"
+            android:layout_below="@id/fr_profile_img"
             android:layout_marginTop="@dimen/margin_eigth"/>
 
         <TextView
@@ -34,9 +42,14 @@
             style="@style/font_title_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/txt_account_title"
+            android:layout_marginTop="@dimen/margin_four"
+            android:layout_marginBottom="@dimen/margin_four"
             />
 
         <View
+            android:id="@+id/view_divider"
+            android:layout_below="@id/fr_profile_account"
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:layout_marginTop="@dimen/margin_four"
@@ -48,12 +61,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/buildings"
+            android:id="@+id/txt_holdings"
+            android:layout_below="@id/view_divider"
             android:layout_marginBottom="@dimen/margin_four"/>
 
         <com.asksira.dropdownview.DropDownView
             android:id="@+id/dropdownview"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_height="match_parent"
+            android:layout_below="@id/txt_holdings"
             app:placeholder_text="@string/select_holding"
             app:filter_bar_background_color="@color/silver"
             app:filter_text_color="@android:color/black"
@@ -63,22 +79,19 @@
             app:divider_color="@color/gray_background"
             app:dropDownItem_text_size_selected="@dimen/font_size_12" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="@dimen/margin_four"
-            android:layout_marginBottom="@dimen/margin_four"
-            android:background="@color/silver"/>
 
-        <TextView
-            android:id="@+id/fr_profile_exit"
-            style="@style/font_title"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/item_4"
-            android:layout_marginBottom="@dimen/margin_four"/>
-    </LinearLayout>
+    </RelativeLayout>
 
-
+    <ImageButton
+        android:id="@+id/fr_profile_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ico_mnu_salir"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:tint="@color/colorWhite"
+        android:layout_marginEnd="@dimen/margin_eigth"
+        android:layout_marginTop="@dimen/margin_eigth"
+        android:background="@color/transparent"/>
+    </RelativeLayout>
 </FrameLayout>

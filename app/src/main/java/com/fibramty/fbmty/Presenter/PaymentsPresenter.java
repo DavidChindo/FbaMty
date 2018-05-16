@@ -7,11 +7,8 @@ import com.fibramty.fbmty.FbMtyApp;
 import com.fibramty.fbmty.Library.Connection;
 import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.Network.Request.Models.Payment;
-import com.fibramty.fbmty.Network.Response.HoldingResponse;
-import com.fibramty.fbmty.Presenter.Callbacks.ChatCallback;
 import com.fibramty.fbmty.Presenter.Callbacks.PaymentsCallback;
 
-import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;

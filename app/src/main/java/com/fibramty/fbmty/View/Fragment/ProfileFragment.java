@@ -1,6 +1,7 @@
 package com.fibramty.fbmty.View.Fragment;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.asksira.dropdownview.DropDownView;
@@ -20,6 +22,8 @@ import com.fibramty.fbmty.Library.DesignUtils;
 import com.fibramty.fbmty.Library.LogicUtils;
 import com.fibramty.fbmty.Library.Prefs;
 import com.fibramty.fbmty.Library.Statics;
+import com.fibramty.fbmty.Presenter.Callbacks.ProfileCallback;
+import com.fibramty.fbmty.Presenter.ProfilePresenter;
 import com.fibramty.fbmty.R;
 import com.fibramty.fbmty.View.Activity.LoginActivity;
 import com.fibramty.fbmty.View.Activity.MainActivity;
@@ -36,14 +40,16 @@ import butterknife.OnItemSelected;
  * A simple {@link Fragment} subclass.
  */
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements ProfileCallback {
 
 
     @BindView(R.id.dropdownview)com.asksira.dropdownview.DropDownView holdings;
     @BindView(R.id.fr_profile_account)TextView accountTxt;
-    @BindView(R.id.fr_profile_exit)TextView exitTxt;
+    @BindView(R.id.fr_profile_exit)ImageButton exitTxt;
     @BindView(R.id.fr_profile_img)ArcView arcView;
     Prefs prefs;
+    ProgressDialog progressDialog;
+    ProfilePresenter profilePresenter;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -65,6 +71,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private void initViews(){
+        profilePresenter = new ProfilePresenter(this,getActivity());
         accountTxt.setText(RealmManager.user());
         holdings.setDropDownListItem(MainActivity.holdingResponse.getHoldingsName());
         holdings.setSelectingPosition(prefs.getInt(Statics.SELECTED_POSITION));
@@ -82,10 +89,24 @@ public class ProfileFragment extends Fragment {
 
     @OnClick(R.id.fr_profile_exit)
     void onExitClick(){
+        progressDialog = ProgressDialog.show(getActivity(), null, "Cerrando Sesión...");
+        progressDialog.setCancelable(false);
+        profilePresenter.logOut();
+    }
+
+
+    @Override
+    public void logoutSuccess(String msg) {
+        progressDialog.dismiss();
+        DesignUtils.showToast(getActivity(),msg);
         Intent intent = new Intent(getActivity(), LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
-
+    @Override
+    public void logoutError(String msg) {
+        progressDialog.dismiss();
+        DesignUtils.errorMessage(getActivity(),"Sesión",msg);
+    }
 }

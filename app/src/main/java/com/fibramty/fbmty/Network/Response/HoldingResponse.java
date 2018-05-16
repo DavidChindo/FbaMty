@@ -79,6 +79,8 @@ public class HoldingResponse extends RealmObject {
     private RealmList<Service> servicesAdmin;
     @SerializedName("OtrosList")
     private RealmList<String> otroList;
+    @SerializedName("UrlVideo")
+    private String UrlVideo;
 
 
     public HoldingResponse(){}
@@ -88,7 +90,7 @@ public class HoldingResponse extends RealmObject {
                            int officeQty, String architect, String description, String holdingType, String totalPrice,
                            Office office, PicturesResponse pictures, RealmList<Service> services, RealmList<ActivityHolding> activities,
                            int availableOffice, RealmList<Plan> plans, int parkingBoxes, Contact contact, String extrasProperties,String architecturalPreview,
-                            RealmList<Service> servicesAdmin) {
+                            RealmList<Service> servicesAdmin,String UrlVideo) {
         this.administrator = administrator;
         this.id = id;
         this.idParentHolding = idParentHolding;
@@ -114,6 +116,7 @@ public class HoldingResponse extends RealmObject {
         this.extrasProperties = extrasProperties;
         this.architecturalPreview = architecturalPreview;
         this.servicesAdmin = servicesAdmin;
+        this.UrlVideo = UrlVideo;
     }
 
     public String getAdministrator() {
@@ -338,6 +341,14 @@ public class HoldingResponse extends RealmObject {
 
     public void setOtroList(RealmList<String> otroList) {
         this.otroList = otroList;
+    }
+
+    public String getUrlVideo() {
+        return UrlVideo;
+    }
+
+    public void setUrlVideo(String urlVideo) {
+        UrlVideo = urlVideo;
     }
 
     public List<String> getHoldingsName(){

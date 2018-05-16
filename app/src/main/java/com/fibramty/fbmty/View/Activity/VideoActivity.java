@@ -55,7 +55,12 @@ public class VideoActivity extends Activity {
 
         mWebView.getSettings().setPluginState(WebSettings.PluginState.ON);
 
-        mWebView.loadDataWithBaseURL(null,"<div style=\"padding:52.73%  0 0 0;position:relative;\"><iframe src=\"https://player.vimeo.com/video/266155501\" style=\"position:absolute;top:0;left:0;width:100%;height:100%;\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src=\"https://player.vimeo.com/api/player.js\"></script>\n" ,"text/html", "utf-8", null);
+        String idVideo[] = MainActivity.holdingResponse.getUrlVideo().split("/");
+
+        String html = "<div style=\"width: 100%\"><iframe src=\"https://player.vimeo.com/video/"+idVideo[idVideo.length -1]+"?autoplay=1&byline=0&portrait=0\"\" style=\"position:fixed;top:0;left:0;  width:100%;height:100%;\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src=\"https://player.vimeo.com/api/player.js\"></script>";
+
+        mWebView.loadDataWithBaseURL(null,html ,"text/html", "utf-8", null);
+
 
     }
 

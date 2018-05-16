@@ -45,7 +45,6 @@ public class MyTicketsActivity extends AppCompatActivity implements MyTicketsCal
     ProgressDialog mProgressDialog;
     MyTicketsAdapter myTicketsAdapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

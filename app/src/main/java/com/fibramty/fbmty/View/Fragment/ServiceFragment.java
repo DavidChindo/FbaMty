@@ -2,6 +2,7 @@ package com.fibramty.fbmty.View.Fragment;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,6 +20,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.fibramty.fbmty.Library.DesignUtils;
 import com.fibramty.fbmty.Library.LogicUtils;
 import com.fibramty.fbmty.R;
 import com.fibramty.fbmty.View.Activity.MainActivity;
@@ -72,7 +74,13 @@ public class ServiceFragment extends Fragment {
                 startActivity(new Intent(mActivity,PaymentsActivity.class));
                 break;
             case 1:
-                startActivity(new Intent(mActivity,VideoActivity.class));
+
+                if (MainActivity.holdingResponse.getUrlVideo() != null && !MainActivity.holdingResponse.getUrlVideo().isEmpty()) {
+                    startActivity(new Intent(mActivity, VideoActivity.class));
+                }else{
+                    DesignUtils.errorMessage(mActivity,"Video","No existe video para este edificio");
+                }
+
                 break;
             case 2:
                 startActivity(new Intent(mActivity,MaintenanceActivity.class));

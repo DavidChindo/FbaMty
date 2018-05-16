@@ -10,6 +10,8 @@ import com.fibramty.fbmty.Network.Response.LoginResponse;
 import com.fibramty.fbmty.Network.Response.MaintenanceResponse;
 import com.fibramty.fbmty.Network.Response.MyTicketResponse;
 import com.fibramty.fbmty.Network.Response.PaymentResponse;
+import com.fibramty.fbmty.Network.Response.ServicesDataResponse;
+import com.fibramty.fbmty.Network.Response.ServicesDescResponse;
 
 import java.util.List;
 
@@ -49,13 +51,6 @@ public interface FbMtyWebService {
     @GET("api/MySpace/paymentsByHolding/0")
     Call<List<Payment>> payments(@Header("Authorization") String authorization);
 
-
-    @GET("api/MySpace/getHoldingUserParkingLotsTickets/{idEdificio}")
-    Call<ResponseBody> searchPayments(@Header("Authorization") String authorization,@Path("idEdificio") long idEdificio);
-
-    @GET("api/MySpace/cajonesEstByUserAndHolding/{idEdificio}")
-    Call<ResponseBody> parkingBoxesByHolding(@Header("Authorization") String authorization,@Path("idEdificio") long idEdificio);
-
     @Multipart
     @POST("api/MySpace/sendTicket")
     Call<Long> sendTicket(@Header("Authorization") String authorization,
@@ -66,19 +61,68 @@ public interface FbMtyWebService {
 
     @FormUrlEncoded
     @POST("api/MySpace/cancelTicket")
-    Call<ResponseBody> cancelTicket(@Header("Authorization")String authorization,
+    Call<ResponseBody> cancelTicket(@Header("Authorization") String authorization,
                                     @Field("holdingId") long idHolding,
                                     @Field("Id") long id);
 
     @FormUrlEncoded
-    @POST("/api/MySpace/deleteTicket")
-    Call<ResponseBody> deleteTicket(@Header("Authorization")String authorization,
+    @POST("api/MySpace/deleteTicket")
+    Call<ResponseBody> deleteTicket(@Header("Authorization") String authorization,
                                     @Field("holdingId") long idHolding,
                                     @Field("Id") long id);
 
     @GET("api/MySpace/servicesByUserAndHolding/{idHolding}")
-    Call<List<MyTicketResponse>> myTickets(@Header("Authorization")String authorization,@Path("idHolding") long idHolding);
+    Call<List<MyTicketResponse>> myTickets(@Header("Authorization") String authorization, @Path("idHolding") long idHolding);
 
     @GET("api/MySpace/maintenanceByHolding/{idHolding}")
-    Call<List<Maintenance>> maintenances(@Header("Authorization")String authorization,@Path("idHolding") long idHolding);
+    Call<List<Maintenance>> maintenances(@Header("Authorization") String authorization, @Path("idHolding") long idHolding);
+
+    @GET("api/MySpace/cajonesEstByUserAndHolding/{idHolding}")
+    Call<List<ServicesDescResponse>> cajonesEstByUserAndHolding(@Header("Authorization") String authorization, @Path("idHolding") long idHolding);
+
+    @GET("api/MySpace/getHoldingUserParkingLotsTickets/{idHolding}")
+    Call<List<ServicesDataResponse>> getHoldingUserParkingLotsTickets(@Header("Authorization") String authorization, @Path("idHolding") long idHolding);
+
+    @GET("api/MySpace/tarjetasEstByUserAndHolding/{idHolding}")
+    Call<List<ServicesDescResponse>> tarjetasEstByUserAndHolding(@Header("Authorization") String authorization, @Path("idHolding") long idHolding);
+
+    @GET("api/MySpace/getHoldingUserParkingMembershipsTickets/{idHolding}")
+    Call<List<ServicesDataResponse>> getHoldingUserParkingMembershipsTickets(@Header("Authorization") String authorization, @Path("idHolding") long idHolding);
+
+    @GET("api/MySpace/CortesiasEstByUserAndHolding/{idHolding}")
+    Call<List<ServicesDescResponse>> CortesiasEstByUserAndHolding(@Header("Authorization") String authorization, @Path("idHolding") long idHolding);
+
+    @GET("api/MySpace/getHoldingUserParkingCardsTickets/{idHolding}")
+    Call<List<ServicesDataResponse>> getHoldingUserParkingCardsTickets(@Header("Authorization") String authorization, @Path("idHolding") long idHolding);
+
+    @FormUrlEncoded
+    @POST("api/MySpace/sendCajonesEstTickets")
+    Call<ResponseBody> sendCajonesEstTickets(@Header("Authorization") String authorization,
+                                    @Field("parkingHoldingId") long idHolding,
+                                    @Field("holdingId") long id,
+                                    @Field("numCortesias") int numCortesias,
+                                    @Field("numMntos") int numMntos,
+                                    @Field("precioCortesia") int precioCortesia,
+                                    @Field("precioMnto") int precioMnto,
+                                    @Field("tipoAccion") int tipoAccion);
+
+    @FormUrlEncoded
+    @POST("api/MySpace/sendTarjetasEstTickets")
+    Call<ResponseBody> sendTarjetasEstTickets(@Header("Authorization") String authorization,
+                                             @Field("parkingHoldingId") long idHolding,
+                                             @Field("holdingId") long id,
+                                             @Field("numCortesias") int numCortesias,
+                                             @Field("precioCortesia") int numMntos);
+
+
+    @FormUrlEncoded
+    @POST("api/MySpace/sendCortesiasEstTickets")
+    Call<ResponseBody> sendCortesiasEstTickets(@Header("Authorization") String authorization,
+                                              @Field("parkingHoldingId") long idHolding,
+                                              @Field("holdingId") long id,
+                                              @Field("numCortesias") int numCortesias,
+                                              @Field("precioCortesia") int numMntos);
+
+    @POST("api/Account/Logout")
+    Call<ResponseBody> logOut(@Header("Authorization") String authorization);
 }
