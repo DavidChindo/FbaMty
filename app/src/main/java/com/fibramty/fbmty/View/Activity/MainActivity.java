@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        toolbar.setTitle("Servicios");
+
         menu.setAdapter(new MenuAdapter(this,R.layout.item_grid_menu,getResources().obtainTypedArray(R.array.menu_img),
                 getResources().getStringArray(R.array.menu_titles)));
     }

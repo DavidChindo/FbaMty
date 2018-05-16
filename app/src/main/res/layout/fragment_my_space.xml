@@ -28,7 +28,8 @@ tools:context="com.fibramty.fbmty.View.Fragment.MySpaceFragment"
             app:defaultIndicators="circle"
             app:indicatorSize="8dp"
             app:intervalSecond="5"
-            app:loopSlides="true" />
+            app:loopSlides="true"
+            />
 
         <in.galaxyofandroid.awesometablayout.AwesomeTabBar
             android:id="@+id/tabBar"

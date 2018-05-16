@@ -4,6 +4,7 @@ package com.fibramty.fbmty.View.Fragment.menuTab;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +51,7 @@ public class CharacteristicsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_characteristics, container, false);
         ButterKnife.bind(this,view);
+
         return view;
     }
 
@@ -77,4 +79,8 @@ public class CharacteristicsFragment extends Fragment {
         setFields();
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
 }

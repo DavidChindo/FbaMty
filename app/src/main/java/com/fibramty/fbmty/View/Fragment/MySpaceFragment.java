@@ -43,7 +43,6 @@ public class MySpaceFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         slides = new ArrayList<>();
         setSlides();
     }
@@ -75,4 +74,5 @@ public class MySpaceFragment extends Fragment {
         pager.setCurrentItem(1);
         pager.setCurrentItem(0);
     }
+
 }

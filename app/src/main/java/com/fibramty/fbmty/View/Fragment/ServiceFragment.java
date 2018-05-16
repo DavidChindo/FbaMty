@@ -28,6 +28,7 @@ import com.fibramty.fbmty.View.Activity.TicketActivity;
 import com.fibramty.fbmty.View.Activity.VideoActivity;
 import com.fibramty.fbmty.View.Adapter.MenuAdapter;
 
+import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,6 +41,7 @@ public class ServiceFragment extends Fragment {
     @BindView(R.id.act_main_grid_menu)GridView menu;
     @BindView(R.id.fr_services_back)ImageView background;
     @BindView(R.id.fr_service_window)RelativeLayout mWindow;
+
     public ServiceFragment() {
         // Required empty public constructor
     }

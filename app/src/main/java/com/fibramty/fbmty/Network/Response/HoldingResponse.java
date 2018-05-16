@@ -43,7 +43,7 @@ public class HoldingResponse extends RealmObject {
     private Address address;
     @SerializedName("AniosContruccion")
     private String yearConstruction;
-    @SerializedName("areaTotal")
+    @SerializedName("AreaTotal")
     private String areaTotal;
     @SerializedName("OfficesQty")
     private int officeQty;

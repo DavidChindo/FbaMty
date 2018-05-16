@@ -8,28 +8,45 @@ import com.google.gson.annotations.SerializedName;
 
 public class Maintenance {
 
-    @SerializedName("title")
+    @SerializedName("Id")
+    private long id;
+    @SerializedName("HoldingId")
+    private long HoldingId;
+    @SerializedName("Title")
     private String title;
-    @SerializedName("description")
+    @SerializedName("Description")
     private String description;
-    @SerializedName("schedule")
+    @SerializedName("Schedule")
     private String schedule;
     @SerializedName("frequency")
     private String frequency;
-    @SerializedName("provider")
-    private Provider provider;
-    @SerializedName("cost")
+    @SerializedName("Cost")
     private String cost;
+    @SerializedName("ProviderName")
+    private String providerName;
+    @SerializedName("ProviderPhone")
+    private String ProviderPhone;
+    @SerializedName("ProviderCellPhone")
+    private String ProviderCellPhone;
+    @SerializedName("ProviderEmail")
+    private String ProviderEmail;
 
     public Maintenance(){}
 
-    public Maintenance(String title, String description, String schedule, String frequency, Provider provider, String cost) {
-        this.title = title;
-        this.description = description;
-        this.schedule = schedule;
-        this.frequency = frequency;
-        this.provider = provider;
-        this.cost = cost;
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getHoldingId() {
+        return HoldingId;
+    }
+
+    public void setHoldingId(long holdingId) {
+        HoldingId = holdingId;
     }
 
     public String getTitle() {
@@ -64,19 +81,43 @@ public class Maintenance {
         this.frequency = frequency;
     }
 
-    public Provider getProvider() {
-        return provider;
-    }
-
-    public void setProvider(Provider provider) {
-        this.provider = provider;
-    }
-
     public String getCost() {
         return cost;
     }
 
     public void setCost(String cost) {
         this.cost = cost;
+    }
+
+    public String getProviderName() {
+        return providerName;
+    }
+
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
+    }
+
+    public String getProviderPhone() {
+        return ProviderPhone;
+    }
+
+    public void setProviderPhone(String providerPhone) {
+        ProviderPhone = providerPhone;
+    }
+
+    public String getProviderCellPhone() {
+        return ProviderCellPhone;
+    }
+
+    public void setProviderCellPhone(String providerCellPhone) {
+        ProviderCellPhone = providerCellPhone;
+    }
+
+    public String getProviderEmail() {
+        return ProviderEmail;
+    }
+
+    public void setProviderEmail(String providerEmail) {
+        ProviderEmail = providerEmail;
     }
 }

@@ -28,6 +28,6 @@ public class Statics {
 
     public static final String[] Months = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
     public static final String[] Years = {"2017","2018","2019","2020","2021","2022"};
-    public static Maintenance maintenance;
+
 }
 

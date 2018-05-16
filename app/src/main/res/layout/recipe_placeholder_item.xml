@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_eigth">
+
+    <View
+        android:id="@+id/thumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_fortyfour"
+        android:layout_marginTop="@dimen/margin_eigth"
+        android:layout_marginStart="@dimen/margin_sixteen"
+        android:layout_marginEnd="@dimen/margin_sixteen"
+        android:background="@color/divider"
+        />
+
+
+</RelativeLayout>

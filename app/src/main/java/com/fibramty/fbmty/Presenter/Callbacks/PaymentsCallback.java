@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface PaymentsCallback {
 
-    void onPaymentsSuccess(List<Payment> payments);
+    void onPaymentsSuccess(List<Payment> payments, boolean isFilter);
 
     void onPaymentsError(String msg);
 }

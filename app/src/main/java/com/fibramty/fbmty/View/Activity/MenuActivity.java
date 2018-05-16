@@ -7,7 +7,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.R;
@@ -17,6 +19,7 @@ import com.fibramty.fbmty.View.Fragment.ServiceFragment;
 import com.fibramty.fbmty.View.Fragment.SettingsFragment;
 import com.fibramty.fbmty.View.Fragment.menuTab.CharacteristicsFragment;
 import com.fibramty.fbmty.View.Fragment.menuTab.ServicesFragment;
+import com.google.android.gms.common.GoogleApiAvailability;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,6 +35,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         ButterKnife.bind(this);
         setTitle();
+        setSupportActionBar(toolbar);
         onChangeTabListener();
     }
 
@@ -43,12 +47,15 @@ public class MenuActivity extends AppCompatActivity {
                         Fragment selectedFragment = null;
                         switch (item.getItemId()) {
                             case R.id.action_item1:
+                                getSupportActionBar().show();
                                 selectedFragment = new ServiceFragment();
                                 break;
                             case R.id.action_item2:
+                                getSupportActionBar().hide();
                                 selectedFragment = new MySpaceFragment();
                                 break;
                             case R.id.action_item3:
+                                getSupportActionBar().hide();
                                 selectedFragment = new ProfileFragment();
                                 break;
                         }
@@ -62,6 +69,7 @@ public class MenuActivity extends AppCompatActivity {
         //Manually displaying the first fragment - one time only
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_layout, new ServiceFragment());
+        transaction.addToBackStack(null);
         transaction.commit();
 
     }
@@ -70,5 +78,10 @@ public class MenuActivity extends AppCompatActivity {
         if (MainActivity.holdingResponse != null){
             toolbar.setTitle(MainActivity.holdingResponse.getName());
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }

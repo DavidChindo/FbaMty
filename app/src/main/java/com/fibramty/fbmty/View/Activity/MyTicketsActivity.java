@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.fibramty.fbmty.Library.DesignUtils;
 import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.Network.Request.Models.Payment;
@@ -38,10 +39,12 @@ public class MyTicketsActivity extends AppCompatActivity implements MyTicketsCal
     @BindView(R.id.toolbar)Toolbar toolbar;
     @BindView(R.id.no_my_tickets)TextView txtNoData;
     @BindView(R.id.act_mytickets_lv_tickets)ListView lvMyTickets;
+    @BindView(R.id.shimmer_view_container)ShimmerFrameLayout shimmerFrameLayout;
     List<MyTicketResponse> mMyTickets;
     MyTicketsPresenter myTicketsPresenter;
     ProgressDialog mProgressDialog;
     MyTicketsAdapter myTicketsAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +66,10 @@ public class MyTicketsActivity extends AppCompatActivity implements MyTicketsCal
     @Override
     protected void onResume() {
         super.onResume();
-        mProgressDialog = ProgressDialog.show(this,null,"Cargando...");
-        mProgressDialog.setCancelable(false);
+        /*mProgressDialog = ProgressDialog.show(this,null,"Cargando...");
+        mProgressDialog.setCancelable(false);*/
         myTicketsPresenter.myTickets(MainActivity.holdingResponse.getId());
+        shimmerFrameLayout.startShimmerAnimation();
     }
 
     @OnItemClick(R.id.act_mytickets_lv_tickets)
@@ -84,7 +88,9 @@ public class MyTicketsActivity extends AppCompatActivity implements MyTicketsCal
             lvMyTickets.setVisibility(View.GONE);
             txtNoData.setVisibility(View.VISIBLE);
         }
-        mProgressDialog.dismiss();
+        shimmerFrameLayout.setVisibility(View.GONE);
+        shimmerFrameLayout.stopShimmerAnimation();
+        //mProgressDialog.dismiss();
     }
 
     @Override
@@ -92,7 +98,9 @@ public class MyTicketsActivity extends AppCompatActivity implements MyTicketsCal
         DesignUtils.errorMessage(this,"Mis tickets",msg);
         lvMyTickets.setVisibility(View.GONE);
         txtNoData.setVisibility(View.VISIBLE);
-        mProgressDialog.dismiss();
+        shimmerFrameLayout.setVisibility(View.GONE);
+        shimmerFrameLayout.stopShimmerAnimation();
+        //mProgressDialog.dismiss();
     }
 
     @Override

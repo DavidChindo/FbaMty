@@ -41,7 +41,7 @@ public class PaymentsPresenter {
                     @Override
                     public void onResponse(Call<List<Payment>> call, Response<List<Payment>> response) {
                         if (response.code() == Statics.OK){
-                            mPaymentsCallback.onPaymentsSuccess(response.body());
+                            mPaymentsCallback.onPaymentsSuccess(response.body(),false);
                         }else{
                             mPaymentsCallback.onPaymentsError(response.message());
                         }
@@ -59,6 +59,13 @@ public class PaymentsPresenter {
         }catch (Exception e){
             e.printStackTrace();
             mPaymentsCallback.onPaymentsError(e.getMessage());
+        }
+    }
+
+    public void paymentsFilter(String date, String payment){
+        if (!date.isEmpty()  && !payment.isEmpty()){
+            List<Payment> paymentList = RealmManager.findPayments(Payment.class,date,payment);
+            mPaymentsCallback.onPaymentsSuccess(paymentList,true);
         }
     }
 

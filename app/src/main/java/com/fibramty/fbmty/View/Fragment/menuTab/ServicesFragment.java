@@ -1,6 +1,7 @@
 package com.fibramty.fbmty.View.Fragment.menuTab;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import com.fibramty.fbmty.Network.Request.Models.ActivityHolding;
 import com.fibramty.fbmty.Network.Request.Models.Service;
 import com.fibramty.fbmty.R;
 import com.fibramty.fbmty.View.Activity.MainActivity;
+import com.fibramty.fbmty.View.Activity.ParkingsActivity;
 import com.fibramty.fbmty.View.Adapter.ActivityAdapter;
 import com.fibramty.fbmty.View.Adapter.ServicesAdapter;
 
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 import io.realm.RealmList;
 
 /**
@@ -60,5 +63,10 @@ public class ServicesFragment extends Fragment {
     private RealmList<Service> getServicesDummy(){
     return MainActivity.holdingResponse.getServicesAdmin() != null && MainActivity.holdingResponse.getServicesAdmin().size() > 0
         ? MainActivity.holdingResponse.getServicesAdmin() : null;
+    }
+
+    @OnItemClick(R.id.fr_services_listview)
+    void onItemService(int position){
+        startActivity(new Intent(getActivity(), ParkingsActivity.class));
     }
 }

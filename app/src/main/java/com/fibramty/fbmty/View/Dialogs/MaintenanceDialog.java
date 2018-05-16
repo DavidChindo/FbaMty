@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.fibramty.fbmty.Library.Statics;
+import com.fibramty.fbmty.Library.Validators;
 import com.fibramty.fbmty.Network.Request.Models.Maintenance;
+import com.fibramty.fbmty.Network.Response.MyTicketResponse;
 import com.fibramty.fbmty.R;
+import com.google.gson.Gson;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,19 +30,23 @@ public class MaintenanceDialog extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maintenance_dialog);
         ButterKnife.bind(this);
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null){
+            String maintenanceString = bundle.getString("maintenance");
+            mMaintenance = (new Gson()).fromJson(maintenanceString,Maintenance.class);
+        }
         initView();
     }
 
     private void initView(){
-        if (Statics.maintenance != null){
-            mMaintenance = Statics.maintenance;
-            txttitle.setText(mMaintenance.getTitle());
-            txtfrequency.setText(mMaintenance.getFrequency());
-            txtname.setText(mMaintenance.getProvider().getName());
-            txtPhone.setText(mMaintenance.getProvider().getPhone());
-            txtMobile.setText(mMaintenance.getProvider().getMobile());
-            txtEmail.setText(mMaintenance.getProvider().getEmail());
-            txtDescription.setText(mMaintenance.getDescription());
+        if (mMaintenance != null){
+            txttitle.setText(Validators.validateString(mMaintenance.getTitle()));
+            txtfrequency.setText(Validators.validateString(mMaintenance.getSchedule()));
+            txtname.setText(Validators.validateString(mMaintenance.getProviderName()));
+            txtPhone.setText(Validators.validateString(mMaintenance.getProviderPhone()));
+            txtMobile.setText(Validators.validateString(mMaintenance.getProviderCellPhone()));
+            txtEmail.setText(Validators.validateString(mMaintenance.getProviderEmail()));
+            txtDescription.setText(Validators.validateString(mMaintenance.getDescription()));
         }
     }
 }

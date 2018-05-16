@@ -27,9 +27,9 @@ import butterknife.ButterKnife;
 public class MaintenanceAdapter extends ArrayAdapter<Maintenance> {
 
     private Context mContext;
-    private ArrayList<Maintenance> mMaintenances;
+    private List<Maintenance> mMaintenances;
 
-    public MaintenanceAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Maintenance> objects) {
+    public MaintenanceAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<Maintenance> objects) {
         super(context, resource, objects);
         this.mContext = context;
         this.mMaintenances = objects;

@@ -15,6 +15,11 @@
     <dimen name="raised_button">2dp</dimen>
     <dimen name="navdrawer">16dp</dimen>
 
+    <dimen name="tab_max_width">264dp</dimen>
+    <dimen name="tab_padding_bottom">16dp</dimen>
+    <dimen name="tab_label">14sp</dimen>
+    <dimen name="custom_tab_layout_height">72dp</dimen>
+
     <dimen name="margin_two">2dp</dimen>
 
     <dimen name="margin_eigth">8dp</dimen>
@@ -46,5 +51,17 @@
     <dimen name="font_size_26">26sp</dimen>
 
     <dimen name="padding_gral">2dp</dimen>
+
+
+    <dimen name="activity_padding">16dp</dimen>
+    <dimen name="placeholder_image">50dp</dimen>
+    <dimen name="placeholder_text_height">8dp</dimen>
+    <dimen name="activity_padding_horizontal">16dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="name">15dp</dimen>
+    <dimen name="chef">12dp</dimen>
+    <dimen name="timestamp">11dp</dimen>
+    <dimen name="description">15dp</dimen>
+    <dimen name="price">13dp</dimen>
 
 </resources>

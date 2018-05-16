@@ -49,7 +49,7 @@ public class RealmManager {
                     @Override
                     public void execute(Realm realm) {
                         boolean delete = realmResults.deleteAllFromRealm();
-                        Log.d("REQUISITIONSDELETED", "VALUE " + delete);
+                        Log.d("Deleted", "VALUE " + delete);
                     }
                 });
             }
@@ -150,6 +150,26 @@ public class RealmManager {
         realm.close();
         return realmList;
     }
+
+    public static <T extends RealmObject> List<T> findPayments(Class<T> aClassm, String value,  String value2){
+        try {
+            Realm realm = Realm.getDefaultInstance();
+            RealmResults<T> results = realm.where(aClassm)
+                    .equalTo("dateValidity", value)
+                    .and()
+                    .equalTo("status", value2)
+                    .findAll();
+            List<T> realmList = new ArrayList<>();
+            for (T result : results) {
+                realmList.add(result);
+            }
+            return realmList;
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
 
     public static <T extends RealmObject> RealmList<T> findById(Class<T> aClass,String fieldName,String value) {
         Realm realm = Realm.getDefaultInstance();

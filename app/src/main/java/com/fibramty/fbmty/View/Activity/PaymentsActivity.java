@@ -9,11 +9,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.fibramty.fbmty.Dal.RealmManager;
 import com.fibramty.fbmty.Library.DesignUtils;
 import com.fibramty.fbmty.Library.Statics;
@@ -42,7 +45,10 @@ public class PaymentsActivity extends AppCompatActivity implements PaymentsCallb
     @BindView(R.id.act_payments_lv_payments)ListView paymentslv;
     @BindView(R.id.act_payments_sp_month)MaterialSpinner spMonth;
     @BindView(R.id.act_payments_rgb)RadioGroup rgbPayed;
+    @BindView(R.id.act_payment_rb_payed)RadioButton rbPayed;
+    @BindView(R.id.act_payment_rb_notpayed)RadioButton rbNotPayed;
     @BindView(R.id.no_payments)TextView noPayments;
+    @BindView(R.id.shimmer_view_container)ShimmerFrameLayout shimmerFrameLayout;
     private List<Payment> mPayments;
     private PaymentsPresenter paymentsPresenter;
     ProgressDialog mProgressDialog;
@@ -64,8 +70,9 @@ public class PaymentsActivity extends AppCompatActivity implements PaymentsCallb
         mPayments = new ArrayList<Payment>();
         datesFiltes = new ArrayList<String>();
         paymentsPresenter = new PaymentsPresenter(this,this);
-        mProgressDialog = ProgressDialog.show(this, null, "Descargando...");
-        mProgressDialog.setCancelable(false);
+        /*mProgressDialog = ProgressDialog.show(this, null, "Descargando...");
+        mProgressDialog.setCancelable(false);*/
+        shimmerFrameLayout.startShimmerAnimation();
         paymentsPresenter.payments();
     }
 
@@ -82,12 +89,21 @@ public class PaymentsActivity extends AppCompatActivity implements PaymentsCallb
         startActivity(intent);
     }
 
+    @OnClick(R.id.act_payments_btn_search)
+    void onSearchPayments(){
+        if (spMonth.getSelectedItemPosition() != AdapterView.INVALID_POSITION && rgbPayed.getCheckedRadioButtonId() > 0){
+            String paymented = rgbPayed.getCheckedRadioButtonId() == R.id.act_payment_rb_payed ? rbPayed.getText().toString() : rbNotPayed.getText().toString();
+            paymentsPresenter.paymentsFilter(((String)spMonth.getSelectedItem()),paymented);
+        }
+    }
+
     //Endregion
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.payment_menu,menu);
+
         return true;
     }
 
@@ -103,23 +119,28 @@ public class PaymentsActivity extends AppCompatActivity implements PaymentsCallb
         }
     }
 
+
     @Override
-    public void onPaymentsSuccess(List<Payment> payments) {
-        if (payments != null && payments.size() > 0){
+    public void onPaymentsSuccess(List<Payment> payments, boolean isFilter) {
+        if (!isFilter) {
             mPayments = payments;
             Realm realm = Realm.getDefaultInstance();
-            RealmManager.insert(realm,mPayments);
+            RealmManager.insert(realm, mPayments);
             datesFiltes = RealmManager.listUnique(realm);
             realm.close();
-            spMonth.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, datesFiltes));
-            paymentslv.setAdapter(new PaymentsAdapter(PaymentsActivity.this,R.layout.item_payments,payments));
+            spMonth.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datesFiltes));
+            //mProgressDialog.cancel();
+            shimmerFrameLayout.setVisibility(View.GONE);
+            shimmerFrameLayout.stopShimmerAnimation();
+        }
+        if (payments != null && payments.size() > 0) {
+            paymentslv.setAdapter(new PaymentsAdapter(PaymentsActivity.this, R.layout.item_payments, payments));
             noPayments.setVisibility(View.GONE);
             paymentslv.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             noPayments.setVisibility(View.GONE);
             paymentslv.setVisibility(View.VISIBLE);
         }
-        mProgressDialog.cancel();
     }
 
     @Override
@@ -127,6 +148,8 @@ public class PaymentsActivity extends AppCompatActivity implements PaymentsCallb
         DesignUtils.errorMessage(this,"Pagos",msg);
         noPayments.setVisibility(View.VISIBLE);
         paymentslv.setVisibility(View.GONE);
-        mProgressDialog.cancel();
+        //mProgressDialog.cancel();
+        shimmerFrameLayout.setVisibility(View.GONE);
+        shimmerFrameLayout.stopShimmerAnimation();
     }
 }
