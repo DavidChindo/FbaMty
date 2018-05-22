@@ -52,8 +52,7 @@
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
         <activity
             android:name=".View.Dialogs.ChatDialog"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".View.Activity.MenuActivity"
             android:screenOrientation="portrait" />

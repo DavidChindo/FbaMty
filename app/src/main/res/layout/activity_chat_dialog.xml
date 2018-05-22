@@ -1,116 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <android.support.v7.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/card_view_item"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/chat_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:id="@+id/no_messages"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        card_view:cardUseCompatPadding="true"
-        card_view:cardCornerRadius="@dimen/margin_four"
-        android:padding="4dp">
+        android:layout_marginTop="15dp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="No hay mensajes"
+        android:textColor="@color/gray"
+        android:textSize="17dp"
+        android:visibility="gone"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fr_chat_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBarLayout"
+        android:clipToPadding="false"
+        android:layout_marginBottom="@dimen/margin_fiftyeight"
+        android:layout_marginStart="@dimen/margin_eigth"
+        android:layout_marginEnd="@dimen/margin_eigth"
+        android:layout_marginTop="@dimen/margin_eigth">
+    </android.support.v7.widget.RecyclerView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/colorPrimaryDark"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/dialog_ticket_title"
-                    style="@style/font_title_white"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin_four"
-                    android:layout_marginStart="@dimen/margin_four"
-                    android:layout_marginTop="@dimen/margin_eigth"
-                    android:drawablePadding="@dimen/margin_four"
-                    android:drawableTint="@color/gray_icon"
-                    android:gravity="center|start"
-                    android:text="Chat" />
-
-            </LinearLayout>
-
-                <EditText
-                    android:id="@+id/dialog_chat_edt_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_eigth"
-                    android:layout_marginEnd="@dimen/margin_twelve"
-                    android:layout_marginStart="@dimen/margin_twelve"
-                    android:hint="Nombre"
-                    android:maxLength="100"/>
-
-                <EditText
-                    android:id="@+id/dialog_chat_edt_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_four"
-                    android:layout_marginEnd="@dimen/margin_twelve"
-                    android:layout_marginStart="@dimen/margin_twelve"
-                    android:hint="Titulo"
-                    android:maxLength="100"/>
-
-                <EditText
-                    android:id="@+id/dialog_chat_edt_comments"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_four"
-                    android:layout_marginEnd="@dimen/margin_twelve"
-                    android:layout_marginStart="@dimen/margin_twelve"
-                    android:hint="Mensaje"
-                    android:maxLength="500"
-                    android:lines="3"/>
-
-            <View
-                android:id="@+id/divider_bottom"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="@dimen/margin_eigth"
-                android:layout_marginEnd="@dimen/margin_six"
-                android:layout_marginStart="@dimen/margin_six"
-                android:layout_marginTop="@dimen/margin_eigth"
-                android:background="@color/silver"
-                ></View>
-
-            <RadioGroup
-                android:id="@+id/dialog_chat_rgb"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_twelve"
-                android:layout_marginStart="@dimen/margin_twelve"
-                android:orientation="vertical">
-
-                <RadioButton
-                    android:id="@+id/dialog_chat_yes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Problemas de pago"
-                    android:textColor="@color/font_title_gray"/>
-
-                <RadioButton
-                    android:id="@+id/dialog_chat_not"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/font_title_gray"
-                    android:text="Duda o concepto de factura" />
-            </RadioGroup>
-
-            <Button
-                android:id="@+id/dialog_chat_add"
-                style="@style/BlueButton"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_marginTop="@dimen/margin_eigth"
-                android:elevation="@dimen/raised_button"
-                android:text="@string/sent"
-                android:textAllCaps="false" />
-
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_fiftyeight"
+        android:background="@color/colorWhite"
+        android:layout_alignParentBottom="true">
+    <ImageButton
+        android:id="@+id/fr_chat_btn_send"
+        android:layout_width="@dimen/margin_fortyfour"
+        android:layout_height="@dimen/margin_fortyfour"
+        android:background="@drawable/shape_circle_send"
+        android:padding="@dimen/margin_four"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/margin_eigth"
+        android:layout_marginEnd="@dimen/margin_four"
+        android:src="@drawable/ic_send"/>
+    <EditText
+        android:id="@+id/dialog_chat_edt_comments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/fr_chat_btn_send"
+        android:layout_marginEnd="@dimen/margin_four"
+        android:layout_marginStart="@dimen/margin_eigth"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/margin_four"
+        android:layout_marginBottom="@dimen/margin_eigth"
+        android:inputType="textAutoComplete|textAutoCorrect"
+        android:maxLength="500"
+        android:maxLines="4"
+        />
+    </RelativeLayout>
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

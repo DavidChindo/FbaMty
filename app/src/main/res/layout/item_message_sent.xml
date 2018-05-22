@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_eigth">
+<TextView
+    android:id="@+id/item_message_sent_txt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    android:layout_marginStart="@dimen/margin_fiftytwo"
+    android:background="@drawable/shape_message_sent"
+    android:paddingStart="@dimen/margin_eigth"
+    android:paddingEnd="@dimen/margin_eigth"
+    android:paddingBottom="@dimen/margin_eigth"
+    android:paddingTop="@dimen/margin_eigth"
+    android:text="Hola,, tengo tal situacón con el pago de mtto kaksakso  om o ok o ok ko ok ko ko k"
+    android:textColor="@color/black"
+    android:elevation="@dimen/margin_eigth"
+    />
+</RelativeLayout>

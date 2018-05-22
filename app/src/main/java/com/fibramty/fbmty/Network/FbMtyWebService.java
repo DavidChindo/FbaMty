@@ -8,6 +8,7 @@ import com.fibramty.fbmty.Network.Request.RegisterRequest;
 import com.fibramty.fbmty.Network.Response.HoldingResponse;
 import com.fibramty.fbmty.Network.Response.LoginResponse;
 import com.fibramty.fbmty.Network.Response.MaintenanceResponse;
+import com.fibramty.fbmty.Network.Response.MessageResponse;
 import com.fibramty.fbmty.Network.Response.MyTicketResponse;
 import com.fibramty.fbmty.Network.Response.PaymentResponse;
 import com.fibramty.fbmty.Network.Response.ServicesDataResponse;
@@ -15,6 +16,7 @@ import com.fibramty.fbmty.Network.Response.ServicesDescResponse;
 
 import java.util.List;
 
+import io.realm.RealmList;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -125,4 +127,13 @@ public interface FbMtyWebService {
 
     @POST("api/Account/Logout")
     Call<ResponseBody> logOut(@Header("Authorization") String authorization);
+
+    @GET("api/MySpace/getHoldingUserMessages/{idHolding}")
+    Call<RealmList<MessageResponse>> messages(@Header("Authorization")String authorization, @Path("idHolding") long idHolding);
+
+    @FormUrlEncoded
+    @POST("api/MySpace/sendMessage")
+    Call<Boolean> sentMessage(@Header("Authorization") String authorization,
+                              @Field("holdingId")long idHolding,
+                              @Field("message")String message);
 }
