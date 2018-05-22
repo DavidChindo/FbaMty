@@ -21,6 +21,9 @@
         card_view:cardUseCompatPadding="true"
         card_view:cardCornerRadius="@dimen/margin_four">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/act_payments_ln_filters"
         android:layout_width="match_parent"
@@ -63,20 +66,99 @@
                 android:text="@string/not_payed"/>
         </RadioGroup>
 
+    </LinearLayout>
         <Button
             android:id="@+id/act_payments_btn_search"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_weight=".3"
+            android:layout_below="@id/act_payments_ln_filters"
             android:text="Buscar"
             android:textColor="@color/colorWhite"
-            android:layout_marginTop="@dimen/margin_eigth"
-            android:layout_marginEnd="@dimen/margin_six"
-            android:layout_marginStart="@dimen/margin_four"
+            android:layout_marginTop="@dimen/margin_four"
+            android:layout_marginEnd="@dimen/margin_twelve"
+            android:layout_marginStart="@dimen/margin_twelve"
             style="@style/BlueButton"
             android:textAllCaps="false"/>
 
-    </LinearLayout>
+            <View
+                android:id="@+id/act_payments_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/silver"
+                android:layout_below="@id/act_payments_btn_search"
+                android:layout_marginTop="@dimen/margin_four"
+                android:layout_marginBottom="@dimen/margin_four"
+                android:layout_marginEnd="@dimen/margin_eigth"
+                android:layout_marginStart="@dimen/margin_eigth"
+                />
+            <LinearLayout
+                android:id="@+id/act_payments_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_below="@id/act_payments_divider"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:visibility="gone">
+                <TextView
+                    style="@style/font_body_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/margin_two"
+                    android:layout_marginStart="@dimen/margin_two"
+                    android:layout_marginTop="@dimen/margin_two"
+                    android:drawablePadding="@dimen/margin_two"
+                    android:drawableTint="@color/gray_icon"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@string/numero_de_documento" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginBottom="@dimen/margin_eigth"
+                    android:layout_marginTop="@dimen/margin_eigth"/>
+
+                <TextView
+                    style="@style/font_body_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/margin_two"
+                    android:layout_marginStart="@dimen/margin_two"
+                    android:layout_marginTop="@dimen/margin_two"
+                    android:drawablePadding="@dimen/margin_two"
+                    android:drawableTint="@color/gray_icon"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@string/fecha_de_contabilizaci_n" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginBottom="@dimen/margin_eigth"
+                    android:layout_marginTop="@dimen/margin_eigth"/>
+
+                <TextView
+                    style="@style/font_body_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/margin_four"
+                    android:layout_marginStart="@dimen/margin_two"
+                    android:layout_marginTop="@dimen/margin_two"
+                    android:drawablePadding="@dimen/margin_two"
+                    android:drawableTint="@color/gray_icon"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@string/status" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
     </android.support.v7.widget.CardView>
 
         <TextView

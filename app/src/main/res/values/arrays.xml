@@ -32,7 +32,7 @@
 
     <integer-array name="menu_img">
         <item>@drawable/ic_payment</item>
-        <item>@drawable/ic_video</item>
+        <item>@drawable/ic_play_button</item>
         <item>@drawable/ic_maintenance</item>
         <item>@drawable/ic_ticket</item>
     </integer-array>

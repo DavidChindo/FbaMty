@@ -1,5 +1,6 @@
 package com.fibramty.fbmty.View.Activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -53,6 +54,7 @@ public class MenuActivity extends AppCompatActivity {
                             case R.id.action_item2:
                                 getSupportActionBar().hide();
                                 selectedFragment = new MySpaceFragment();
+                                onNewIntent(getIntent());
                                 break;
                             case R.id.action_item3:
                                 getSupportActionBar().hide();
@@ -83,5 +85,10 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
     }
 }

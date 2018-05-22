@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.fibramty.fbmty.Library.Statics;
 import com.fibramty.fbmty.Network.Request.Models.ActivityHolding;
 import com.fibramty.fbmty.Network.Request.Models.Service;
 import com.fibramty.fbmty.R;
@@ -67,6 +68,20 @@ public class ServicesFragment extends Fragment {
 
     @OnItemClick(R.id.fr_services_listview)
     void onItemService(int position){
-        startActivity(new Intent(getActivity(), ParkingsActivity.class));
+        Intent intent = new Intent(getActivity(), ParkingsActivity.class);
+        intent.putExtra("idService",idService(getServicesDummy().get(position).getTitle()));
+        startActivity(intent);
+    }
+
+    private int idService(String title){
+        if (title.toLowerCase().contains("cajones")){
+            return Statics.SERVICE_PARKINGS;
+        }else if(title.toLowerCase().contains("tarjetas")){
+            return Statics.SERVICE_CARDS;
+        }else if(title.toLowerCase().contains("cortesias")){
+            return Statics.SERVICE_COURTESIES;
+        }else {
+            return 3;
+        }
     }
 }

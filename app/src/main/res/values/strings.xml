@@ -15,9 +15,10 @@
     <string name="dialog_error_memory_low">La aplicación se está quedando sin memoria, por favor cierra las demás aplicaciones para un correcto funcionamiento</string>
     <string name="network_error">No hay conexión a internet</string>
     <string name="not_results">Sin resultados</string>
+    <string name="results">Resultados</string>
     <string name="empty_list">No hay requisiciones</string>
     <string name="form_pick_files">Selecciona el archivo</string>
-    <string name="total_budges">$ %s MXN</string>
+    <string name="price">$ %d</string>
     <string name="validate_field">%s es requerido</string>
     <string name="involved_name" formatted="false">\u2022 %s</string>
     <string name="close_sesion">Cerrar Sesión</string>
@@ -25,6 +26,7 @@
     <string name="text_version">V %s</string>
     <string name="content_description">Fibra Monterrey</string>
     <string name="msg_success">%s exitoso</string>
+    <string name="request">Solicitar</string>
 
     <!-- Login Acitivity -->
     <string name="act_login_edt_user">Usuario</string>
@@ -106,5 +108,45 @@
     <string name="account">Cuenta</string>
     <string name="buildings">Edificios</string>
     <string name="select_holding">Seleccionar edificio</string>
+
+    <!--Sevices Item -->
+    <string name="rent">Renta</string>
+    <string name="mtto">Mtto.</string>
+
+    <!--Services Data -->
+    <string name="numTicket">No. Ticket</string>
+    <string name="name_item">Nombre</string>
+    <string name="boxes">Cajones</string>
+    <string name="detail">Ver detalle</string>
+    <string name="request_item">Solicitud</string>
+    <string name="action_realized">Acción</string>
+    <string name="num_request_rent">No. Solicitudes Renta</string>
+    <string name="num_request_mtto">No. Solicitudes Mantenimiento</string>
+    <!--Parkings Request -->
+    <string name="request_parkings">Solicitud de Cajones de Estacionamiento</string>
+    <string name="request_cards">Solicitud de Tarjetas de Estacionamiento</string>
+    <string name="request_courtesies">Solicitud de Cortesias</string>
+    <string name="action">Acción Deseada</string>
+    <string name="addParkings">Agregar cajones</string>
+    <string name="deleteParkings">Eliminar cajones</string>
+    <string name="parkingType">Tipo de Cajón</string>
+    <string name="contract">Contrato</string>
+    <string name="aditionals">Adicionales</string>
+    <string name="placeType">Tipo de Lugar</string>
+    <string name="pool">Pool</string>
+    <string name="reserved">Reservado</string>
+    <string name="parkingsxrent">Cajones Requeridos Renta</string>
+    <string name="rentPrice">Precio Renta</string>
+    <string name="parkingsmtto">Cajones Requeridos Mantenimiento</string>
+    <string name="mttoPrice">Precio Mantenimiento</string>
+    <string name="cardType">Tipo de Tarjeta</string>
+    <string name="cardnormal">Normal</string>
+    <string name="cardmastertag">Tag Master</string>
+    <string name="cardsxrent">Tarjetas Requeridos Renta</string>
+    <string name="courtesies">Cortesias Requeridos Renta</string>
+    <string name="num_boxes">%d Cajones</string>
+    <string name="num_cards">%d Tarjetas</string>
+    <string name="num_courtesies">%d Cortesias</string>
+
 
 </resources>

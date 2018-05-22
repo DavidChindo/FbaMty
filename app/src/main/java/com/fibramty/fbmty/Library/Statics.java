@@ -26,8 +26,8 @@ public class Statics {
 
     public static final String NAME_FOLDER = "FbMty";
 
-    public static final String[] Months = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
-    public static final String[] Years = {"2017","2018","2019","2020","2021","2022"};
-
+    public static final int SERVICE_PARKINGS = 0;
+    public static final int SERVICE_CARDS = 1;
+    public static final int SERVICE_COURTESIES = 2;
 }
 

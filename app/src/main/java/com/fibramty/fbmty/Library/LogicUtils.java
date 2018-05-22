@@ -12,7 +12,10 @@ import com.fibramty.fbmty.Network.Response.HoldingResponse;
 import com.fibramty.fbmty.R;
 
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by david.barrera on 11/29/17.
@@ -102,6 +105,27 @@ public class LogicUtils {
         if (ContextCompat.checkSelfPermission(activity, permission)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(activity, new String[]{permission}, 0);
+        }
+    }
+
+    public static String formatterDate(String date){
+        if (date != null && !date.isEmpty()) {
+            try {
+                SimpleDateFormat dt = new SimpleDateFormat("yyyyy-MM-dd'T'HH:mm:ss.S");
+                try {
+                    Date dateFormat = dt.parse(date);
+                    SimpleDateFormat dt1 = new SimpleDateFormat("dd MMM yyyy");
+                    return dt1.format(dateFormat);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    return "";
+                }
+
+            } catch (NullPointerException g) {
+                return "";
+            }
+        }else{
+            return "";
         }
     }
 }

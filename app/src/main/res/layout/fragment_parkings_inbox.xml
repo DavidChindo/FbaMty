@@ -2,13 +2,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fibramty.fbmty.View.Fragment.ParkingsInbox">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    tools:context="com.fibramty.fbmty.View.Fragment.ParkingsInbox"
+    android:background="@color/gray_background"
+    >
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/fr_parkings_request_inbox_scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="BANDEJA"
-        android:gravity="center"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_eigth">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/fr_parkings_inbox_title_instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/request_parkings"
+                style="@style/font_body_light_blue"
+                android:textSize="@dimen/font_size_14"
+                android:layout_below="@id/fr_parkings_divider"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:layout_marginBottom="@dimen/margin_eigth"/>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/fr_parkings_inbox_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_four"
+                android:layout_marginBottom="@dimen/margin_eigth"
+                android:layout_below="@id/fr_parkings_inbox_title_instructions">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_eigth">
+                    <TextView
+                        android:id="@+id/fr_parkings_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status"/>
+
+                    <Spinner
+                        android:id="@+id/fr_parkings_inbox_spinner_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fr_parkings_status"
+                        android:foregroundTint="@color/colorPrimary"/>
+
+                    <Button
+                        android:id="@+id/fr_parkings_inbox_btn_search"
+                        style="@style/BlueButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="@dimen/margin_twelve"
+                        android:layout_marginEnd="@dimen/margin_twelve"
+                        android:layout_marginTop="@dimen/margin_thirtytwo"
+                        android:elevation="@dimen/raised_button"
+                        android:text="@string/request"
+                        android:layout_below="@id/fr_parkings_inbox_spinner_status"
+                        />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/fr_parkings_inbox_results"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/results"
+                style="@style/font_body_light_blue"
+                android:textSize="@dimen/font_size_14"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:layout_marginBottom="@dimen/margin_eigth"
+                android:layout_below="@id/fr_parkings_inbox_card"/>
+
+            <TextView
+                android:id="@+id/fr_parkings_inbox_results_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textAlignment="center"
+                android:textSize="@dimen/font_size_16"
+                android:textColor="@color/colorWhite"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:layout_marginBottom="@dimen/margin_eigth"
+                android:layout_below="@id/fr_parkings_inbox_card"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/shape_circle_results"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/fr_parkings_inbox_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_eigth"
+                android:layout_marginTop="@dimen/margin_eigth"
+                android:layout_below="@id/fr_parkings_inbox_results">
+            </android.support.v7.widget.RecyclerView>
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
 
 </FrameLayout>

@@ -97,7 +97,7 @@ public interface FbMtyWebService {
 
     @FormUrlEncoded
     @POST("api/MySpace/sendCajonesEstTickets")
-    Call<ResponseBody> sendCajonesEstTickets(@Header("Authorization") String authorization,
+    Call<Long> sendCajonesEstTickets(@Header("Authorization") String authorization,
                                     @Field("parkingHoldingId") long idHolding,
                                     @Field("holdingId") long id,
                                     @Field("numCortesias") int numCortesias,
@@ -108,20 +108,20 @@ public interface FbMtyWebService {
 
     @FormUrlEncoded
     @POST("api/MySpace/sendTarjetasEstTickets")
-    Call<ResponseBody> sendTarjetasEstTickets(@Header("Authorization") String authorization,
+    Call<Long> sendTarjetasEstTickets(@Header("Authorization") String authorization,
                                              @Field("parkingHoldingId") long idHolding,
                                              @Field("holdingId") long id,
                                              @Field("numCortesias") int numCortesias,
-                                             @Field("precioCortesia") int numMntos);
+                                             @Field("precioCortesia") int priceCortesias);
 
 
     @FormUrlEncoded
     @POST("api/MySpace/sendCortesiasEstTickets")
-    Call<ResponseBody> sendCortesiasEstTickets(@Header("Authorization") String authorization,
+    Call<Long> sendCortesiasEstTickets(@Header("Authorization") String authorization,
                                               @Field("parkingHoldingId") long idHolding,
                                               @Field("holdingId") long id,
                                               @Field("numCortesias") int numCortesias,
-                                              @Field("precioCortesia") int numMntos);
+                                              @Field("precioCortesia") int priceCortesias);
 
     @POST("api/Account/Logout")
     Call<ResponseBody> logOut(@Header("Authorization") String authorization);

@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -49,6 +50,8 @@ public class PaymentsActivity extends AppCompatActivity implements PaymentsCallb
     @BindView(R.id.act_payment_rb_notpayed)RadioButton rbNotPayed;
     @BindView(R.id.no_payments)TextView noPayments;
     @BindView(R.id.shimmer_view_container)ShimmerFrameLayout shimmerFrameLayout;
+    @BindView(R.id.act_payments_header)LinearLayout paymentHeaderLn;
+
     private List<Payment> mPayments;
     private PaymentsPresenter paymentsPresenter;
     ProgressDialog mProgressDialog;
@@ -135,9 +138,11 @@ public class PaymentsActivity extends AppCompatActivity implements PaymentsCallb
         }
         if (payments != null && payments.size() > 0) {
             paymentslv.setAdapter(new PaymentsAdapter(PaymentsActivity.this, R.layout.item_payments, payments));
+            paymentHeaderLn.setVisibility(View.VISIBLE);
             noPayments.setVisibility(View.GONE);
             paymentslv.setVisibility(View.VISIBLE);
         } else {
+            paymentHeaderLn.setVisibility(View.GONE);
             noPayments.setVisibility(View.GONE);
             paymentslv.setVisibility(View.VISIBLE);
         }
@@ -148,6 +153,7 @@ public class PaymentsActivity extends AppCompatActivity implements PaymentsCallb
         DesignUtils.errorMessage(this,"Pagos",msg);
         noPayments.setVisibility(View.VISIBLE);
         paymentslv.setVisibility(View.GONE);
+        paymentHeaderLn.setVisibility(View.GONE);
         //mProgressDialog.cancel();
         shimmerFrameLayout.setVisibility(View.GONE);
         shimmerFrameLayout.stopShimmerAnimation();

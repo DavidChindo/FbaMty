@@ -11,7 +11,7 @@ public class ServicesDescResponse {
     @SerializedName("Descripcion")
     private String description;
     @SerializedName("Disponibles")
-    private String availables;
+    private int availables;
     @SerializedName("HoldingId")
     private long HoldingId;
     @SerializedName("Id")
@@ -43,11 +43,11 @@ public class ServicesDescResponse {
         this.description = description;
     }
 
-    public String getAvailables() {
+    public int getAvailables() {
         return availables;
     }
 
-    public void setAvailables(String availables) {
+    public void setAvailables(int availables) {
         this.availables = availables;
     }
 
