@@ -2,6 +2,7 @@ package com.fibramty.fbmty.View.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -115,7 +116,10 @@ public class PaymentsActivity extends AppCompatActivity implements PaymentsCallb
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.act_payment_download:
-                DesignUtils.snackMessage(this,"Descargando Instructivo de pago");
+                String url = "http://fibramty.hics.mx/HoldingMediaPath/"+MainActivity.holdingResponse.getId()+"/FormatoPago.pdf";
+                Uri uri = Uri.parse(url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

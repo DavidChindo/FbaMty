@@ -1,5 +1,6 @@
 package com.fibramty.fbmty.View.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -7,18 +8,32 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.fibramty.fbmty.BuildConfig;
+import com.fibramty.fbmty.Dal.RealmManager;
+import com.fibramty.fbmty.Library.Connection;
+import com.fibramty.fbmty.Library.DesignUtils;
 import com.fibramty.fbmty.Library.Prefs;
 import com.fibramty.fbmty.Library.Statics;
+import com.fibramty.fbmty.Network.Response.HoldingResponse;
+import com.fibramty.fbmty.Presenter.Callbacks.HoldingCallback;
+import com.fibramty.fbmty.Presenter.HoldingPresenter;
 import com.fibramty.fbmty.R;
+
+import java.util.List;
+import java.util.SortedMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.Realm;
 
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity implements HoldingCallback {
 
     @BindView(R.id.act_splash_version)
     TextView txtVersion;
+
+    ProgressDialog mProgressDialog;
+    HoldingPresenter holdingPresenter;
+    Prefs prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +41,26 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         setVerion();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Prefs prefs = Prefs.with(SplashActivity.this);
-                if (prefs.getBoolean(Statics.LOGIN_PREFS)) {
-                    //start(MainActivity.class);
-                    start(LoginActivity.class);
-                } else {
-                    start(LoginActivity.class);
-                }
+        prefs = Prefs.with(this);
+        holdingPresenter = new HoldingPresenter(this,this);
+        if (prefs.getBoolean(Statics.LOGIN_PREFS)) {
+            if (Connection.isConnected(SplashActivity.this)) {
+                mProgressDialog = ProgressDialog.show(SplashActivity.this, "", "Descargando...");
+                mProgressDialog.setCancelable(false);
+                holdingPresenter.holding();
+            }else{
+                start(LoginActivity.class);
             }
-        }, 2000);
+        } else {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Prefs prefs = Prefs.with(SplashActivity.this);
+                    start(LoginActivity.class);
+
+                }
+            }, 2000);
+        }
     }
 
     private void setVerion() {
@@ -48,5 +71,28 @@ public class SplashActivity extends AppCompatActivity {
         Intent intent = new Intent(this, aClass);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onDownloadHolding(List<HoldingResponse> holdingResponses) {
+        mProgressDialog.dismiss();
+        if (holdingResponses != null && holdingResponses.size() > 0){
+            prefs.putBoolean(Statics.LOGIN_PREFS,true);
+            Realm realm = Realm.getDefaultInstance();
+            RealmManager.insert(realm,holdingResponses);
+            realm.close();
+            MainActivity.holdingResponses = holdingResponses;
+            MainActivity.holdingResponse = holdingResponses.get(prefs.getInt(Statics.SELECTED_POSITION,0));
+            startActivity(new Intent(this,MenuActivity.class));
+        }else{
+            DesignUtils.infoMessage(this,"Ingreso","No tiene ningún edificio contratado");
+        }
+
+    }
+
+    @Override
+    public void onDownloadError(String msg) {
+        mProgressDialog.dismiss();
+        DesignUtils.errorMessage(this,"Descarga",msg);
     }
 }

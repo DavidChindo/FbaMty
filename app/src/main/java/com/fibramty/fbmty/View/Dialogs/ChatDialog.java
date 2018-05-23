@@ -66,14 +66,18 @@ public class ChatDialog extends AppCompatActivity implements ChatCallback {
     @Override
     public void onLoadMessages(RealmList<MessageResponse> messages) {
 
-        mMessages = messages;
-        mLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(mLayoutManager);
+        if (messages != null && messages.size()>0) {
+            mMessages = messages;
+            mLayoutManager = new LinearLayoutManager(this);
+            recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerView.setAdapter(new MessageAdapter(this,mMessages,recyclerView));
+            recyclerView.setAdapter(new MessageAdapter(this, mMessages, recyclerView));
 
-        recyclerView.getLayoutManager().smoothScrollToPosition(recyclerView,null, mMessages.size()-1);
-
+            recyclerView.getLayoutManager().smoothScrollToPosition(recyclerView, null, mMessages.size() - 1);
+        }else{
+            recyclerView.setVisibility(View.GONE);
+            txtMsg.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

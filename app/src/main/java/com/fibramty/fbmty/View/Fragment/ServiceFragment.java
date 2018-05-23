@@ -110,8 +110,6 @@ public class ServiceFragment extends Fragment {
                     .error(R.drawable.img_menu_back)
                     .placeholder(R.drawable.img_menu_back)
                     .into(background);
-
-
         }
     }
 

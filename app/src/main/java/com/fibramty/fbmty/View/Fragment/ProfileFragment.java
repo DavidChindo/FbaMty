@@ -10,12 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.asksira.dropdownview.DropDownView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.Target;
 import com.fibramty.fbmty.Dal.RealmManager;
 import com.fibramty.fbmty.Library.DesignUtils;
@@ -42,15 +44,21 @@ import butterknife.OnItemSelected;
 
 public class ProfileFragment extends Fragment implements ProfileCallback {
 
-
     @BindView(R.id.dropdownview)com.asksira.dropdownview.DropDownView holdings;
     @BindView(R.id.fr_profile_account)TextView accountTxt;
     @BindView(R.id.fr_profile_exit)ImageButton exitTxt;
     @BindView(R.id.fr_profile_img)ArcView arcView;
+    @BindView(R.id.fr_profile_poster)ImageView imgPoster;
+
     Prefs prefs;
     ProgressDialog progressDialog;
     ProfilePresenter profilePresenter;
+    Fragment mFragment;
+    LayoutInflater tempinflater;
+    ViewGroup tempcontainer;
+    Bundle tempsaved;
 
+    int i = 0;
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -66,11 +74,19 @@ public class ProfileFragment extends Fragment implements ProfileCallback {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        tempinflater = inflater;
+        tempcontainer = container;
+        tempsaved = savedInstanceState;
         ButterKnife.bind(this,view);
         return view;
     }
 
     private void initViews(){
+        if (i == 0) {
+            i = 1;
+            setBackground();
+        }
+        mFragment = this;
         profilePresenter = new ProfilePresenter(this,getActivity());
         accountTxt.setText(RealmManager.user());
         holdings.setDropDownListItem(MainActivity.holdingResponse.getHoldingsName());
@@ -82,11 +98,58 @@ public class ProfileFragment extends Fragment implements ProfileCallback {
                     prefs.putInt(Statics.SELECTED_POSITION,position);
                     MainActivity.holdingResponse = MainActivity.holdingResponses.get(position);
                     DesignUtils.successMessage(getActivity(),"Edificio",MainActivity.holdingResponse.getName());
+                    i = 0;
+                    if (i == 0) {
+                        i = 1;
+                        setBackground();
+                    }
                 }
             }
         });
     }
 
+    private void setBackground(){
+
+        if (MainActivity.holdingResponse != null){
+            Glide.with(this).load(LogicUtils.getUrlImage(getActivity(),MainActivity.holdingResponse))
+                    .listener(new RequestListener<String, GlideDrawable>() {
+                        @Override
+                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                            arcView.setBackground(imgPoster.getDrawable());
+                            arcView.refreshDrawableState();
+                            target.getSize(new SizeReadyCallback() {
+                                @Override public void onSizeReady(int width, int height) {
+                                    Glide.with(getActivity()).load(LogicUtils.getUrlImage(getActivity(),MainActivity.holdingResponse)).preload(width, height);
+                                }
+                            });
+                            return false;
+                        }
+                    })
+                    .error(R.drawable.img_menu_back)
+                    .placeholder(R.drawable.img_menu_back)
+                    .centerCrop()
+                    .into(imgPoster);
+        }
+    }
+
+/*
+@Override public boolean onResourceReady(
+                    GlideDrawable resource, String model, Target<GlideDrawable> target,
+                    boolean isFromMemoryCache, boolean isFirstResource) {  // execution order: 2
+                target.getSize(new SizeReadyCallback() {
+                    @Override public void onSizeReady(int width, int height) {  // execution order: 3
+                        Glide.with(context).load(photoToLoad2.getPath()).preload(width, height);
+                    }
+                });
+                return false;
+            }
+        })
+ */
     @OnClick(R.id.fr_profile_exit)
     void onExitClick(){
         progressDialog = ProgressDialog.show(getActivity(), null, "Cerrando Sesión...");

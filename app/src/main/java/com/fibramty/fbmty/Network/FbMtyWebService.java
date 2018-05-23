@@ -116,7 +116,6 @@ public interface FbMtyWebService {
                                              @Field("numCortesias") int numCortesias,
                                              @Field("precioCortesia") int priceCortesias);
 
-
     @FormUrlEncoded
     @POST("api/MySpace/sendCortesiasEstTickets")
     Call<Long> sendCortesiasEstTickets(@Header("Authorization") String authorization,

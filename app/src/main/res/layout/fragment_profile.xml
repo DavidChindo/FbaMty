@@ -12,20 +12,27 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <com.github.florent37.shapeofview.shapes.ArcView
-        android:id="@+id/fr_profile_img"
-        android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:elevation="4dp"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/img_menu_back"
-        app:shape_arc_cropDirection="outside"
-        app:shape_arc_height="20dp"
-        app:shape_arc_position="bottom">
-    </com.github.florent37.shapeofview.shapes.ArcView>
+        android:layout_height="match_parent">
 
+        <com.github.florent37.shapeofview.shapes.ArcView
+            android:layout_marginBottom="8dp"
+            android:id="@+id/fr_profile_img"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:elevation="@dimen/margin_eigth"
+            android:layout_alignParentTop="true"
+            app:shape_arc_cropDirection="outside"
+            app:shape_arc_height="20dp"
+            app:shape_arc_position="bottom">
+
+            <ImageView
+                android:id="@+id/fr_profile_poster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="@drawable/img_menu_back" />
+
+        </com.github.florent37.shapeofview.shapes.ArcView>
 
 
         <TextView
