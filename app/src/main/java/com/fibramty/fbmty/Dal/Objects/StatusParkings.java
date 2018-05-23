@@ -44,6 +44,7 @@ public class StatusParkings {
 
     public static List<StatusParkings> statusParkings(){
         List<StatusParkings> statusParkings = new ArrayList<StatusParkings>();
+        statusParkings.add(new StatusParkings("Todos",-1));
         statusParkings.add(new StatusParkings("Pendiente",0));
         statusParkings.add(new StatusParkings("En Atención",1));
         statusParkings.add(new StatusParkings("Autorizado",2));

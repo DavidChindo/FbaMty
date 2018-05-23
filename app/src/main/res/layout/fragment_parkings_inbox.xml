@@ -22,7 +22,8 @@
                 android:textSize="@dimen/font_size_14"
                 android:layout_below="@id/fr_parkings_divider"
                 android:layout_marginTop="@dimen/margin_eigth"
-                android:layout_marginBottom="@dimen/margin_eigth"/>
+                android:layout_marginBottom="@dimen/margin_eigth"
+                android:visibility="gone"/>
 
             <android.support.v7.widget.CardView
                 android:id="@+id/fr_parkings_inbox_card"
@@ -35,7 +36,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_eigth">
+                    android:layout_margin="@dimen/margin_twelve">
                     <TextView
                         android:id="@+id/fr_parkings_status"
                         android:layout_width="match_parent"
@@ -60,7 +61,7 @@
                         android:elevation="@dimen/raised_button"
                         android:text="@string/request"
                         android:layout_below="@id/fr_parkings_inbox_spinner_status"
-                        />
+                        android:visibility="gone"/>
 
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
@@ -98,7 +99,19 @@
                 android:layout_marginTop="@dimen/margin_eigth"
                 android:layout_below="@id/fr_parkings_inbox_results">
             </android.support.v7.widget.RecyclerView>
-
+            <TextView
+                android:id="@+id/no_results"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fr_parkings_inbox_results"
+                android:layout_marginTop="15dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="No hay resultados"
+                android:textColor="@color/gray"
+                android:textSize="17dp"
+                android:visibility="gone"
+                />
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 

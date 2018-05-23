@@ -3,6 +3,7 @@ package com.fibramty.fbmty.View.Fragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,8 @@ import com.asksira.dropdownview.DropDownView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.Target;
 import com.fibramty.fbmty.Dal.RealmManager;
@@ -111,45 +114,21 @@ public class ProfileFragment extends Fragment implements ProfileCallback {
     private void setBackground(){
 
         if (MainActivity.holdingResponse != null){
-            Glide.with(this).load(LogicUtils.getUrlImage(getActivity(),MainActivity.holdingResponse))
-                    .listener(new RequestListener<String, GlideDrawable>() {
-                        @Override
-                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                            return false;
-                        }
-
-                        @Override
-                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                            arcView.setBackground(imgPoster.getDrawable());
-                            arcView.refreshDrawableState();
-                            target.getSize(new SizeReadyCallback() {
-                                @Override public void onSizeReady(int width, int height) {
-                                    Glide.with(getActivity()).load(LogicUtils.getUrlImage(getActivity(),MainActivity.holdingResponse)).preload(width, height);
-                                }
-                            });
-                            return false;
-                        }
-                    })
+            Glide.with(this)
+                    .load(LogicUtils.getUrlImage(getActivity(),MainActivity.holdingResponse))
+                    .asBitmap()
                     .error(R.drawable.img_menu_back)
                     .placeholder(R.drawable.img_menu_back)
-                    .centerCrop()
-                    .into(imgPoster);
+                    .into(new SimpleTarget<Bitmap>() {
+                @Override
+                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                        imgPoster.setImageBitmap(resource);
+
+                }
+            });
         }
     }
 
-/*
-@Override public boolean onResourceReady(
-                    GlideDrawable resource, String model, Target<GlideDrawable> target,
-                    boolean isFromMemoryCache, boolean isFirstResource) {  // execution order: 2
-                target.getSize(new SizeReadyCallback() {
-                    @Override public void onSizeReady(int width, int height) {  // execution order: 3
-                        Glide.with(context).load(photoToLoad2.getPath()).preload(width, height);
-                    }
-                });
-                return false;
-            }
-        })
- */
     @OnClick(R.id.fr_profile_exit)
     void onExitClick(){
         progressDialog = ProgressDialog.show(getActivity(), null, "Cerrando Sesión...");
