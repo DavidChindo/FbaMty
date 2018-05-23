@@ -31,20 +31,19 @@ tools:context="com.fibramty.fbmty.View.Fragment.MySpaceFragment"
             app:loopSlides="true"
             />
 
-        <in.galaxyofandroid.awesometablayout.AwesomeTabBar
+        <android.support.design.widget.TabLayout
             android:id="@+id/tabBar"
-            app:atb_indicatorHeight="2dp"
-            app:atb_indicatorColor="@color/blue_icon"
-            app:atb_tabWidth="28dp"
-            app:atb_tabHeight="@dimen/margin_twenty"
-            app:atb_selectedTabTextColor="@color/blue_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:layout_below="@id/slider"
+            app:tabTextColor="@color/colorPrimary"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabMode="scrollable"
+            app:tabGravity="fill"
             android:overScrollMode="always"
             tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="8dp"
-            android:layout_below="@id/slider">
-        </in.galaxyofandroid.awesometablayout.AwesomeTabBar>
+            tools:layout_editor_absoluteX="8dp"/>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/pager"
@@ -52,8 +51,8 @@ tools:context="com.fibramty.fbmty.View.Fragment.MySpaceFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteY="8dp"
-            tools:layout_editor_absoluteX="8dp">
-        </android.support.v4.view.ViewPager>
+            tools:layout_editor_absoluteX="8dp"/>
+
     </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>
 
