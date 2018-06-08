@@ -87,6 +87,10 @@
         <activity android:name=".View.ShimmerTest">
 
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="10ab83236b90258327340f6035e3c082344c69e0"
+            />
     </application>
 
 </manifest>

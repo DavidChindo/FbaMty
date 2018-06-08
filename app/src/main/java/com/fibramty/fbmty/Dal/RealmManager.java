@@ -104,53 +104,6 @@ public class RealmManager {
         });
     }
 
-    public static <T extends RealmObject> T findFirst(Realm realm, Class<T> tClass) {
-        if (realm == null) {
-            realm = Realm.getDefaultInstance();
-            return realm.where(tClass).findFirst();
-        } else {
-            if (!realm.isClosed()) {
-                return realm.where(tClass).findFirst();
-            }
-        }
-        return null;
-    }
-
-    public static <T extends RealmObject> RealmList<T> findByProvider(Class<T> aClass,String fieldName,String value) {
-        Realm realm = Realm.getDefaultInstance();
-        RealmResults<T> realmResults = realm.where(aClass).contains(fieldName,value, Case.INSENSITIVE).findAllAsync();
-        RealmList<T> realmList = new RealmList<>();
-        for (T result : realmResults){
-            realmList.add(result);
-        }
-        realm.close();
-        return realmList;
-    }
-
-    public static <T extends RealmObject> RealmList<T> findByProviderNotRegister(Class<T> aClass,String fieldName,String value) {
-        Realm realm = Realm.getDefaultInstance();
-        RealmResults<T> realmResults = realm.where(aClass).equalTo(fieldName,value).findAllAsync();
-        RealmList<T> realmList = new RealmList<>();
-        for (T result : realmResults){
-            realmList.add(result);
-        }
-        realm.close();
-        return realmList;
-    }
-
-
-    public static <T extends RealmObject> RealmList<T> findByDescription(Class<T> aClass,String fieldName,String value,String fieldName2,String value2) {
-        Realm realm = Realm.getDefaultInstance();
-        RealmResults<T> realmResults = realm.where(aClass).equalTo(fieldName,value).findAll();
-        RealmResults<T> realmResultsFilter =  realmResults.where().contains(fieldName2,value2,Case.INSENSITIVE).findAll();
-        RealmList<T> realmList = new RealmList<>();
-        for (T result : realmResultsFilter){
-            realmList.add(result);
-        }
-        realm.close();
-        return realmList;
-    }
-
     public static <T extends RealmObject> List<T> findPayments(Class<T> aClassm, String value,  String value2){
         try {
             Realm realm = Realm.getDefaultInstance();
@@ -170,17 +123,6 @@ public class RealmManager {
         }
     }
 
-
-    public static <T extends RealmObject> RealmList<T> findById(Class<T> aClass,String fieldName,String value) {
-        Realm realm = Realm.getDefaultInstance();
-        RealmResults<T> realmResults = realm.where(aClass).equalTo(fieldName,value).findAll();
-        RealmList<T> realmList = new RealmList<>();
-        for (T result : realmResults){
-            realmList.add(result);
-        }
-        realm.close();
-        return realmList;
-    }
 
     public static String token() {
         Realm realm = Realm.getDefaultInstance();

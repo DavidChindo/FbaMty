@@ -64,7 +64,10 @@ public class MaintenanceActivity extends AppCompatActivity implements Maintenanc
         if (maintenances != null && maintenances.size() > 0) {
             mMaintenances = maintenances;
             services.setAdapter(new MaintenanceAdapter(this, R.layout.item_maintenance, maintenances));
+            services.setVisibility(View.VISIBLE);
+            txtMaintenance.setVisibility(View.GONE);
         }else {
+            services.setVisibility(View.GONE);
             txtMaintenance.setVisibility(View.VISIBLE);
         }
 

@@ -83,6 +83,8 @@ public class MyTicketsActivity extends AppCompatActivity implements MyTicketsCal
         if (ticketResponses != null && ticketResponses.size() > 0) {
             mMyTickets = ticketResponses;
             lvMyTickets.setAdapter(new MyTicketsAdapter(this, R.layout.item_my_tickets, mMyTickets));
+            lvMyTickets.setVisibility(View.VISIBLE);
+            txtNoData.setVisibility(View.GONE);
         }else{
             lvMyTickets.setVisibility(View.GONE);
             txtNoData.setVisibility(View.VISIBLE);

@@ -66,7 +66,7 @@ public class RegisterPresenter {
                         if (response.code() == Statics.OK){
                             mRegisterCallback.onSuccessRegister(mContext.getString(R.string.msg_success,"Registro"));
                         }else{
-                            mRegisterCallback.onErrorRegister("Por el momento no es posible registrar");
+                            mRegisterCallback.onErrorRegister("Por el momento no es posible registrarse");
                         }
                     }
                     @Override

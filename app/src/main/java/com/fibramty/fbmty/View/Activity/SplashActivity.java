@@ -24,7 +24,8 @@ import java.util.SortedMap;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
-
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 public class SplashActivity extends AppCompatActivity implements HoldingCallback {
 
@@ -38,6 +39,7 @@ public class SplashActivity extends AppCompatActivity implements HoldingCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         setVerion();

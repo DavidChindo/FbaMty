@@ -32,6 +32,7 @@ public class RegisterActivity extends Activity implements RegisterCallback{
 
     RegisterPresenter registerPresenter;
     ProgressDialog mProgressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

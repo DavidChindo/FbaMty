@@ -63,17 +63,22 @@ public class DownloadsFragment extends Fragment implements DownloadCallback{
     }
 
     private void initViews(){
+
         if (MainActivity.holdingResponse != null){
+
             imgArchitect.setVisibility(MainActivity.holdingResponse.getArchitecturalPreview() != null &&
                     !MainActivity.holdingResponse.getArchitecturalPreview().isEmpty() ? View.VISIBLE : View.GONE);
+
             txtPlans.setVisibility(MainActivity.holdingResponse.getArchitecturalPreview() != null &&
                     !MainActivity.holdingResponse.getArchitecturalPreview().isEmpty() ? View.VISIBLE : View.GONE);
 
             if (MainActivity.holdingResponse.getOtroList() != null && MainActivity.holdingResponse.getOtroList().size() > 0) {
+
                 mLayoutManager = new LinearLayoutManager(getContext());
                 recyclerView.setLayoutManager(mLayoutManager);
 
                 recyclerView.setAdapter(new DownloadAdapter(MainActivity.holdingResponse.getOtroList(), getActivity(), this));
+
             }else {
                 recyclerView.setVisibility(View.GONE);
             }
@@ -81,6 +86,7 @@ public class DownloadsFragment extends Fragment implements DownloadCallback{
             if (!imgArchitect.isShown() && !recyclerView.isShown()){
                 noData.setVisibility(View.VISIBLE);
             }
+
         }
     }
 

@@ -9,20 +9,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.fibramty.fbmty.Library.Validators;
-import com.fibramty.fbmty.Network.Request.Models.ActivityHolding;
 import com.fibramty.fbmty.R;
 import com.fibramty.fbmty.View.Activity.MainActivity;
-import com.fibramty.fbmty.View.Adapter.ActivityAdapter;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.RealmList;
+
 
 /**
  * A simple {@link Fragment} subclass.

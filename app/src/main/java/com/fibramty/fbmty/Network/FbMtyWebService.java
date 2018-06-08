@@ -1,16 +1,12 @@
 package com.fibramty.fbmty.Network;
 
-import com.fibramty.fbmty.Network.Request.ActionTicketRequest;
-import com.fibramty.fbmty.Network.Request.LoginRequest;
 import com.fibramty.fbmty.Network.Request.Models.Maintenance;
 import com.fibramty.fbmty.Network.Request.Models.Payment;
 import com.fibramty.fbmty.Network.Request.RegisterRequest;
 import com.fibramty.fbmty.Network.Response.HoldingResponse;
 import com.fibramty.fbmty.Network.Response.LoginResponse;
-import com.fibramty.fbmty.Network.Response.MaintenanceResponse;
 import com.fibramty.fbmty.Network.Response.MessageResponse;
 import com.fibramty.fbmty.Network.Response.MyTicketResponse;
-import com.fibramty.fbmty.Network.Response.PaymentResponse;
 import com.fibramty.fbmty.Network.Response.ServicesDataResponse;
 import com.fibramty.fbmty.Network.Response.ServicesDescResponse;
 
