@@ -154,5 +154,4 @@ public class RealmManager {
         return user;
     }
 
-
 }

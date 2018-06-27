@@ -40,10 +40,19 @@ public class HoldingPresenter {
                         if (response.code() == Statics.OK){
                             mHoldingCallback.onDownloadHolding(response.body());
                         }else{
-                            try {
-                                mHoldingCallback.onDownloadError(response.errorBody().string());
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                            if (response.code() == Statics.UNAUTHORIZED){
+                                mHoldingCallback.onDownloadError("salir");
+                            }else {
+                                try {
+                                    if (response.errorBody().string().contains("Authorization") || response.errorBody().string().contains("denied")){
+                                        mHoldingCallback.onDownloadError("salir");
+                                    }else {
+                                        mHoldingCallback.onDownloadError(response.errorBody().string());
+                                    }
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                    mHoldingCallback.onDownloadError("salir");
+                                }
                             }
                         }
                     }
@@ -51,6 +60,7 @@ public class HoldingPresenter {
                     @Override
                     public void onFailure(Call<List<HoldingResponse>> call, Throwable t) {
                         t.printStackTrace();
+                        mHoldingCallback.onDownloadError(t.getMessage());
                     }
                 });
             }else {

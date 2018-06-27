@@ -78,4 +78,5 @@ public class LoginResponse extends RealmObject {
     public void setExpireDate(String expireDate) {
         this.expireDate = expireDate;
     }
+    
 }

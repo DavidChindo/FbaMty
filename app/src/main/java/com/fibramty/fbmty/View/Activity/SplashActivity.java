@@ -95,6 +95,11 @@ public class SplashActivity extends AppCompatActivity implements HoldingCallback
     @Override
     public void onDownloadError(String msg) {
         mProgressDialog.dismiss();
-        DesignUtils.errorMessage(this,"Descarga",msg);
+        if (msg.equals("salir")){
+            DesignUtils.showToast(this,"Vuelve a inicar sesión por favor");
+            start(LoginActivity.class);
+        }else {
+            DesignUtils.errorMessage(this, "Descarga", msg);
+        }
     }
 }

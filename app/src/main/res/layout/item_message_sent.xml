@@ -15,7 +15,7 @@
     android:paddingBottom="@dimen/margin_eigth"
     android:paddingTop="@dimen/margin_eigth"
     android:text="Hola,, tengo tal situacón con el pago de mtto kaksakso  om o ok o ok ko ok ko ko k"
-    android:textColor="@color/black"
+    android:textColor="@color/colorWhite"
     android:elevation="@dimen/margin_eigth"
     />
 </RelativeLayout>

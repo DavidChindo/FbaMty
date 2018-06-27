@@ -170,7 +170,8 @@ public class ParkingsRequest extends Fragment implements ParkingsRequestCallback
     @OnClick(R.id.fr_parkings_btn_request)
     void onRequestParkingsClick(){
 
-        if ((parkingsRent.getText().toString() != null && !parkingsRent.getText().toString().isEmpty()) && (parkingsMtto.getText().toString() != null && !parkingsMtto.getText().toString().isEmpty())) {
+        if ((parkingsRent.getText().toString() != null && !parkingsRent.getText().toString().isEmpty()) &&
+                (parkingsMtto.getText().toString() != null && !parkingsMtto.getText().toString().isEmpty())) {
             AlertDialog.Builder builder;
             builder = new AlertDialog.Builder(getActivity());
             builder.setCancelable(false);

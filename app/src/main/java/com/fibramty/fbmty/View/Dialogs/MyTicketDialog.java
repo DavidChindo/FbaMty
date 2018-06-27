@@ -68,7 +68,7 @@ public class MyTicketDialog extends Activity implements MyTicketsCallback{
     @OnClick(R.id.dialog_myticket_delete)
     void onDeleteClick(){
         if (Connection.isConnected(this)){
-            ActionTicketRequest actionTicketRequest = new ActionTicketRequest(myTicketResponse.getId(),myTicketResponse.getId());
+            ActionTicketRequest actionTicketRequest = new ActionTicketRequest(myTicketResponse.getHoldingId(),myTicketResponse.getId());
             mProgressDialog = ProgressDialog.show(this,null,"Enviando...");
             mProgressDialog.setCancelable(false);
             myTicketsPresenter.deleteMyTicket(actionTicketRequest);
@@ -80,7 +80,7 @@ public class MyTicketDialog extends Activity implements MyTicketsCallback{
     @OnClick(R.id.dialog_myticket_cancel)
     void onCancelClick(){
         if (Connection.isConnected(this)){
-            ActionTicketRequest actionTicketRequest = new ActionTicketRequest(myTicketResponse.getId(),myTicketResponse.getId());
+            ActionTicketRequest actionTicketRequest = new ActionTicketRequest(myTicketResponse.getHoldingId(),myTicketResponse.getId());
             mProgressDialog = ProgressDialog.show(this,null,"Enviando...");
             mProgressDialog.setCancelable(false);
             myTicketsPresenter.cancelMyTicket(actionTicketRequest);

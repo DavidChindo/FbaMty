@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_below="@id/fr_parkings_title_instructions"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_marginBottom="@dimen/margin_four"
             android:layout_marginTop="@dimen/margin_four">
             <RelativeLayout
@@ -127,13 +127,11 @@
                     style="@style/BlueButton"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
-                    android:layout_marginStart="@dimen/margin_twelve"
-                    android:layout_marginEnd="@dimen/margin_twelve"
-                    android:layout_marginTop="@dimen/margin_thirtytwo"
+                    android:layout_alignStart="@+id/fr_parkings_btn_request_card_cancel"
+                    android:layout_below="@+id/fr_parkings_edt_price_card"
+                    android:layout_marginTop="30dp"
                     android:elevation="@dimen/raised_button"
-                    android:text="@string/request"
-                    android:layout_below="@id/fr_parkings_edt_price_card"
-                    />
+                    android:text="@string/request" />
 
                 <Button
                     android:id="@+id/fr_parkings_btn_request_card_cancel"
@@ -160,6 +158,7 @@
             android:layout_below="@id/fr_parkings_title_instructions"
             android:layout_marginBottom="@dimen/margin_four"
             android:layout_marginTop="@dimen/margin_four"
+            android:visibility="gone"
             >
             <RelativeLayout
                 android:layout_width="match_parent"

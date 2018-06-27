@@ -41,6 +41,7 @@ public class ChatDialog extends AppCompatActivity implements ChatCallback {
     ProgressDialog mProgressDialog;
 
     ChatPresenter chatPresenter;
+    String assa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
