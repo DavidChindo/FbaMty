@@ -23,6 +23,7 @@ import com.fibramty.fbmty.Presenter.Callbacks.LoginCallback;
 import com.fibramty.fbmty.Presenter.HoldingPresenter;
 import com.fibramty.fbmty.Presenter.LoginPresenter;
 import com.fibramty.fbmty.R;
+import com.fibramty.fbmty.View.Dialogs.ResetPasswordDialog;
 import com.lespinside.simplepanorama.view.SphericalView;
 import com.panoramagl.utils.PLUtils;
 
@@ -84,6 +85,11 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback,Ho
     @OnClick(R.id.act_login_register)
     void onRegisterClick(){
         startActivity(new Intent(this, RegisterActivity.class));
+    }
+
+    @OnClick(R.id.act_login_recovery)
+    void onResetPasswordClick(){
+        startActivity(new Intent(this, ResetPasswordDialog.class));
     }
 
     @Override

@@ -84,13 +84,14 @@
         <activity
             android:name=".View.Dialogs.MyTicketDialog"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
-        <activity android:name=".View.ShimmerTest">
+        <activity android:name=".View.ShimmerTest"></activity>
 
-        </activity>
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="10ab83236b90258327340f6035e3c082344c69e0"
-            />
+            android:value="10ab83236b90258327340f6035e3c082344c69e0" />
+
+        <activity android:name=".View.Dialogs.ResetPasswordDialog"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
     </application>
 
 </manifest>

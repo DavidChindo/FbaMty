@@ -3,6 +3,7 @@ package com.fibramty.fbmty.Network;
 import com.fibramty.fbmty.Network.Request.Models.Maintenance;
 import com.fibramty.fbmty.Network.Request.Models.Payment;
 import com.fibramty.fbmty.Network.Request.RegisterRequest;
+import com.fibramty.fbmty.Network.Request.ResetPasswordRequest;
 import com.fibramty.fbmty.Network.Response.HoldingResponse;
 import com.fibramty.fbmty.Network.Response.LoginResponse;
 import com.fibramty.fbmty.Network.Response.MessageResponse;
@@ -131,4 +132,7 @@ public interface FbMtyWebService {
     Call<Boolean> sentMessage(@Header("Authorization") String authorization,
                               @Field("holdingId")long idHolding,
                               @Field("message")String message);
+
+    @POST("Home/ResetPassword")
+    Call<ResponseBody> resetPassword(@Body ResetPasswordRequest resetPasswordRequest);
 }
